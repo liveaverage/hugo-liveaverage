@@ -1,0 +1,673 @@
+<!DOCTYPE HTML>
+
+<html>
+    <head>
+        
+            
+                <title>Nagios Plugin: Windows Server DHCP Scopes Usage Monitoring</title>
+            
+        
+
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="generator" content="Hugo 0.18.1" />
+        
+
+
+        
+            <meta name="author" content="JR">
+        
+        
+            
+        
+
+        
+
+  <meta name="twitter:card" content="summary"/>
+
+
+
+<meta name="twitter:title" content="Nagios Plugin: Windows Server DHCP Scopes Usage Monitoring"/>
+<meta name="twitter:description" content="I&#8217;ve stumbled on a useful plug-in from Lars Michelsen that easily monitors a single Windows Server DHCP scope for usage using SNMPv2, but found this fell short of what I needed for monitoring several scopes at once. I&#8217;ve modified Lars&#8217; original plugin/script to accommodate all available DHCP scopes on your monitored Windows server. You no longer need to add separate service definitions to monitor all available scopes. It&#8217;s worth noting a couple of important details:"/>
+
+
+
+        <meta property="og:title" content="Nagios Plugin: Windows Server DHCP Scopes Usage Monitoring" />
+<meta property="og:description" content="I&#8217;ve stumbled on a useful plug-in from Lars Michelsen that easily monitors a single Windows Server DHCP scope for usage using SNMPv2, but found this fell short of what I needed for monitoring several scopes at once. I&#8217;ve modified Lars&#8217; original plugin/script to accommodate all available DHCP scopes on your monitored Windows server. You no longer need to add separate service definitions to monitor all available scopes. It&#8217;s worth noting a couple of important details:" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://example.org/news/nagios-plugin-windows-server-dhcp-scopes-usage-monitoring/" />
+
+
+<meta property="og:updated_time" content="2012-04-13T16:03:59&#43;00:00"/>
+
+
+
+
+
+
+
+
+
+
+        
+<meta itemprop="name" content="Nagios Plugin: Windows Server DHCP Scopes Usage Monitoring">
+<meta itemprop="description" content="I&#8217;ve stumbled on a useful plug-in from Lars Michelsen that easily monitors a single Windows Server DHCP scope for usage using SNMPv2, but found this fell short of what I needed for monitoring several scopes at once. I&#8217;ve modified Lars&#8217; original plugin/script to accommodate all available DHCP scopes on your monitored Windows server. You no longer need to add separate service definitions to monitor all available scopes. It&#8217;s worth noting a couple of important details:">
+
+
+<meta itemprop="dateModified" content="2012-04-13T16:03:59&#43;00:00" />
+<meta itemprop="wordCount" content="550">
+
+
+
+<meta itemprop="keywords" content="check_mk,coding,features,infrastructure-management,living,motorycles,nagios,news,powershell,backup,bash,dumps,mysql,perl-zimbra-zmprov-provisioning,script,shell,sql,victoria-lestz-wedding,wedding-of-victoria-lestz-and-jr-morgan," />
+
+        
+
+        
+
+        
+        
+            
+        
+
+        
+        
+            <link rel="stylesheet" href="/css/google-font.css" />
+            <link rel="stylesheet" href="/css/font-awesome.min.css" />
+            <link rel="stylesheet" href="/css/main.css" />
+            <link rel="stylesheet" href="/css/add-on.css" />
+            <link rel="stylesheet" href="/css/monokai-sublime.css">
+        
+
+        
+
+        
+        
+        
+            
+        
+    </head>
+    <body>
+
+        
+        <div id="wrapper">
+
+    
+    
+<header id="header">
+    
+        <h2><a href="/"></i></a></h2>
+    
+
+    <nav class="links">
+        <ul>
+            
+        </ul>
+    </nav>
+    <nav class="main">
+        <ul>
+            
+            <li id="share-nav" class="share-menu" style="display:none;">
+                <a class="fa-share-alt" href="#share-menu">Share</a>
+            </li>
+            
+            <li class="search">
+                <a class="fa-search" href="#search">Search</a>
+                <form id="search" method="get" action="//google.com/search">
+                    <input type="text" name="q" placeholder="Search" />
+                    <input type="hidden" name="q" value="site:http://example.org/">
+                </form>
+            </li>
+            <li class="menu">
+                <a class="fa-bars" href="#menu">Menu</a>
+            </li>
+        </ul>
+    </nav>
+</header>
+
+
+<section id="menu">
+
+    
+        <section>
+            <form class="search" method="get" action="//google.com/search">
+                <input type="text" name="q" placeholder="Search" />
+                <input type="hidden" name="q" value="site:http://example.org/">
+            </form>
+        </section>
+
+    
+        <section>
+            <ul class="links">
+                
+            </ul>
+        </section>
+
+    
+        <section>
+            <ul class="links">
+                <header>
+                    <h3>Recent Posts</h3>
+                </header>
+                
+                    
+                
+
+                
+                    <li>
+                        <a href="http://example.org/features/infrastructure-management/check_mk-envrionmental-monitoring-room-alert-4e/"><p>Check_MK Environmental Monitoring: Room Alert 4E</p></a>
+                    </li>
+                
+                    <li>
+                        <a href="http://example.org/features/coding/making-cisco-identity-firewall-and-ise-play-nice/"><p>Making Cisco Identity Firewall, CDA, and ISE play nice</p></a>
+                    </li>
+                
+                    <li>
+                        <a href="http://example.org/features/coding/powershell-bulk-provision-dhcp-scopes/"><p>Powershell: Bulk provision DHCP Scopes</p></a>
+                    </li>
+                
+                    <li>
+                        <a href="http://example.org/features/coding/check_mk-local-checks-grab-bag/"><p>Check_MK: Local Checks Grab Bag!</p></a>
+                    </li>
+                
+                    <li>
+                        <a href="http://example.org/news/crystal-method-2014-orlando-firestone-live/"><p>EDM Legends: Crystal Method 2014 – Orlando @Firestone Live</p></a>
+                    </li>
+                
+            </ul>
+        </section>
+
+    
+        
+</section>
+
+    <section id="share-menu">
+    <section id="social-share-nav">
+        <ul class="links">
+            <header>
+                <h3>Share this post <i class="fa fa-smile-o"></i></h3>
+            </header>
+            
+
+
+<li><a href="//twitter.com/share?url=http%3a%2f%2fexample.org%2fnews%2fnagios-plugin-windows-server-dhcp-scopes-usage-monitoring%2f&text=Nagios%20Plugin%3a%20Windows%20Server%20DHCP%20Scopes%20Usage%20Monitoring&via=" target="_blank" class="share-btn twitter">
+    <i class="fa fa-twitter"></i>
+    <p>Twitter</p>
+</a></li>
+
+
+<li><a href="//plus.google.com/share?url=http%3a%2f%2fexample.org%2fnews%2fnagios-plugin-windows-server-dhcp-scopes-usage-monitoring%2f" target="_blank" class="share-btn google-plus">
+    <i class="fa fa-google-plus"></i>
+    <p>Google+</p>
+</a></li>
+
+
+<li><a href="//www.facebook.com/sharer/sharer.php?u=http%3a%2f%2fexample.org%2fnews%2fnagios-plugin-windows-server-dhcp-scopes-usage-monitoring%2f" target="_blank" class="share-btn facebook">
+    <i class="fa fa-facebook"></i>
+    <p>Facebook</p>
+</a></li>
+
+
+<li><a href="//reddit.com/submit?url=http%3a%2f%2fexample.org%2fnews%2fnagios-plugin-windows-server-dhcp-scopes-usage-monitoring%2f&title=Nagios%20Plugin%3a%20Windows%20Server%20DHCP%20Scopes%20Usage%20Monitoring" target="_blank" class="share-btn reddit">
+    <i class="fa fa-reddit-alien"></i>
+    <p>Reddit</p>
+</a></li>
+
+
+<li><a href="//www.linkedin.com/shareArticle?url=http%3a%2f%2fexample.org%2fnews%2fnagios-plugin-windows-server-dhcp-scopes-usage-monitoring%2f&title=Nagios%20Plugin%3a%20Windows%20Server%20DHCP%20Scopes%20Usage%20Monitoring" target="_blank" class="share-btn linkedin">
+    <i class="fa fa-linkedin"></i>
+    <p>LinkedIn</p>
+</a></li>
+
+
+<li><a href="//www.stumbleupon.com/submit?url=http%3a%2f%2fexample.org%2fnews%2fnagios-plugin-windows-server-dhcp-scopes-usage-monitoring%2f&title=Nagios%20Plugin%3a%20Windows%20Server%20DHCP%20Scopes%20Usage%20Monitoring" target="_blank" class="share-btn stumbleupon">
+    <i class="fa fa-stumbleupon"></i>
+    <p>StumbleUpon</p>
+</a></li>
+
+
+<li><a href="mailto:?subject=Check out this post by JR&body=http%3a%2f%2fexample.org%2fnews%2fnagios-plugin-windows-server-dhcp-scopes-usage-monitoring%2f" target="_blank" class="share-btn email">
+    <i class="fa fa-envelope"></i>
+    <p>Email</p>
+</a></li>
+
+        </ul>
+    </section>
+</section>
+
+    
+    <div id="main">
+        
+        
+        <article class="post">
+    <header>
+    <div class="title">
+        
+            <h1><a href="http://example.org/news/nagios-plugin-windows-server-dhcp-scopes-usage-monitoring/">Nagios Plugin: Windows Server DHCP Scopes Usage Monitoring</a></h1>
+            
+        
+        
+    </div>
+    <div class="meta">
+        
+            
+        
+
+        <time class="published"
+            datetime='2012-04-13'>
+            April 13, 2012</time>
+        <span class="author">JR</span>
+        
+        
+    </div>
+</header>
+
+
+    <section id="social-share">
+        <ul class="icons">
+            
+
+
+<li><a href="//twitter.com/share?url=http%3a%2f%2fexample.org%2fnews%2fnagios-plugin-windows-server-dhcp-scopes-usage-monitoring%2f&text=Nagios%20Plugin%3a%20Windows%20Server%20DHCP%20Scopes%20Usage%20Monitoring&via=" target="_blank" class="share-btn twitter">
+    <i class="fa fa-twitter"></i>
+    <p>Twitter</p>
+</a></li>
+
+
+<li><a href="//plus.google.com/share?url=http%3a%2f%2fexample.org%2fnews%2fnagios-plugin-windows-server-dhcp-scopes-usage-monitoring%2f" target="_blank" class="share-btn google-plus">
+    <i class="fa fa-google-plus"></i>
+    <p>Google+</p>
+</a></li>
+
+
+<li><a href="//www.facebook.com/sharer/sharer.php?u=http%3a%2f%2fexample.org%2fnews%2fnagios-plugin-windows-server-dhcp-scopes-usage-monitoring%2f" target="_blank" class="share-btn facebook">
+    <i class="fa fa-facebook"></i>
+    <p>Facebook</p>
+</a></li>
+
+
+<li><a href="//reddit.com/submit?url=http%3a%2f%2fexample.org%2fnews%2fnagios-plugin-windows-server-dhcp-scopes-usage-monitoring%2f&title=Nagios%20Plugin%3a%20Windows%20Server%20DHCP%20Scopes%20Usage%20Monitoring" target="_blank" class="share-btn reddit">
+    <i class="fa fa-reddit-alien"></i>
+    <p>Reddit</p>
+</a></li>
+
+
+<li><a href="//www.linkedin.com/shareArticle?url=http%3a%2f%2fexample.org%2fnews%2fnagios-plugin-windows-server-dhcp-scopes-usage-monitoring%2f&title=Nagios%20Plugin%3a%20Windows%20Server%20DHCP%20Scopes%20Usage%20Monitoring" target="_blank" class="share-btn linkedin">
+    <i class="fa fa-linkedin"></i>
+    <p>LinkedIn</p>
+</a></li>
+
+
+<li><a href="//www.stumbleupon.com/submit?url=http%3a%2f%2fexample.org%2fnews%2fnagios-plugin-windows-server-dhcp-scopes-usage-monitoring%2f&title=Nagios%20Plugin%3a%20Windows%20Server%20DHCP%20Scopes%20Usage%20Monitoring" target="_blank" class="share-btn stumbleupon">
+    <i class="fa fa-stumbleupon"></i>
+    <p>StumbleUpon</p>
+</a></li>
+
+
+<li><a href="mailto:?subject=Check out this post by JR&body=http%3a%2f%2fexample.org%2fnews%2fnagios-plugin-windows-server-dhcp-scopes-usage-monitoring%2f" target="_blank" class="share-btn email">
+    <i class="fa fa-envelope"></i>
+    <p>Email</p>
+</a></li>
+
+        </ul>
+    </section>
+    
+
+    <div id="content">
+        <p>I&#8217;ve stumbled on a <a title="Link to original check_dhcp_pool plug-in from Lars Michelsen" href="http://nagios.larsmichelsen.com/check_dhcp_pool/" target="_blank">useful plug-in from Lars Michelsen</a> that easily monitors a single Windows Server DHCP scope for usage using SNMPv2, but found this fell short of what I needed for monitoring several scopes at once. I&#8217;ve modified Lars&#8217; original plugin/script to accommodate all available DHCP scopes on your monitored Windows server. You no longer need to add separate service definitions to monitor all available scopes. It&#8217;s worth noting a couple of important details:</p>
+
+<ul>
+<li>Nagios 3.x or above is <strong>required</strong> for the multi-line output generated by this command.</li>
+<li>This service check will alarm if <strong>any</strong> scope is nearing the critical or warning threshold(s) specified command call.
+
+<ul>
+<li>If you require per-scope or per-pool alarm configuration, you should use the original plugin created by Lars Michelsen.</li>
+</ul></li>
+<li>Performance Data has been commented out, but is available if you&#8217;d like to add it.</li>
+<li>Scopes that exist but are not in use (e.g. scopes exclusively used for reservations) are left out of this check. There is a conditional statement commented below that can report these scopes as being available, but with zero (0) free or used addresses, equaling zero (0) MAX available amount of addresses. This information isn&#8217;t really relevant, so I omitted it from being returned; however,  there is a count returned of configured and shown scopes (located at the bottom).</li>
+</ul>
+
+<p>Feel free to use, reuse, or modify the script the suit your needs. There are other, similar plugins to accomplish the same thing, but most of these rely on NRPE, NSClient++, and netsh. If you&#8217;re looking for a straight SNMP check to monitor comprehensive DHCP scope usage then this is it.</p>
+
+<div class="code-embed-wrapper">
+  <pre class="language-bash code-embed-pre line-numbers" ><code class="language-bash code-embed-code">#! /bin/bash
+# ##############################################################################
+# check_dhcp_all_pools.sh - Nagios plugin
+#
+# This script querys a MS Windows DHCP-Server via SNMP v2 to fetch informations about the given DHCP-Pool.
+#
+# Copyright (C) 2006, 2007 Lars Michelsen &lt;lars@vertical-visions.de&gt;,
+#
+# This program is free software; you can redistribute it and/or
+# modify it under the terms of the GNU General Public License
+# as published by the Free Software Foundation; either version 2
+# of the License, or (at your option) any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with this program; if not, write to the Free Software
+# Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307,
+#
+# GNU General Public License: http://www.gnu.org/licenses/gpl-2.0.txt
+#
+# Report bugs to: lars@vertical-visions.de
+#
+# 2006-07-05 Version 0.2
+# 2007-10-27 Version 0.3
+#
+# Modified 2013-04-22 by JRM (http://liveaverage.com) to support checking all scopes
+# 
+#
+# ##############################################################################
+
+if [ $# -lt 2 ]; then
+        echo "check_dhcp_all_pools"
+        echo "Usage: $0 &lt;host&gt; &lt;community&gt; &lt;warn&gt; &lt;crit&gt;"
+        echo "Example: WARN at 50 & CRIT at 30 will WARN you when the percentage of free DHCP addresses"
+        echo "is less than or equal to 50% of available addresses and alarm CRITICAL whe the percentage"
+        echo "of free addresses is less than or equal to 30% of available addresses."
+        exit 3
+fi
+
+IP="$1"
+COMMUNITY="$2"
+WARN="$3"
+CRIT="$4"
+RET=0
+RETW=0
+RETC=0</code></pre>
+  
+  <div class="code-embed-infos">
+    <a href="https://gist.github.com/82016e5ca00aac2109ac" title="See check_dhcp_all_pools.sh" target="_blank" class="code-embed-name">check_dhcp_all_pools.sh</a> <a href="https://gist.githubusercontent.com/liveaverage/82016e5ca00aac2109ac/raw/a1e5a84c8a0ffacf1cf81057a90c071d9a85aa68/check_dhcp_all_pools.sh" title="Back to check_dhcp_all_pools.sh" class="code-embed-raw" target="_blank">view raw</a>
+  </div>
+</div>
+
+    </div>
+
+    <footer>
+        <ul class="stats">
+    
+        
+
+        
+        
+            <li>
+                
+    </footer>
+</article>
+<ul class="actions pagination">
+    
+        <li><a href="http://example.org/features/coding/managing-backup-retention-with-one-line-of-powershell/"
+                class="button big previous">Managing backup retention… with one line of Powershell</a></li>
+    
+
+    
+        <li><a href="http://example.org/features/living/fix-hotbodies-slash-cut-megaphone-exhaust-and-kickstand-spacing-problem/"
+                class="button big next">Fix Hotbodies Slash-cut Megaphone Exhaust and Kickstand Spacing Problem</a></li>
+    
+</ul>
+
+
+
+
+    </div>
+    
+<section id="sidebar">
+
+    
+        <section id="intro">
+            
+            
+            
+            <ul class="icons">
+                
+                
+            </ul>
+        </section>
+
+    
+        <section id="recent-posts">
+            <ul class="posts">
+                <header>
+                    <h3>Recent Posts</h3>
+                </header>
+                
+                    
+                
+
+                
+                    
+                
+
+                
+                    <li>
+                        <article>
+                            <header>
+                                <h3><a href="http://example.org/features/infrastructure-management/check_mk-envrionmental-monitoring-room-alert-4e/">Check_MK Environmental Monitoring: Room Alert 4E</a></h3>
+                                
+                                    
+                                
+                                <time class="published" datetime=
+                                    '2014-08-13'>
+                                    August 13, 2014</time>
+                            </header>
+                        </article>
+                    </li>
+                
+                    <li>
+                        <article>
+                            <header>
+                                <h3><a href="http://example.org/features/coding/making-cisco-identity-firewall-and-ise-play-nice/">Making Cisco Identity Firewall, CDA, and ISE play nice</a></h3>
+                                
+                                    
+                                
+                                <time class="published" datetime=
+                                    '2014-08-07'>
+                                    August 7, 2014</time>
+                            </header>
+                        </article>
+                    </li>
+                
+                    <li>
+                        <article>
+                            <header>
+                                <h3><a href="http://example.org/features/coding/powershell-bulk-provision-dhcp-scopes/">Powershell: Bulk provision DHCP Scopes</a></h3>
+                                
+                                    
+                                
+                                <time class="published" datetime=
+                                    '2014-07-30'>
+                                    July 30, 2014</time>
+                            </header>
+                        </article>
+                    </li>
+                
+                    <li>
+                        <article>
+                            <header>
+                                <h3><a href="http://example.org/features/coding/check_mk-local-checks-grab-bag/">Check_MK: Local Checks Grab Bag!</a></h3>
+                                
+                                    
+                                
+                                <time class="published" datetime=
+                                    '2014-07-29'>
+                                    July 29, 2014</time>
+                            </header>
+                        </article>
+                    </li>
+                
+                    <li>
+                        <article>
+                            <header>
+                                <h3><a href="http://example.org/news/crystal-method-2014-orlando-firestone-live/">EDM Legends: Crystal Method 2014 – Orlando @Firestone Live</a></h3>
+                                
+                                    
+                                
+                                <time class="published" datetime=
+                                    '2014-05-05'>
+                                    May 5, 2014</time>
+                            </header>
+                        </article>
+                    </li>
+                
+
+                
+                    <li>
+                        <ul class="actions">
+                            <li><a href=
+                            
+                                "/post/"
+                            
+                            class="button">View more posts</a></li>
+                        </ul>
+                    </li>
+                
+            </ul>
+        </section>
+
+    
+    
+    
+    
+        <section id="categories">
+            <ul class="posts">
+                <header>
+                    <h3><a href="/categories/">Categories</a></h3>
+                </header>
+
+                
+                    
+                
+
+                
+                    <li>
+                        <article>
+                            <header>
+                                <a href="/categories/check_mk/">check_mk</a>
+                                <span style="float:right;">1</span>
+                            </header>
+                        </article>
+                    </li>
+                
+                    <li>
+                        <article>
+                            <header>
+                                <a href="/categories/coding/">coding</a>
+                                <span style="float:right;">12</span>
+                            </header>
+                        </article>
+                    </li>
+                
+                    <li>
+                        <article>
+                            <header>
+                                <a href="/categories/features/">features</a>
+                                <span style="float:right;">1</span>
+                            </header>
+                        </article>
+                    </li>
+                
+                    <li>
+                        <article>
+                            <header>
+                                <a href="/categories/infrastructure-management/">infrastructure-management</a>
+                                <span style="float:right;">12</span>
+                            </header>
+                        </article>
+                    </li>
+                
+                    <li>
+                        <article>
+                            <header>
+                                <a href="/categories/living/">living</a>
+                                <span style="float:right;">4</span>
+                            </header>
+                        </article>
+                    </li>
+                
+                    <li>
+                        <article>
+                            <header>
+                                <a href="/categories/motorycles/">motorycles</a>
+                                <span style="float:right;">1</span>
+                            </header>
+                        </article>
+                    </li>
+                
+                    <li>
+                        <article>
+                            <header>
+                                <a href="/categories/nagios/">nagios</a>
+                                <span style="float:right;">3</span>
+                            </header>
+                        </article>
+                    </li>
+                
+                    <li>
+                        <article>
+                            <header>
+                                <a href="/categories/news/">news</a>
+                                <span style="float:right;">16</span>
+                            </header>
+                        </article>
+                    </li>
+                
+                    <li>
+                        <article>
+                            <header>
+                                <a href="/categories/powershell/">powershell</a>
+                                <span style="float:right;">1</span>
+                            </header>
+                        </article>
+                    </li>
+                
+            </ul>
+        </section>
+    
+
+    
+        
+
+    
+        <section id="footer">
+            <ul class="icons">
+                
+                
+            </ul>
+
+            <p class="copyright">&copy; My New Hugo Site. Design: <a href="http://html5up.net" target="_blank">HTML5 UP</a>. Ported by <a href="//github.com/jpescador" target="_blank">Julio Pescador</a>. Powered by <a href="//gohugo.io" target="_blank">Hugo</a></p>
+        </section>
+
+</section>
+
+            </div>
+        <a id="back-to-top" href="#" class="fa fa-arrow-up fa-border fa-2x"></a>
+        
+
+        
+        
+            
+        
+
+        
+        
+            <script src="/js/jquery.min.js"></script>
+            <script src="/js/skel.min.js"></script>
+            <script src="/js/util.js"></script>
+            <script src="/js/main.js"></script>
+            <script src="/js/backToTop.js"></script>
+            <script src="/js/highlight.pack.js"></script>
+        
+
+        
+
+            
+            <script>hljs.initHighlightingOnLoad();</script>
+            
+    </body>
+</html>
+

@@ -1,0 +1,696 @@
+<!DOCTYPE HTML>
+
+<html>
+    <head>
+        
+            
+                <title>Perl my way to happiness</title>
+            
+        
+
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="generator" content="Hugo 0.18.1" />
+        
+
+
+        
+            <meta name="author" content="JR">
+        
+        
+            
+        
+
+        
+
+  <meta name="twitter:card" content="summary"/>
+
+
+
+<meta name="twitter:title" content="Perl my way to happiness"/>
+<meta name="twitter:description" content="If only everything was as easy &amp; straight-forward as account provisioning in Zimbra:
+[shell]!/usr/bin/perl
+# ZCS IMPORT SCRIPT
+# Provided by : ZCS Wiki
+# Modified by : J.R.
+# Last Change : 2008.04.09
+#
+# Lookup the valid COS (Class of Service) ID in the interface or like this
+my $cosid = `su &#8211; zimbra -c &#8216;zmprov gc apd |grep zimbraId:&#8217;`;
+$cosid =~ s/zimbraId:\s*|\s*$//g;
+while (&lt;&gt;) {
+chomp;
+# CHANGE ME: To the actual fields you use in your CSV file"/>
+
+
+
+        <meta property="og:title" content="Perl my way to happiness" />
+<meta property="og:description" content="If only everything was as easy &amp; straight-forward as account provisioning in Zimbra:
+[shell]!/usr/bin/perl
+# ZCS IMPORT SCRIPT
+# Provided by : ZCS Wiki
+# Modified by : J.R.
+# Last Change : 2008.04.09
+#
+# Lookup the valid COS (Class of Service) ID in the interface or like this
+my $cosid = `su &#8211; zimbra -c &#8216;zmprov gc apd |grep zimbraId:&#8217;`;
+$cosid =~ s/zimbraId:\s*|\s*$//g;
+while (&lt;&gt;) {
+chomp;
+# CHANGE ME: To the actual fields you use in your CSV file" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://example.org/features/coding/perl-my-way-to-happiness/" />
+
+
+<meta property="og:updated_time" content="2008-04-25T19:00:49&#43;00:00"/>
+
+
+
+
+
+
+
+
+
+
+        
+<meta itemprop="name" content="Perl my way to happiness">
+<meta itemprop="description" content="If only everything was as easy &amp; straight-forward as account provisioning in Zimbra:
+[shell]!/usr/bin/perl
+# ZCS IMPORT SCRIPT
+# Provided by : ZCS Wiki
+# Modified by : J.R.
+# Last Change : 2008.04.09
+#
+# Lookup the valid COS (Class of Service) ID in the interface or like this
+my $cosid = `su &#8211; zimbra -c &#8216;zmprov gc apd |grep zimbraId:&#8217;`;
+$cosid =~ s/zimbraId:\s*|\s*$//g;
+while (&lt;&gt;) {
+chomp;
+# CHANGE ME: To the actual fields you use in your CSV file">
+
+
+<meta itemprop="dateModified" content="2008-04-25T19:00:49&#43;00:00" />
+<meta itemprop="wordCount" content="181">
+
+
+
+<meta itemprop="keywords" content="check_mk,coding,features,infrastructure-management,living,motorycles,nagios,news,powershell,backup,bash,dumps,mysql,perl-zimbra-zmprov-provisioning,script,shell,sql,victoria-lestz-wedding,wedding-of-victoria-lestz-and-jr-morgan," />
+
+        
+
+        
+
+        
+        
+            
+        
+
+        
+        
+            <link rel="stylesheet" href="/css/google-font.css" />
+            <link rel="stylesheet" href="/css/font-awesome.min.css" />
+            <link rel="stylesheet" href="/css/main.css" />
+            <link rel="stylesheet" href="/css/add-on.css" />
+            <link rel="stylesheet" href="/css/monokai-sublime.css">
+        
+
+        
+
+        
+        
+        
+            
+        
+    </head>
+    <body>
+
+        
+        <div id="wrapper">
+
+    
+    
+<header id="header">
+    
+        <h2><a href="/"></i></a></h2>
+    
+
+    <nav class="links">
+        <ul>
+            
+        </ul>
+    </nav>
+    <nav class="main">
+        <ul>
+            
+            <li id="share-nav" class="share-menu" style="display:none;">
+                <a class="fa-share-alt" href="#share-menu">Share</a>
+            </li>
+            
+            <li class="search">
+                <a class="fa-search" href="#search">Search</a>
+                <form id="search" method="get" action="//google.com/search">
+                    <input type="text" name="q" placeholder="Search" />
+                    <input type="hidden" name="q" value="site:http://example.org/">
+                </form>
+            </li>
+            <li class="menu">
+                <a class="fa-bars" href="#menu">Menu</a>
+            </li>
+        </ul>
+    </nav>
+</header>
+
+
+<section id="menu">
+
+    
+        <section>
+            <form class="search" method="get" action="//google.com/search">
+                <input type="text" name="q" placeholder="Search" />
+                <input type="hidden" name="q" value="site:http://example.org/">
+            </form>
+        </section>
+
+    
+        <section>
+            <ul class="links">
+                
+            </ul>
+        </section>
+
+    
+        <section>
+            <ul class="links">
+                <header>
+                    <h3>Recent Posts</h3>
+                </header>
+                
+                    
+                
+
+                
+                    <li>
+                        <a href="http://example.org/features/infrastructure-management/check_mk-envrionmental-monitoring-room-alert-4e/"><p>Check_MK Environmental Monitoring: Room Alert 4E</p></a>
+                    </li>
+                
+                    <li>
+                        <a href="http://example.org/features/coding/making-cisco-identity-firewall-and-ise-play-nice/"><p>Making Cisco Identity Firewall, CDA, and ISE play nice</p></a>
+                    </li>
+                
+                    <li>
+                        <a href="http://example.org/features/coding/powershell-bulk-provision-dhcp-scopes/"><p>Powershell: Bulk provision DHCP Scopes</p></a>
+                    </li>
+                
+                    <li>
+                        <a href="http://example.org/features/coding/check_mk-local-checks-grab-bag/"><p>Check_MK: Local Checks Grab Bag!</p></a>
+                    </li>
+                
+                    <li>
+                        <a href="http://example.org/news/crystal-method-2014-orlando-firestone-live/"><p>EDM Legends: Crystal Method 2014 – Orlando @Firestone Live</p></a>
+                    </li>
+                
+            </ul>
+        </section>
+
+    
+        
+</section>
+
+    <section id="share-menu">
+    <section id="social-share-nav">
+        <ul class="links">
+            <header>
+                <h3>Share this post <i class="fa fa-smile-o"></i></h3>
+            </header>
+            
+
+
+<li><a href="//twitter.com/share?url=http%3a%2f%2fexample.org%2ffeatures%2fcoding%2fperl-my-way-to-happiness%2f&text=Perl%20my%20way%20to%20happiness&via=" target="_blank" class="share-btn twitter">
+    <i class="fa fa-twitter"></i>
+    <p>Twitter</p>
+</a></li>
+
+
+<li><a href="//plus.google.com/share?url=http%3a%2f%2fexample.org%2ffeatures%2fcoding%2fperl-my-way-to-happiness%2f" target="_blank" class="share-btn google-plus">
+    <i class="fa fa-google-plus"></i>
+    <p>Google+</p>
+</a></li>
+
+
+<li><a href="//www.facebook.com/sharer/sharer.php?u=http%3a%2f%2fexample.org%2ffeatures%2fcoding%2fperl-my-way-to-happiness%2f" target="_blank" class="share-btn facebook">
+    <i class="fa fa-facebook"></i>
+    <p>Facebook</p>
+</a></li>
+
+
+<li><a href="//reddit.com/submit?url=http%3a%2f%2fexample.org%2ffeatures%2fcoding%2fperl-my-way-to-happiness%2f&title=Perl%20my%20way%20to%20happiness" target="_blank" class="share-btn reddit">
+    <i class="fa fa-reddit-alien"></i>
+    <p>Reddit</p>
+</a></li>
+
+
+<li><a href="//www.linkedin.com/shareArticle?url=http%3a%2f%2fexample.org%2ffeatures%2fcoding%2fperl-my-way-to-happiness%2f&title=Perl%20my%20way%20to%20happiness" target="_blank" class="share-btn linkedin">
+    <i class="fa fa-linkedin"></i>
+    <p>LinkedIn</p>
+</a></li>
+
+
+<li><a href="//www.stumbleupon.com/submit?url=http%3a%2f%2fexample.org%2ffeatures%2fcoding%2fperl-my-way-to-happiness%2f&title=Perl%20my%20way%20to%20happiness" target="_blank" class="share-btn stumbleupon">
+    <i class="fa fa-stumbleupon"></i>
+    <p>StumbleUpon</p>
+</a></li>
+
+
+<li><a href="mailto:?subject=Check out this post by JR&body=http%3a%2f%2fexample.org%2ffeatures%2fcoding%2fperl-my-way-to-happiness%2f" target="_blank" class="share-btn email">
+    <i class="fa fa-envelope"></i>
+    <p>Email</p>
+</a></li>
+
+        </ul>
+    </section>
+</section>
+
+    
+    <div id="main">
+        
+        
+        <article class="post">
+    <header>
+    <div class="title">
+        
+            <h1><a href="http://example.org/features/coding/perl-my-way-to-happiness/">Perl my way to happiness</a></h1>
+            
+        
+        
+    </div>
+    <div class="meta">
+        
+            
+        
+
+        <time class="published"
+            datetime='2008-04-25'>
+            April 25, 2008</time>
+        <span class="author">JR</span>
+        
+        
+    </div>
+</header>
+
+
+    <section id="social-share">
+        <ul class="icons">
+            
+
+
+<li><a href="//twitter.com/share?url=http%3a%2f%2fexample.org%2ffeatures%2fcoding%2fperl-my-way-to-happiness%2f&text=Perl%20my%20way%20to%20happiness&via=" target="_blank" class="share-btn twitter">
+    <i class="fa fa-twitter"></i>
+    <p>Twitter</p>
+</a></li>
+
+
+<li><a href="//plus.google.com/share?url=http%3a%2f%2fexample.org%2ffeatures%2fcoding%2fperl-my-way-to-happiness%2f" target="_blank" class="share-btn google-plus">
+    <i class="fa fa-google-plus"></i>
+    <p>Google+</p>
+</a></li>
+
+
+<li><a href="//www.facebook.com/sharer/sharer.php?u=http%3a%2f%2fexample.org%2ffeatures%2fcoding%2fperl-my-way-to-happiness%2f" target="_blank" class="share-btn facebook">
+    <i class="fa fa-facebook"></i>
+    <p>Facebook</p>
+</a></li>
+
+
+<li><a href="//reddit.com/submit?url=http%3a%2f%2fexample.org%2ffeatures%2fcoding%2fperl-my-way-to-happiness%2f&title=Perl%20my%20way%20to%20happiness" target="_blank" class="share-btn reddit">
+    <i class="fa fa-reddit-alien"></i>
+    <p>Reddit</p>
+</a></li>
+
+
+<li><a href="//www.linkedin.com/shareArticle?url=http%3a%2f%2fexample.org%2ffeatures%2fcoding%2fperl-my-way-to-happiness%2f&title=Perl%20my%20way%20to%20happiness" target="_blank" class="share-btn linkedin">
+    <i class="fa fa-linkedin"></i>
+    <p>LinkedIn</p>
+</a></li>
+
+
+<li><a href="//www.stumbleupon.com/submit?url=http%3a%2f%2fexample.org%2ffeatures%2fcoding%2fperl-my-way-to-happiness%2f&title=Perl%20my%20way%20to%20happiness" target="_blank" class="share-btn stumbleupon">
+    <i class="fa fa-stumbleupon"></i>
+    <p>StumbleUpon</p>
+</a></li>
+
+
+<li><a href="mailto:?subject=Check out this post by JR&body=http%3a%2f%2fexample.org%2ffeatures%2fcoding%2fperl-my-way-to-happiness%2f" target="_blank" class="share-btn email">
+    <i class="fa fa-envelope"></i>
+    <p>Email</p>
+</a></li>
+
+        </ul>
+    </section>
+    
+
+    <div id="content">
+        <p>If only everything was as easy &amp; straight-forward as account provisioning in Zimbra:</p>
+
+<p>[shell]!/usr/bin/perl</p>
+
+<p># ZCS IMPORT SCRIPT</p>
+
+<p># Provided by : ZCS Wiki</p>
+
+<p># Modified by : J.R.</p>
+
+<p># Last Change : 2008.04.09</p>
+
+<p>#</p>
+
+<p># Lookup the valid COS (Class of Service) ID in the interface or like this</p>
+
+<p>my $cosid = `su &#8211; zimbra -c &#8216;zmprov gc apd |grep zimbraId:&#8217;`;</p>
+
+<p>$cosid =~ s/zimbraId:\s*|\s*$//g;</p>
+
+<p>while (&lt;&gt;) {</p>
+
+<p>chomp;</p>
+
+<p># CHANGE ME: To the actual fields you use in your CSV file</p>
+
+<p>my ($email, $password, $first, $last) = split(/\,/, $_, 4);</p>
+
+<p>my ($uid, $domain) = split(/@/, $email, 2);</p>
+
+<p>print qq{ca $uid\@$domain $password\n};</p>
+
+<p>print qq{ma $uid\@$domain zimbraCOSid &ldquo;$cosid&rdquo;\n};</p>
+
+<p>print qq{ma $uid\@$domain givenName &ldquo;$first&rdquo;\n};</p>
+
+<p>print qq{ma $uid\@$domain sn &ldquo;$last&rdquo;\n};</p>
+
+<p>print qq{ma $uid\@$domain cn &ldquo;$uid&rdquo;\n};</p>
+
+<p>print qq{ma $uid\@$domain displayName &ldquo;$first $last&rdquo;\n};</p>
+
+<p>#Set the user&#8217;s reply or canonical address</p>
+
+<p>print qq{ma $uid\@$domain zimbraMailCanonicalAddress $uid\@cityof*****.org\n};</p>
+
+<p>#Add e-mail account alias for multiple domains</p>
+
+<p>#Verify domain is correctly working for provisioning aliases</p>
+
+<p>print qq{aaa $uid\@$domain $uid\@cityof*****.com\n};</p>
+
+<p>#Add all users to a general distribution list and terminate</p>
+
+<p>#Add multiple distro-lists if desired</p>
+
+<p>print qq{adlm dept.all\@cityof<strong>*\**.org $uid\@cityof***</strong>.org\n};</p>
+
+<p>print qq{\n};</p>
+
+<p>}[/shell]</p>
+
+    </div>
+
+    <footer>
+        <ul class="stats">
+    
+        
+
+        
+        
+            <li>
+                
+    </footer>
+</article>
+<ul class="actions pagination">
+    
+
+    
+        <li><a href="http://example.org/features/coding/bashing-mysql-dumps/"
+                class="button big next">Bashing MySQL Dumps</a></li>
+    
+</ul>
+
+
+
+
+    </div>
+    
+<section id="sidebar">
+
+    
+        <section id="intro">
+            
+            
+            
+            <ul class="icons">
+                
+                
+            </ul>
+        </section>
+
+    
+        <section id="recent-posts">
+            <ul class="posts">
+                <header>
+                    <h3>Recent Posts</h3>
+                </header>
+                
+                    
+                
+
+                
+                    
+                
+
+                
+                    <li>
+                        <article>
+                            <header>
+                                <h3><a href="http://example.org/features/infrastructure-management/check_mk-envrionmental-monitoring-room-alert-4e/">Check_MK Environmental Monitoring: Room Alert 4E</a></h3>
+                                
+                                    
+                                
+                                <time class="published" datetime=
+                                    '2014-08-13'>
+                                    August 13, 2014</time>
+                            </header>
+                        </article>
+                    </li>
+                
+                    <li>
+                        <article>
+                            <header>
+                                <h3><a href="http://example.org/features/coding/making-cisco-identity-firewall-and-ise-play-nice/">Making Cisco Identity Firewall, CDA, and ISE play nice</a></h3>
+                                
+                                    
+                                
+                                <time class="published" datetime=
+                                    '2014-08-07'>
+                                    August 7, 2014</time>
+                            </header>
+                        </article>
+                    </li>
+                
+                    <li>
+                        <article>
+                            <header>
+                                <h3><a href="http://example.org/features/coding/powershell-bulk-provision-dhcp-scopes/">Powershell: Bulk provision DHCP Scopes</a></h3>
+                                
+                                    
+                                
+                                <time class="published" datetime=
+                                    '2014-07-30'>
+                                    July 30, 2014</time>
+                            </header>
+                        </article>
+                    </li>
+                
+                    <li>
+                        <article>
+                            <header>
+                                <h3><a href="http://example.org/features/coding/check_mk-local-checks-grab-bag/">Check_MK: Local Checks Grab Bag!</a></h3>
+                                
+                                    
+                                
+                                <time class="published" datetime=
+                                    '2014-07-29'>
+                                    July 29, 2014</time>
+                            </header>
+                        </article>
+                    </li>
+                
+                    <li>
+                        <article>
+                            <header>
+                                <h3><a href="http://example.org/news/crystal-method-2014-orlando-firestone-live/">EDM Legends: Crystal Method 2014 – Orlando @Firestone Live</a></h3>
+                                
+                                    
+                                
+                                <time class="published" datetime=
+                                    '2014-05-05'>
+                                    May 5, 2014</time>
+                            </header>
+                        </article>
+                    </li>
+                
+
+                
+                    <li>
+                        <ul class="actions">
+                            <li><a href=
+                            
+                                "/post/"
+                            
+                            class="button">View more posts</a></li>
+                        </ul>
+                    </li>
+                
+            </ul>
+        </section>
+
+    
+    
+    
+    
+        <section id="categories">
+            <ul class="posts">
+                <header>
+                    <h3><a href="/categories/">Categories</a></h3>
+                </header>
+
+                
+                    
+                
+
+                
+                    <li>
+                        <article>
+                            <header>
+                                <a href="/categories/check_mk/">check_mk</a>
+                                <span style="float:right;">1</span>
+                            </header>
+                        </article>
+                    </li>
+                
+                    <li>
+                        <article>
+                            <header>
+                                <a href="/categories/coding/">coding</a>
+                                <span style="float:right;">12</span>
+                            </header>
+                        </article>
+                    </li>
+                
+                    <li>
+                        <article>
+                            <header>
+                                <a href="/categories/features/">features</a>
+                                <span style="float:right;">1</span>
+                            </header>
+                        </article>
+                    </li>
+                
+                    <li>
+                        <article>
+                            <header>
+                                <a href="/categories/infrastructure-management/">infrastructure-management</a>
+                                <span style="float:right;">12</span>
+                            </header>
+                        </article>
+                    </li>
+                
+                    <li>
+                        <article>
+                            <header>
+                                <a href="/categories/living/">living</a>
+                                <span style="float:right;">4</span>
+                            </header>
+                        </article>
+                    </li>
+                
+                    <li>
+                        <article>
+                            <header>
+                                <a href="/categories/motorycles/">motorycles</a>
+                                <span style="float:right;">1</span>
+                            </header>
+                        </article>
+                    </li>
+                
+                    <li>
+                        <article>
+                            <header>
+                                <a href="/categories/nagios/">nagios</a>
+                                <span style="float:right;">3</span>
+                            </header>
+                        </article>
+                    </li>
+                
+                    <li>
+                        <article>
+                            <header>
+                                <a href="/categories/news/">news</a>
+                                <span style="float:right;">16</span>
+                            </header>
+                        </article>
+                    </li>
+                
+                    <li>
+                        <article>
+                            <header>
+                                <a href="/categories/powershell/">powershell</a>
+                                <span style="float:right;">1</span>
+                            </header>
+                        </article>
+                    </li>
+                
+            </ul>
+        </section>
+    
+
+    
+        
+
+    
+        <section id="footer">
+            <ul class="icons">
+                
+                
+            </ul>
+
+            <p class="copyright">&copy; My New Hugo Site. Design: <a href="http://html5up.net" target="_blank">HTML5 UP</a>. Ported by <a href="//github.com/jpescador" target="_blank">Julio Pescador</a>. Powered by <a href="//gohugo.io" target="_blank">Hugo</a></p>
+        </section>
+
+</section>
+
+            </div>
+        <a id="back-to-top" href="#" class="fa fa-arrow-up fa-border fa-2x"></a>
+        
+
+        
+        
+            
+        
+
+        
+        
+            <script src="/js/jquery.min.js"></script>
+            <script src="/js/skel.min.js"></script>
+            <script src="/js/util.js"></script>
+            <script src="/js/main.js"></script>
+            <script src="/js/backToTop.js"></script>
+            <script src="/js/highlight.pack.js"></script>
+        
+
+        
+
+            
+            <script>hljs.initHighlightingOnLoad();</script>
+            
+    </body>
+</html>
+

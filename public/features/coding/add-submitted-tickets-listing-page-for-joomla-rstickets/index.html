@@ -1,0 +1,720 @@
+<!DOCTYPE HTML>
+
+<html>
+    <head>
+        
+            
+                <title>Add ‘Submitted Tickets’ Listing Page for Joomla! RSTickets</title>
+            
+        
+
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="generator" content="Hugo 0.18.1" />
+        
+
+
+        
+            <meta name="author" content="JR">
+        
+        
+            
+        
+
+        
+
+  <meta name="twitter:card" content="summary"/>
+
+
+
+<meta name="twitter:title" content="Add ‘Submitted Tickets’ Listing Page for Joomla! RSTickets"/>
+<meta name="twitter:description" content="
+
+If you haven&#8217;t heard, RSTickets! is an advanced Joomla! Help Desk ticketing system that allows you (or a team of yous) to manage and keep track of your clients&#8217; issues. It&#8217;s actually one of the few effective, useful Help Desk systems available for the Joomla! 1.5&#43; framework that I would personally recommend. Unfortunately, it&#8217;s still under development and lacks certain features that one may desire, such as a read-only listing page that displays tickets already submitted to you or your department.
+
+"/>
+
+
+
+        <meta property="og:title" content="Add ‘Submitted Tickets’ Listing Page for Joomla! RSTickets" />
+<meta property="og:description" content="
+
+If you haven&#8217;t heard, RSTickets! is an advanced Joomla! Help Desk ticketing system that allows you (or a team of yous) to manage and keep track of your clients&#8217; issues. It&#8217;s actually one of the few effective, useful Help Desk systems available for the Joomla! 1.5&#43; framework that I would personally recommend. Unfortunately, it&#8217;s still under development and lacks certain features that one may desire, such as a read-only listing page that displays tickets already submitted to you or your department.
+
+" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://example.org/features/coding/add-submitted-tickets-listing-page-for-joomla-rstickets/" />
+
+
+<meta property="og:updated_time" content="2009-07-10T17:15:21&#43;00:00"/>
+
+
+
+
+
+
+
+
+
+
+        
+<meta itemprop="name" content="Add ‘Submitted Tickets’ Listing Page for Joomla! RSTickets">
+<meta itemprop="description" content="
+
+If you haven&#8217;t heard, RSTickets! is an advanced Joomla! Help Desk ticketing system that allows you (or a team of yous) to manage and keep track of your clients&#8217; issues. It&#8217;s actually one of the few effective, useful Help Desk systems available for the Joomla! 1.5&#43; framework that I would personally recommend. Unfortunately, it&#8217;s still under development and lacks certain features that one may desire, such as a read-only listing page that displays tickets already submitted to you or your department.
+
+">
+
+
+<meta itemprop="dateModified" content="2009-07-10T17:15:21&#43;00:00" />
+<meta itemprop="wordCount" content="467">
+
+
+
+<meta itemprop="keywords" content="check_mk,coding,features,infrastructure-management,living,motorycles,nagios,news,powershell,backup,bash,dumps,mysql,perl-zimbra-zmprov-provisioning,script,shell,sql,victoria-lestz-wedding,wedding-of-victoria-lestz-and-jr-morgan," />
+
+        
+
+        
+
+        
+        
+            
+        
+
+        
+        
+            <link rel="stylesheet" href="/css/google-font.css" />
+            <link rel="stylesheet" href="/css/font-awesome.min.css" />
+            <link rel="stylesheet" href="/css/main.css" />
+            <link rel="stylesheet" href="/css/add-on.css" />
+            <link rel="stylesheet" href="/css/monokai-sublime.css">
+        
+
+        
+
+        
+        
+        
+            
+        
+    </head>
+    <body>
+
+        
+        <div id="wrapper">
+
+    
+    
+<header id="header">
+    
+        <h2><a href="/"></i></a></h2>
+    
+
+    <nav class="links">
+        <ul>
+            
+        </ul>
+    </nav>
+    <nav class="main">
+        <ul>
+            
+            <li id="share-nav" class="share-menu" style="display:none;">
+                <a class="fa-share-alt" href="#share-menu">Share</a>
+            </li>
+            
+            <li class="search">
+                <a class="fa-search" href="#search">Search</a>
+                <form id="search" method="get" action="//google.com/search">
+                    <input type="text" name="q" placeholder="Search" />
+                    <input type="hidden" name="q" value="site:http://example.org/">
+                </form>
+            </li>
+            <li class="menu">
+                <a class="fa-bars" href="#menu">Menu</a>
+            </li>
+        </ul>
+    </nav>
+</header>
+
+
+<section id="menu">
+
+    
+        <section>
+            <form class="search" method="get" action="//google.com/search">
+                <input type="text" name="q" placeholder="Search" />
+                <input type="hidden" name="q" value="site:http://example.org/">
+            </form>
+        </section>
+
+    
+        <section>
+            <ul class="links">
+                
+            </ul>
+        </section>
+
+    
+        <section>
+            <ul class="links">
+                <header>
+                    <h3>Recent Posts</h3>
+                </header>
+                
+                    
+                
+
+                
+                    <li>
+                        <a href="http://example.org/features/infrastructure-management/check_mk-envrionmental-monitoring-room-alert-4e/"><p>Check_MK Environmental Monitoring: Room Alert 4E</p></a>
+                    </li>
+                
+                    <li>
+                        <a href="http://example.org/features/coding/making-cisco-identity-firewall-and-ise-play-nice/"><p>Making Cisco Identity Firewall, CDA, and ISE play nice</p></a>
+                    </li>
+                
+                    <li>
+                        <a href="http://example.org/features/coding/powershell-bulk-provision-dhcp-scopes/"><p>Powershell: Bulk provision DHCP Scopes</p></a>
+                    </li>
+                
+                    <li>
+                        <a href="http://example.org/features/coding/check_mk-local-checks-grab-bag/"><p>Check_MK: Local Checks Grab Bag!</p></a>
+                    </li>
+                
+                    <li>
+                        <a href="http://example.org/news/crystal-method-2014-orlando-firestone-live/"><p>EDM Legends: Crystal Method 2014 – Orlando @Firestone Live</p></a>
+                    </li>
+                
+            </ul>
+        </section>
+
+    
+        
+</section>
+
+    <section id="share-menu">
+    <section id="social-share-nav">
+        <ul class="links">
+            <header>
+                <h3>Share this post <i class="fa fa-smile-o"></i></h3>
+            </header>
+            
+
+
+<li><a href="//twitter.com/share?url=http%3a%2f%2fexample.org%2ffeatures%2fcoding%2fadd-submitted-tickets-listing-page-for-joomla-rstickets%2f&text=Add%20%e2%80%98Submitted%20Tickets%e2%80%99%20Listing%20Page%20for%20Joomla%21%20RSTickets&via=" target="_blank" class="share-btn twitter">
+    <i class="fa fa-twitter"></i>
+    <p>Twitter</p>
+</a></li>
+
+
+<li><a href="//plus.google.com/share?url=http%3a%2f%2fexample.org%2ffeatures%2fcoding%2fadd-submitted-tickets-listing-page-for-joomla-rstickets%2f" target="_blank" class="share-btn google-plus">
+    <i class="fa fa-google-plus"></i>
+    <p>Google+</p>
+</a></li>
+
+
+<li><a href="//www.facebook.com/sharer/sharer.php?u=http%3a%2f%2fexample.org%2ffeatures%2fcoding%2fadd-submitted-tickets-listing-page-for-joomla-rstickets%2f" target="_blank" class="share-btn facebook">
+    <i class="fa fa-facebook"></i>
+    <p>Facebook</p>
+</a></li>
+
+
+<li><a href="//reddit.com/submit?url=http%3a%2f%2fexample.org%2ffeatures%2fcoding%2fadd-submitted-tickets-listing-page-for-joomla-rstickets%2f&title=Add%20%e2%80%98Submitted%20Tickets%e2%80%99%20Listing%20Page%20for%20Joomla%21%20RSTickets" target="_blank" class="share-btn reddit">
+    <i class="fa fa-reddit-alien"></i>
+    <p>Reddit</p>
+</a></li>
+
+
+<li><a href="//www.linkedin.com/shareArticle?url=http%3a%2f%2fexample.org%2ffeatures%2fcoding%2fadd-submitted-tickets-listing-page-for-joomla-rstickets%2f&title=Add%20%e2%80%98Submitted%20Tickets%e2%80%99%20Listing%20Page%20for%20Joomla%21%20RSTickets" target="_blank" class="share-btn linkedin">
+    <i class="fa fa-linkedin"></i>
+    <p>LinkedIn</p>
+</a></li>
+
+
+<li><a href="//www.stumbleupon.com/submit?url=http%3a%2f%2fexample.org%2ffeatures%2fcoding%2fadd-submitted-tickets-listing-page-for-joomla-rstickets%2f&title=Add%20%e2%80%98Submitted%20Tickets%e2%80%99%20Listing%20Page%20for%20Joomla%21%20RSTickets" target="_blank" class="share-btn stumbleupon">
+    <i class="fa fa-stumbleupon"></i>
+    <p>StumbleUpon</p>
+</a></li>
+
+
+<li><a href="mailto:?subject=Check out this post by JR&body=http%3a%2f%2fexample.org%2ffeatures%2fcoding%2fadd-submitted-tickets-listing-page-for-joomla-rstickets%2f" target="_blank" class="share-btn email">
+    <i class="fa fa-envelope"></i>
+    <p>Email</p>
+</a></li>
+
+        </ul>
+    </section>
+</section>
+
+    
+    <div id="main">
+        
+        
+        <article class="post">
+    <header>
+    <div class="title">
+        
+            <h1><a href="http://example.org/features/coding/add-submitted-tickets-listing-page-for-joomla-rstickets/">Add ‘Submitted Tickets’ Listing Page for Joomla! RSTickets</a></h1>
+            
+        
+        
+    </div>
+    <div class="meta">
+        
+            
+        
+
+        <time class="published"
+            datetime='2009-07-10'>
+            July 10, 2009</time>
+        <span class="author">JR</span>
+        
+        
+    </div>
+</header>
+
+
+    <section id="social-share">
+        <ul class="icons">
+            
+
+
+<li><a href="//twitter.com/share?url=http%3a%2f%2fexample.org%2ffeatures%2fcoding%2fadd-submitted-tickets-listing-page-for-joomla-rstickets%2f&text=Add%20%e2%80%98Submitted%20Tickets%e2%80%99%20Listing%20Page%20for%20Joomla%21%20RSTickets&via=" target="_blank" class="share-btn twitter">
+    <i class="fa fa-twitter"></i>
+    <p>Twitter</p>
+</a></li>
+
+
+<li><a href="//plus.google.com/share?url=http%3a%2f%2fexample.org%2ffeatures%2fcoding%2fadd-submitted-tickets-listing-page-for-joomla-rstickets%2f" target="_blank" class="share-btn google-plus">
+    <i class="fa fa-google-plus"></i>
+    <p>Google+</p>
+</a></li>
+
+
+<li><a href="//www.facebook.com/sharer/sharer.php?u=http%3a%2f%2fexample.org%2ffeatures%2fcoding%2fadd-submitted-tickets-listing-page-for-joomla-rstickets%2f" target="_blank" class="share-btn facebook">
+    <i class="fa fa-facebook"></i>
+    <p>Facebook</p>
+</a></li>
+
+
+<li><a href="//reddit.com/submit?url=http%3a%2f%2fexample.org%2ffeatures%2fcoding%2fadd-submitted-tickets-listing-page-for-joomla-rstickets%2f&title=Add%20%e2%80%98Submitted%20Tickets%e2%80%99%20Listing%20Page%20for%20Joomla%21%20RSTickets" target="_blank" class="share-btn reddit">
+    <i class="fa fa-reddit-alien"></i>
+    <p>Reddit</p>
+</a></li>
+
+
+<li><a href="//www.linkedin.com/shareArticle?url=http%3a%2f%2fexample.org%2ffeatures%2fcoding%2fadd-submitted-tickets-listing-page-for-joomla-rstickets%2f&title=Add%20%e2%80%98Submitted%20Tickets%e2%80%99%20Listing%20Page%20for%20Joomla%21%20RSTickets" target="_blank" class="share-btn linkedin">
+    <i class="fa fa-linkedin"></i>
+    <p>LinkedIn</p>
+</a></li>
+
+
+<li><a href="//www.stumbleupon.com/submit?url=http%3a%2f%2fexample.org%2ffeatures%2fcoding%2fadd-submitted-tickets-listing-page-for-joomla-rstickets%2f&title=Add%20%e2%80%98Submitted%20Tickets%e2%80%99%20Listing%20Page%20for%20Joomla%21%20RSTickets" target="_blank" class="share-btn stumbleupon">
+    <i class="fa fa-stumbleupon"></i>
+    <p>StumbleUpon</p>
+</a></li>
+
+
+<li><a href="mailto:?subject=Check out this post by JR&body=http%3a%2f%2fexample.org%2ffeatures%2fcoding%2fadd-submitted-tickets-listing-page-for-joomla-rstickets%2f" target="_blank" class="share-btn email">
+    <i class="fa fa-envelope"></i>
+    <p>Email</p>
+</a></li>
+
+        </ul>
+    </section>
+    
+
+    <div id="content">
+        <p><img class="alignright" title="Joomla!" src="http://cdn.joomla.org/images/logo.png" alt="" width="235" height="46" /></p>
+
+<p>If you haven&#8217;t heard, <a title="Check out the RSTickets! extension from RSJoomla!" href="http://www.rsjoomla.com/joomla-components/rstickets.html" target="_blank">RSTickets!</a> is an advanced Joomla! Help Desk ticketing system that allows you (or a team of yous) to manage and keep track of your clients&#8217; issues. It&#8217;s actually one of the few effective, useful Help Desk systems available for the Joomla! 1.5+ framework that I would personally recommend. Unfortunately, it&#8217;s still under development and lacks certain features that one may desire, such as a read-only listing page that displays tickets already submitted to you or your department.</p>
+
+<p></p>
+
+<p><strong>My Problem:</strong></p>
+
+<p>I noticed internal network clients were submitting several duplicate tickets related to a shared problem (i.e. printer trouble, network outages, etc.). I couldn&#8217;t blame them since they couldn&#8217;t view previously submitted tickets, so I decided to create a quick + dirty page that pulls <em>&#8220;open,&#8221;</em> or <em>&#8220;on-hold,&#8221;</em> tickets from a specific department&#8217;s table of submitted [active] tickets and displays them on a Joomla! article page (using the Sourcerer plug-in to execute custom PHP with {source} tags). Pasting this code into an article without the Sourcerer plug-in [or some sort of plug-in for executing PHP] <em>will do nothing.</em> Also note the <em>include</em> file for making a raw connection to your MySQL database. This is required (and should be stored in a directory with the appropriate permissions to prevent outside read access).</p>
+
+<p>If you&#8217;d like to simply list the number (amount) of tickets (open, closed, on-hold) for <em>all</em> departments, you might want to <a title="Try RSJoomla!'s RSTicket Module for a quick count of all tickets." href="http://www.rsjoomla.com/customer-support/forum/38-rstickets/7805-joomla-module-for-rstickets.html" target="_blank">check the unreleased version of RSJoomla!&#8217;s RSTicket Module.</a></p>
+
+<p>[php]</p>
+
+<p>{source}</p>
+
+<p>&lt;?php</p>
+
+<p>include (&ldquo;includes/connect_custom.php&rdquo;);</p>
+
+<p>$result2 = mysql_query(&ldquo;SELECT * FROM jos_rstickets_tickets WHERE DepartmentId=3 AND (TicketStatus=&#8217;open&#8217; OR TicketStatus=&#8217;on-hold&#8217;) ORDER BY TicketTime ASC&rdquo;) or die(mysql_error());</p>
+
+<p>echo &#8216;<br />&#8217;;</p>
+
+<p>echo &#8216;<tr><td style="padding-bottom: 10px;" colspan="6">Please check the open, pending, or on-hold tickets listed below before submitting a support ticket. The list below can be utilized as an informal gauge for IT response times. If a duplicate support ticket is submitted, you may cancel it yourself or it will be deleted by the IT Department upon review. Thank you for your cooperation.</td></tr>&#8217;;</p>
+
+<p>echo &#8216;<tr><td style="font-size: 16px;font-weight: bold;padding-bottom: 10px;" colspan="6">SUBMITTED SUPPORT TICKETS:</td></tr>&#8217;;</p>
+
+<p>echo &#8216;<tr><td style="text-align:left; padding-bottom:7px;"><strong>Submitted:</strong></td><td style="padding-bottom:7px;"><strong>Username:</strong></td><td style="padding-bottom:7px;"><strong>Ticket Code:</strong></td><td style="padding-bottom:7px;"><strong>Subject:</strong></td><td style="padding-bottom:7px;"><strong>Status:</strong></td><td style="padding-bottom:7px;"><strong>Priority:</strong></td></tr>&#8217;;</p>
+
+<p>while($row = mysql_fetch_array($result2))</p>
+
+<p>{</p>
+
+<p>$custid = $row[&#8216;CustomerId&#8217;];</p>
+
+<p>$userquery= mysql_query(&ldquo;SELECT name FROM jos_users WHERE id=$custid&rdquo;) or die(mysql_error());</p>
+
+<p>$username = mysql_fetch_array($userquery);</p>
+
+<p>echo &#8216;<tr style="font-size: 10px;vertical-align:top;"><td style="width: 102px; overflow: hidden;padding: 3px -10px 3px 3px;">&#8217; . date(&ldquo;Y-m-d H:m&rdquo;, $row[&#8216;TicketTime&#8217;]) . &#8216;</td><td>&#8217; . $username[&#8216;name&#8217;] . &#8216;</td><td>&#8217; . $row[&#8216;TicketCode&#8217;] . &#8216;</td><td style="width: 235px; overflow: hidden;">&#8217; . $row[&#8216;TicketSubject&#8217;] . &#8216;</td><td>&#8217; . strtoupper($row[&#8216;TicketStatus&#8217;]) . &#8216;</td>&#8217;;</p>
+
+<p>if ($row[&#8216;TicketPriority&#8217;]==&#8217;high&#8217;){</p>
+
+<p>echo &#8216;<td style="background-color: red; color: white; font-weight: bold;padding-left: 5px;">&#8217;;</p>
+
+<p>} else if ($row[&#8216;TicketPriority&#8217;]==&#8217;normal&#8217;){</p>
+
+<p>echo &#8216;<td style="background-color: blue; color: white; font-weight: bold;padding-left: 5px;">&#8217;;</p>
+
+<p>} else if ($row[&#8216;TicketPriority&#8217;]==&#8217;low&#8217;){</p>
+
+<p>echo &#8216;<td style="background-color: yellow; font-color: black; font-weight: bold;padding-left: 5px;">&#8217;;}</p>
+
+<p>echo strtoupper($row[&#8216;TicketPriority&#8217;]) . &#8216;</td></tr>&#8217;;</p>
+
+<p>}</p>
+
+<p>echo &#8216;<tr><td style="font-size:16px; padding-top: 20px; padding-bottom: 20px" colspan="6"><strong><a href="index.php?option=com\_rstickets&Itemid=59"><img src="images/M\_images/onsite\_support1.jpg"></a><br /><a href="index.php?option=com\_rstickets&Itemid=59">SUBMIT A NEW SUPPORT TICKET</a></strong></td></tr>&#8217;;</p>
+
+<p>echo &#8216;<br />&#8217;;</p>
+
+<p>?&gt;</p>
+
+<p>{/source}</p>
+
+<p>[/php]</p>
+
+<p><strong>connect_custom.php :</strong></p>
+
+<p>[php]</p>
+
+<p>&lt;?php</p>
+
+<p>// Script: connect_custom.php</p>
+
+<p>// Author: JR</p>
+
+<p>// Date: 20080218</p>
+
+<p>// Use: Utilized for custom DB connections to our current database for Fabrik Forms + Joomla 1.5</p>
+
+<p>$hostname=&ldquo;localhost&rdquo;;</p>
+
+<p>$mysql_login=&ldquo;thedude&rdquo;;</p>
+
+<p>$mysql_password=&ldquo;sumpasswordhere&rdquo;;</p>
+
+<p>$database=&ldquo;datablah&rdquo;;</p>
+
+<p>if (!($db = mysql_pconnect($hostname, $mysql_login , $mysql_password))){</p>
+
+<p>die(&ldquo;Can&#8217;t connect to database server.&ldquo;);</p>
+
+<p>}else{</p>
+
+<p>if (!(mysql_select_db(&ldquo;$database&rdquo;,$db))){</p>
+
+<p>die(&ldquo;Can&#8217;t connect to database.&ldquo;);</p>
+
+<p>}</p>
+
+<p>}</p>
+
+<p>?&gt;</p>
+
+<p>[/php]</p>
+    </div>
+
+    <footer>
+        <ul class="stats">
+    
+        
+
+        
+        
+            <li>
+                
+    </footer>
+</article>
+<ul class="actions pagination">
+    
+        <li><a href="http://example.org/features/infrastructure-management/new-fun-with-old-toys-adtran-atlas-550-free-411/"
+                class="button big previous">New fun with old toys: Adtran Atlas 550 &#43; Free 411</a></li>
+    
+
+    
+        <li><a href="http://example.org/news/lenovo-rs110-review/"
+                class="button big next">Lenovo RS110 Review</a></li>
+    
+</ul>
+
+
+
+
+    </div>
+    
+<section id="sidebar">
+
+    
+        <section id="intro">
+            
+            
+            
+            <ul class="icons">
+                
+                
+            </ul>
+        </section>
+
+    
+        <section id="recent-posts">
+            <ul class="posts">
+                <header>
+                    <h3>Recent Posts</h3>
+                </header>
+                
+                    
+                
+
+                
+                    
+                
+
+                
+                    <li>
+                        <article>
+                            <header>
+                                <h3><a href="http://example.org/features/infrastructure-management/check_mk-envrionmental-monitoring-room-alert-4e/">Check_MK Environmental Monitoring: Room Alert 4E</a></h3>
+                                
+                                    
+                                
+                                <time class="published" datetime=
+                                    '2014-08-13'>
+                                    August 13, 2014</time>
+                            </header>
+                        </article>
+                    </li>
+                
+                    <li>
+                        <article>
+                            <header>
+                                <h3><a href="http://example.org/features/coding/making-cisco-identity-firewall-and-ise-play-nice/">Making Cisco Identity Firewall, CDA, and ISE play nice</a></h3>
+                                
+                                    
+                                
+                                <time class="published" datetime=
+                                    '2014-08-07'>
+                                    August 7, 2014</time>
+                            </header>
+                        </article>
+                    </li>
+                
+                    <li>
+                        <article>
+                            <header>
+                                <h3><a href="http://example.org/features/coding/powershell-bulk-provision-dhcp-scopes/">Powershell: Bulk provision DHCP Scopes</a></h3>
+                                
+                                    
+                                
+                                <time class="published" datetime=
+                                    '2014-07-30'>
+                                    July 30, 2014</time>
+                            </header>
+                        </article>
+                    </li>
+                
+                    <li>
+                        <article>
+                            <header>
+                                <h3><a href="http://example.org/features/coding/check_mk-local-checks-grab-bag/">Check_MK: Local Checks Grab Bag!</a></h3>
+                                
+                                    
+                                
+                                <time class="published" datetime=
+                                    '2014-07-29'>
+                                    July 29, 2014</time>
+                            </header>
+                        </article>
+                    </li>
+                
+                    <li>
+                        <article>
+                            <header>
+                                <h3><a href="http://example.org/news/crystal-method-2014-orlando-firestone-live/">EDM Legends: Crystal Method 2014 – Orlando @Firestone Live</a></h3>
+                                
+                                    
+                                
+                                <time class="published" datetime=
+                                    '2014-05-05'>
+                                    May 5, 2014</time>
+                            </header>
+                        </article>
+                    </li>
+                
+
+                
+                    <li>
+                        <ul class="actions">
+                            <li><a href=
+                            
+                                "/post/"
+                            
+                            class="button">View more posts</a></li>
+                        </ul>
+                    </li>
+                
+            </ul>
+        </section>
+
+    
+    
+    
+    
+        <section id="categories">
+            <ul class="posts">
+                <header>
+                    <h3><a href="/categories/">Categories</a></h3>
+                </header>
+
+                
+                    
+                
+
+                
+                    <li>
+                        <article>
+                            <header>
+                                <a href="/categories/check_mk/">check_mk</a>
+                                <span style="float:right;">1</span>
+                            </header>
+                        </article>
+                    </li>
+                
+                    <li>
+                        <article>
+                            <header>
+                                <a href="/categories/coding/">coding</a>
+                                <span style="float:right;">12</span>
+                            </header>
+                        </article>
+                    </li>
+                
+                    <li>
+                        <article>
+                            <header>
+                                <a href="/categories/features/">features</a>
+                                <span style="float:right;">1</span>
+                            </header>
+                        </article>
+                    </li>
+                
+                    <li>
+                        <article>
+                            <header>
+                                <a href="/categories/infrastructure-management/">infrastructure-management</a>
+                                <span style="float:right;">12</span>
+                            </header>
+                        </article>
+                    </li>
+                
+                    <li>
+                        <article>
+                            <header>
+                                <a href="/categories/living/">living</a>
+                                <span style="float:right;">4</span>
+                            </header>
+                        </article>
+                    </li>
+                
+                    <li>
+                        <article>
+                            <header>
+                                <a href="/categories/motorycles/">motorycles</a>
+                                <span style="float:right;">1</span>
+                            </header>
+                        </article>
+                    </li>
+                
+                    <li>
+                        <article>
+                            <header>
+                                <a href="/categories/nagios/">nagios</a>
+                                <span style="float:right;">3</span>
+                            </header>
+                        </article>
+                    </li>
+                
+                    <li>
+                        <article>
+                            <header>
+                                <a href="/categories/news/">news</a>
+                                <span style="float:right;">16</span>
+                            </header>
+                        </article>
+                    </li>
+                
+                    <li>
+                        <article>
+                            <header>
+                                <a href="/categories/powershell/">powershell</a>
+                                <span style="float:right;">1</span>
+                            </header>
+                        </article>
+                    </li>
+                
+            </ul>
+        </section>
+    
+
+    
+        
+
+    
+        <section id="footer">
+            <ul class="icons">
+                
+                
+            </ul>
+
+            <p class="copyright">&copy; My New Hugo Site. Design: <a href="http://html5up.net" target="_blank">HTML5 UP</a>. Ported by <a href="//github.com/jpescador" target="_blank">Julio Pescador</a>. Powered by <a href="//gohugo.io" target="_blank">Hugo</a></p>
+        </section>
+
+</section>
+
+            </div>
+        <a id="back-to-top" href="#" class="fa fa-arrow-up fa-border fa-2x"></a>
+        
+
+        
+        
+            
+        
+
+        
+        
+            <script src="/js/jquery.min.js"></script>
+            <script src="/js/skel.min.js"></script>
+            <script src="/js/util.js"></script>
+            <script src="/js/main.js"></script>
+            <script src="/js/backToTop.js"></script>
+            <script src="/js/highlight.pack.js"></script>
+        
+
+        
+
+            
+            <script>hljs.initHighlightingOnLoad();</script>
+            
+    </body>
+</html>
+

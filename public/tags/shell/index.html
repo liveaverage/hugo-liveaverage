@@ -1,0 +1,874 @@
+
+
+
+    
+
+
+
+
+<!DOCTYPE HTML>
+
+<html>
+    <head>
+        
+            <title>Shell - My New Hugo Site</title>
+        
+
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="generator" content="Hugo 0.18.1" />
+        
+
+
+        
+        
+            
+        
+
+        
+        <meta property="og:title" content="Shell" />
+<meta property="og:description" content="" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="http://example.org/tags/shell/" />
+
+
+<meta property="og:updated_time" content="2008-07-29T14:45:14&#43;00:00"/>
+
+
+
+
+
+
+
+
+
+        
+<meta itemprop="name" content="Shell">
+<meta itemprop="description" content="">
+
+
+        
+
+        
+
+        
+        
+            
+        
+
+        
+        
+            <link rel="stylesheet" href="/css/google-font.css" />
+            <link rel="stylesheet" href="/css/font-awesome.min.css" />
+            <link rel="stylesheet" href="/css/main.css" />
+            <link rel="stylesheet" href="/css/add-on.css" />
+            <link rel="stylesheet" href="/css/monokai-sublime.css">
+        
+
+        
+
+        
+        
+        
+            
+        
+    </head>
+    <body>
+
+        
+        <div id="wrapper">
+
+    
+<header id="header">
+    
+        <h2><a href="/"></i></a></h2>
+    
+
+    <nav class="links">
+        <ul>
+            
+        </ul>
+    </nav>
+    <nav class="main">
+        <ul>
+            
+            <li class="search">
+                <a class="fa-search" href="#search">Search</a>
+                <form id="search" method="get" action="//google.com/search">
+                    <input type="text" name="q" placeholder="Search" />
+                    <input type="hidden" name="q" value="site:http://example.org/">
+                </form>
+            </li>
+            <li class="menu">
+                <a class="fa-bars" href="#menu">Menu</a>
+            </li>
+        </ul>
+    </nav>
+</header>
+
+
+<section id="menu">
+
+    
+        <section>
+            <form class="search" method="get" action="//google.com/search">
+                <input type="text" name="q" placeholder="Search" />
+                <input type="hidden" name="q" value="site:http://example.org/">
+            </form>
+        </section>
+
+    
+        <section>
+            <ul class="links">
+                
+            </ul>
+        </section>
+
+    
+        <section>
+            <ul class="links">
+                <header>
+                    <h3>Recent Posts</h3>
+                </header>
+                
+                    
+                
+
+                
+                    <li>
+                        <a href="http://example.org/features/infrastructure-management/check_mk-envrionmental-monitoring-room-alert-4e/"><p>Check_MK Environmental Monitoring: Room Alert 4E</p></a>
+                    </li>
+                
+                    <li>
+                        <a href="http://example.org/features/coding/making-cisco-identity-firewall-and-ise-play-nice/"><p>Making Cisco Identity Firewall, CDA, and ISE play nice</p></a>
+                    </li>
+                
+                    <li>
+                        <a href="http://example.org/features/coding/powershell-bulk-provision-dhcp-scopes/"><p>Powershell: Bulk provision DHCP Scopes</p></a>
+                    </li>
+                
+                    <li>
+                        <a href="http://example.org/features/coding/check_mk-local-checks-grab-bag/"><p>Check_MK: Local Checks Grab Bag!</p></a>
+                    </li>
+                
+                    <li>
+                        <a href="http://example.org/news/crystal-method-2014-orlando-firestone-live/"><p>EDM Legends: Crystal Method 2014 – Orlando @Firestone Live</p></a>
+                    </li>
+                
+            </ul>
+        </section>
+
+    
+        
+</section>
+
+    
+    <div id="main">
+        
+        
+            
+        
+
+        
+            <article class="post">
+    <header>
+    <div class="title">
+        
+            <h2><a href="http://example.org/features/infrastructure-management/check_mk-envrionmental-monitoring-room-alert-4e/">Check_MK Environmental Monitoring: Room Alert 4E</a></h2>
+        
+        
+    </div>
+    <div class="meta">
+        
+            
+        
+
+        <time class="published"
+            datetime='2014-08-13'>
+            August 13, 2014</time>
+        <span class="author">JR</span>
+        
+        
+    </div>
+</header>
+
+    
+
+    <p>One of our Network Engineers needed some monitoring (internal temp, external temp, and external humidity) added for an AVTech Room Alert 4E unit, preferably using a check_MK plugin. Couldn&#8217;t find one in any repos or in git, so decided to add this to a growing collection of plugins I&#8217;ve been working on. Another request from the same team: MinuteMan UPS units. I&#8217;ll be adding to my check_mk_bag git repo periodically with any new, custom check plugins.</p>
+
+    <footer>
+        <ul class="actions">
+            <li><a href="http://example.org/features/infrastructure-management/check_mk-envrionmental-monitoring-room-alert-4e/" class="button big">Continue Reading</a></li>
+        </ul>
+        <ul class="stats">
+    
+        
+
+        
+        
+            <li>
+                
+    </footer>
+</article>
+
+        
+            <article class="post">
+    <header>
+    <div class="title">
+        
+            <h2><a href="http://example.org/features/coding/making-cisco-identity-firewall-and-ise-play-nice/">Making Cisco Identity Firewall, CDA, and ISE play nice</a></h2>
+        
+        
+    </div>
+    <div class="meta">
+        
+            
+        
+
+        <time class="published"
+            datetime='2014-08-07'>
+            August 7, 2014</time>
+        <span class="author">JR</span>
+        
+        
+    </div>
+</header>
+
+    
+
+    <p>As of Cisco CDA Patch 2, identity mappings provided via Cisco ISE are natively supported. This means you can authenticate against ISE, which may in turn authenticate against LDAP or Active Directory, and subsequently notify one or more Cisco CDA servers that a new user-to-IP mapping exists. Cisco accomplishes this exchange of authenticated identities via syslog messages. ISE is configured to forward syslog messages to the CDA server(s), and the CDA server(s) have the sending ISE server(s) configured as a syslog &#8220;client.</p>
+
+    <footer>
+        <ul class="actions">
+            <li><a href="http://example.org/features/coding/making-cisco-identity-firewall-and-ise-play-nice/" class="button big">Continue Reading</a></li>
+        </ul>
+        <ul class="stats">
+    
+        
+
+        
+        
+            <li>
+                
+    </footer>
+</article>
+
+        
+            <article class="post">
+    <header>
+    <div class="title">
+        
+            <h2><a href="http://example.org/features/coding/powershell-bulk-provision-dhcp-scopes/">Powershell: Bulk provision DHCP Scopes</a></h2>
+        
+        
+    </div>
+    <div class="meta">
+        
+            
+        
+
+        <time class="published"
+            datetime='2014-07-30'>
+            July 30, 2014</time>
+        <span class="author">JR</span>
+        
+        
+    </div>
+</header>
+
+    
+
+    <p>Thought I&#8217;d share a nice wrapper for netsh and dnscmd calls to allow easy, bulk provisioning of new DHCP scopes. It&#8217;s nice being able to provision a ton of these at once by piping the output from Import-CSV!
+&nbsp;
+############################ #AUTHOR: JR Morgan #CREATED: 20120417 #MODIFIED: 20140611 ############################ &lt;# .Synopsis Adds DHCP Scope to ALL specified DHCP servers. If split-scope is desired the script uses IP Math to automatically add the desired exlcude ranges.</p>
+
+    <footer>
+        <ul class="actions">
+            <li><a href="http://example.org/features/coding/powershell-bulk-provision-dhcp-scopes/" class="button big">Continue Reading</a></li>
+        </ul>
+        <ul class="stats">
+    
+        
+
+        
+        
+            <li>
+                
+    </footer>
+</article>
+
+        
+            <article class="post">
+    <header>
+    <div class="title">
+        
+            <h2><a href="http://example.org/features/coding/check_mk-local-checks-grab-bag/">Check_MK: Local Checks Grab Bag!</a></h2>
+        
+        
+    </div>
+    <div class="meta">
+        
+            
+        
+
+        <time class="published"
+            datetime='2014-07-29'>
+            July 29, 2014</time>
+        <span class="author">JR</span>
+        
+        
+    </div>
+</header>
+
+    
+
+    <p>Some local Check_MK checks that were created to execute check_MK local check scripts (Powershell) in 64-bit context, monitor Exchange 2007 health (Storage Group replication status, Log Truncation after backups, etc.), and monitor DNS scavenging on Windows servers:
+@echo off REM Note that SysNative is available on x86 2008, and on x86 2003 with KB942589 applied set CONSOLE_WIDTH=500 CD %ProgramFiles(x86)%\check_mk\local-64 FOR /R %%X IN (&rdquo;*&ldquo;) DO ( %WINDIR%\SysNative\windowspowershell\v1.0\powershell.exe -File &ldquo;%%X&rdquo;) Execute-Local-64.bat view raw   $Host.</p>
+
+    <footer>
+        <ul class="actions">
+            <li><a href="http://example.org/features/coding/check_mk-local-checks-grab-bag/" class="button big">Continue Reading</a></li>
+        </ul>
+        <ul class="stats">
+    
+        
+
+        
+        
+            <li>
+                
+    </footer>
+</article>
+
+        
+            <article class="post">
+    <header>
+    <div class="title">
+        
+            <h2><a href="http://example.org/news/crystal-method-2014-orlando-firestone-live/">EDM Legends: Crystal Method 2014 – Orlando @Firestone Live</a></h2>
+        
+        
+    </div>
+    <div class="meta">
+        
+            
+        
+
+        <time class="published"
+            datetime='2014-05-05'>
+            May 5, 2014</time>
+        <span class="author">JR</span>
+        
+        
+    </div>
+</header>
+
+    
+
+    <p></p>
+
+    <footer>
+        <ul class="actions">
+            <li><a href="http://example.org/news/crystal-method-2014-orlando-firestone-live/" class="button big">Continue Reading</a></li>
+        </ul>
+        <ul class="stats">
+    
+        
+
+        
+        
+            <li>
+                
+    </footer>
+</article>
+
+        
+            <article class="post">
+    <header>
+    <div class="title">
+        
+            <h2><a href="http://example.org/news/one-person-motorcycle-loading/">One-person motorcycle loading</a></h2>
+        
+        
+    </div>
+    <div class="meta">
+        
+            
+        
+
+        <time class="published"
+            datetime='2014-03-24'>
+            March 24, 2014</time>
+        <span class="author">JR</span>
+        
+        
+    </div>
+</header>
+
+    
+
+    <p>My wife is tiny&#8230; 5 ft tiny&#8230; Suffice it to say I needed a safe and easy way to load (and unload) my motorcycle without assistance. I researched the expensive solutions from LoadAll and deemed it unnecessarily complicated (with far too many moving parts) for my taste. I also didn&#8217;t want to sacrifice my truck cargo space. I decided on the 40&#8243; wide, 8 ft. long Black Widow Ramp from DiscountRamps.</p>
+
+    <footer>
+        <ul class="actions">
+            <li><a href="http://example.org/news/one-person-motorcycle-loading/" class="button big">Continue Reading</a></li>
+        </ul>
+        <ul class="stats">
+    
+        
+
+        
+        
+            <li>
+                
+    </footer>
+</article>
+
+        
+            <article class="post">
+    <header>
+    <div class="title">
+        
+            <h2><a href="http://example.org/news/check_mk-dfs-backlog-monitoring/">Check_MK DFS Backlog Monitoring</a></h2>
+        
+        
+    </div>
+    <div class="meta">
+        
+            
+        
+
+        <time class="published"
+            datetime='2014-02-12'>
+            February 12, 2014</time>
+        <span class="author">JR</span>
+        
+        
+    </div>
+</header>
+
+    
+
+    <p>[][1]Inventoried replicated folders and their corresponding backlog counts Before you even get started, make sure your Powershell execution policy is set to RemoteSigned for your standard AND x86 Powershell console; Check_MK will generally execute PS scripts from the x86 console, so it&#8217;s critical to set the policy for both:
+ Start &gt; Accessories &gt; Windows PowerShell Right-click &#8216;Windows PowerShell (x86)&#8217;, select &#8216;Run As Administrator&#8217; Execute: Set-Execution Policy RemoteSigned Repeat the same steps above, but for the standard &#8216;Windows PowerShell&#8217; console.</p>
+
+    <footer>
+        <ul class="actions">
+            <li><a href="http://example.org/news/check_mk-dfs-backlog-monitoring/" class="button big">Continue Reading</a></li>
+        </ul>
+        <ul class="stats">
+    
+        
+
+        
+        
+            <li>
+                
+    </footer>
+</article>
+
+        
+            <article class="post">
+    <header>
+    <div class="title">
+        
+            <h2><a href="http://example.org/features/infrastructure-management/extending-check_mk-mysql-status-output/">Extending Check_MK MySQL Status Output</a></h2>
+        
+        
+    </div>
+    <div class="meta">
+        
+            
+        
+
+        <time class="published"
+            datetime='2013-03-25'>
+            March 25, 2013</time>
+        <span class="author">JR</span>
+        
+        
+    </div>
+</header>
+
+    
+
+    <p>If you need more output than what the existing <a title="Check_MK Plugin: Check of MySQL Variables" href="http://exchange.check-mk.org/index.php?option=com_remository&Itemid=59&func=fileinfo&id=20" target="_blank">Check of MySQL Status Variables</a> includes, such as <em>Seconds_Behind_Master</em> or <em>Relay_Log_Pos</em>, consider adding a quick line to the bash call for _mysql<em>status</em> on the agent. This assumes you&#8217;ve installed themysql_status-1.0.1.mkp and deployed the necessary agent files to the servers you&#8217;d like to monitor. This also assumes you&#8217;ve correctly configured the credentials needed to run the plugin and successfully receive (standard) output from the agent plugin.</p>
+
+    <footer>
+        <ul class="actions">
+            <li><a href="http://example.org/features/infrastructure-management/extending-check_mk-mysql-status-output/" class="button big">Continue Reading</a></li>
+        </ul>
+        <ul class="stats">
+    
+        
+
+        
+        
+            <li>
+                
+    </footer>
+</article>
+
+        
+            <article class="post">
+    <header>
+    <div class="title">
+        
+            <h2><a href="http://example.org/features/coding/powershell-script-sync-dhcp-reservations-windows-server-2008/">Powershell Script: Sync DHCP Reservations (Windows Server 2008)</a></h2>
+        
+        
+    </div>
+    <div class="meta">
+        
+            
+        
+
+        <time class="published"
+            datetime='2012-11-14'>
+            November 14, 2012</time>
+        <span class="author">JR</span>
+        
+        
+    </div>
+</header>
+
+    
+
+    <p>If you have redundant Windows 2008 DHCP servers (likely with split-scope configurations), you&#8217;re familiar with the problem of keeping reservations between the servers synchronized. I figured I&#8217;d post a script I created to sync reservations between servers. Synchronization can be 1-to-1 or 1-to-many, depending on your redundant DHCP server configuration. This script can sync with ALL authorized DHCP servers in a domain if needed. Make sure to read the included Powershell help information.</p>
+
+    <footer>
+        <ul class="actions">
+            <li><a href="http://example.org/features/coding/powershell-script-sync-dhcp-reservations-windows-server-2008/" class="button big">Continue Reading</a></li>
+        </ul>
+        <ul class="stats">
+    
+        
+
+        
+        
+            <li>
+                
+    </footer>
+</article>
+
+        
+            <article class="post">
+    <header>
+    <div class="title">
+        
+            <h2><a href="http://example.org/news/nagios-check_http-problems-with-microsoft-system-center-2012-endpoint-protection/">Nagios check_http problems with Microsoft System Center 2012 Endpoint Protection</a></h2>
+        
+        
+    </div>
+    <div class="meta">
+        
+            
+        
+
+        <time class="published"
+            datetime='2012-11-07'>
+            November 7, 2012</time>
+        <span class="author">JR</span>
+        
+        
+    </div>
+</header>
+
+    
+
+    <p>Someone important suggested this get posted somewhere so that anyone else experiencing check_http socket timeout problems with client/servers running Microsoft System Center 2012 Endpoint Protection would have a clue as to what could be causing issues:
+If you&#8217;re receiving strange/unexpected timeouts from the check_http plug-in when running it against a server using Microsoft System Center 2012 Endpoint Protection, the Network Inspection Service may be blocking your check attempt.
+Don&#8217;t bother trying to force an agent string or any other weird options; either switch to header-checks-only [no body] using the -N option with check_http, or disable your Network Inspection service entirely (not recommended).</p>
+
+    <footer>
+        <ul class="actions">
+            <li><a href="http://example.org/news/nagios-check_http-problems-with-microsoft-system-center-2012-endpoint-protection/" class="button big">Continue Reading</a></li>
+        </ul>
+        <ul class="stats">
+    
+        
+
+        
+        
+            <li>
+                
+    </footer>
+</article>
+
+        
+
+        
+<ul class="actions pagination">
+    
+        <li><a href="#" class="disabled button big previous">Previous Page</a></li>
+    
+
+    
+        <li><a href="/tags/shell/page/2/"
+                class="button big next">Next Page</a></li>
+    
+</ul>
+
+    </div>
+    
+<section id="sidebar">
+
+    
+        <section id="intro">
+            
+            
+            
+            <ul class="icons">
+                
+                    <li><a href="http://example.org/tags/shell/index.xml" type="application/rss+xml"
+                        target="_blank" title="RSS" class="fa fa-rss"></a></li>
+                
+                
+            </ul>
+        </section>
+
+    
+        <section id="recent-posts">
+            <ul class="posts">
+                <header>
+                    <h3>Recent Posts</h3>
+                </header>
+                
+                    
+                
+
+                
+                    
+                
+
+                
+                    <li>
+                        <article>
+                            <header>
+                                <h3><a href="http://example.org/features/infrastructure-management/check_mk-envrionmental-monitoring-room-alert-4e/">Check_MK Environmental Monitoring: Room Alert 4E</a></h3>
+                                
+                                    
+                                
+                                <time class="published" datetime=
+                                    '2014-08-13'>
+                                    August 13, 2014</time>
+                            </header>
+                        </article>
+                    </li>
+                
+                    <li>
+                        <article>
+                            <header>
+                                <h3><a href="http://example.org/features/coding/making-cisco-identity-firewall-and-ise-play-nice/">Making Cisco Identity Firewall, CDA, and ISE play nice</a></h3>
+                                
+                                    
+                                
+                                <time class="published" datetime=
+                                    '2014-08-07'>
+                                    August 7, 2014</time>
+                            </header>
+                        </article>
+                    </li>
+                
+                    <li>
+                        <article>
+                            <header>
+                                <h3><a href="http://example.org/features/coding/powershell-bulk-provision-dhcp-scopes/">Powershell: Bulk provision DHCP Scopes</a></h3>
+                                
+                                    
+                                
+                                <time class="published" datetime=
+                                    '2014-07-30'>
+                                    July 30, 2014</time>
+                            </header>
+                        </article>
+                    </li>
+                
+                    <li>
+                        <article>
+                            <header>
+                                <h3><a href="http://example.org/features/coding/check_mk-local-checks-grab-bag/">Check_MK: Local Checks Grab Bag!</a></h3>
+                                
+                                    
+                                
+                                <time class="published" datetime=
+                                    '2014-07-29'>
+                                    July 29, 2014</time>
+                            </header>
+                        </article>
+                    </li>
+                
+                    <li>
+                        <article>
+                            <header>
+                                <h3><a href="http://example.org/news/crystal-method-2014-orlando-firestone-live/">EDM Legends: Crystal Method 2014 – Orlando @Firestone Live</a></h3>
+                                
+                                    
+                                
+                                <time class="published" datetime=
+                                    '2014-05-05'>
+                                    May 5, 2014</time>
+                            </header>
+                        </article>
+                    </li>
+                
+
+                
+                    <li>
+                        <ul class="actions">
+                            <li><a href=
+                            
+                                "/post/"
+                            
+                            class="button">View more posts</a></li>
+                        </ul>
+                    </li>
+                
+            </ul>
+        </section>
+
+    
+    
+    
+    
+        <section id="categories">
+            <ul class="posts">
+                <header>
+                    <h3><a href="/categories/">Categories</a></h3>
+                </header>
+
+                
+                    
+                
+
+                
+                    <li>
+                        <article>
+                            <header>
+                                <a href="/categories/check_mk/">check_mk</a>
+                                <span style="float:right;">1</span>
+                            </header>
+                        </article>
+                    </li>
+                
+                    <li>
+                        <article>
+                            <header>
+                                <a href="/categories/coding/">coding</a>
+                                <span style="float:right;">12</span>
+                            </header>
+                        </article>
+                    </li>
+                
+                    <li>
+                        <article>
+                            <header>
+                                <a href="/categories/features/">features</a>
+                                <span style="float:right;">1</span>
+                            </header>
+                        </article>
+                    </li>
+                
+                    <li>
+                        <article>
+                            <header>
+                                <a href="/categories/infrastructure-management/">infrastructure-management</a>
+                                <span style="float:right;">12</span>
+                            </header>
+                        </article>
+                    </li>
+                
+                    <li>
+                        <article>
+                            <header>
+                                <a href="/categories/living/">living</a>
+                                <span style="float:right;">4</span>
+                            </header>
+                        </article>
+                    </li>
+                
+                    <li>
+                        <article>
+                            <header>
+                                <a href="/categories/motorycles/">motorycles</a>
+                                <span style="float:right;">1</span>
+                            </header>
+                        </article>
+                    </li>
+                
+                    <li>
+                        <article>
+                            <header>
+                                <a href="/categories/nagios/">nagios</a>
+                                <span style="float:right;">3</span>
+                            </header>
+                        </article>
+                    </li>
+                
+                    <li>
+                        <article>
+                            <header>
+                                <a href="/categories/news/">news</a>
+                                <span style="float:right;">16</span>
+                            </header>
+                        </article>
+                    </li>
+                
+                    <li>
+                        <article>
+                            <header>
+                                <a href="/categories/powershell/">powershell</a>
+                                <span style="float:right;">1</span>
+                            </header>
+                        </article>
+                    </li>
+                
+            </ul>
+        </section>
+    
+
+    
+        
+
+    
+        <section id="footer">
+            <ul class="icons">
+                
+                    <li><a href="http://example.org/tags/shell/index.xml" type="application/rss+xml"
+                        target="_blank" title="RSS" class="fa fa-rss"></a></li>
+                
+                
+            </ul>
+
+            <p class="copyright">&copy; My New Hugo Site. Design: <a href="http://html5up.net" target="_blank">HTML5 UP</a>. Ported by <a href="//github.com/jpescador" target="_blank">Julio Pescador</a>. Powered by <a href="//gohugo.io" target="_blank">Hugo</a></p>
+        </section>
+
+</section>
+
+            </div>
+        <a id="back-to-top" href="#" class="fa fa-arrow-up fa-border fa-2x"></a>
+        
+
+        
+        
+            
+        
+
+        
+        
+            <script src="/js/jquery.min.js"></script>
+            <script src="/js/skel.min.js"></script>
+            <script src="/js/util.js"></script>
+            <script src="/js/main.js"></script>
+            <script src="/js/backToTop.js"></script>
+            <script src="/js/highlight.pack.js"></script>
+        
+
+        
+
+            
+            <script>hljs.initHighlightingOnLoad();</script>
+            
+    </body>
+</html>
+

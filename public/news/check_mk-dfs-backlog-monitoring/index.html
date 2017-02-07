@@ -1,0 +1,693 @@
+<!DOCTYPE HTML>
+
+<html>
+    <head>
+        
+            
+                <title>Check_MK DFS Backlog Monitoring</title>
+            
+        
+
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="generator" content="Hugo 0.18.1" />
+        
+
+
+        
+            <meta name="author" content="JR">
+        
+        
+            
+        
+
+        
+
+  <meta name="twitter:card" content="summary"/>
+
+
+
+<meta name="twitter:title" content="Check_MK DFS Backlog Monitoring"/>
+<meta name="twitter:description" content="[][1]Inventoried replicated folders and their corresponding backlog counts Before you even get started, make sure your Powershell execution policy is set to RemoteSigned for your standard AND x86 Powershell console; Check_MK will generally execute PS scripts from the x86 console, so it&#8217;s critical to set the policy for both:
+ Start &gt; Accessories &gt; Windows PowerShell Right-click &#8216;Windows PowerShell (x86)&#8217;, select &#8216;Run As Administrator&#8217; Execute: Set-Execution Policy RemoteSigned Repeat the same steps above, but for the standard &#8216;Windows PowerShell&#8217; console."/>
+
+
+
+        <meta property="og:title" content="Check_MK DFS Backlog Monitoring" />
+<meta property="og:description" content="[][1]Inventoried replicated folders and their corresponding backlog counts Before you even get started, make sure your Powershell execution policy is set to RemoteSigned for your standard AND x86 Powershell console; Check_MK will generally execute PS scripts from the x86 console, so it&#8217;s critical to set the policy for both:
+ Start &gt; Accessories &gt; Windows PowerShell Right-click &#8216;Windows PowerShell (x86)&#8217;, select &#8216;Run As Administrator&#8217; Execute: Set-Execution Policy RemoteSigned Repeat the same steps above, but for the standard &#8216;Windows PowerShell&#8217; console." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://example.org/news/check_mk-dfs-backlog-monitoring/" />
+
+
+<meta property="og:updated_time" content="2014-02-12T14:29:23&#43;00:00"/>
+
+
+
+
+
+
+
+
+
+
+        
+<meta itemprop="name" content="Check_MK DFS Backlog Monitoring">
+<meta itemprop="description" content="[][1]Inventoried replicated folders and their corresponding backlog counts Before you even get started, make sure your Powershell execution policy is set to RemoteSigned for your standard AND x86 Powershell console; Check_MK will generally execute PS scripts from the x86 console, so it&#8217;s critical to set the policy for both:
+ Start &gt; Accessories &gt; Windows PowerShell Right-click &#8216;Windows PowerShell (x86)&#8217;, select &#8216;Run As Administrator&#8217; Execute: Set-Execution Policy RemoteSigned Repeat the same steps above, but for the standard &#8216;Windows PowerShell&#8217; console.">
+
+
+<meta itemprop="dateModified" content="2014-02-12T14:29:23&#43;00:00" />
+<meta itemprop="wordCount" content="522">
+
+
+
+<meta itemprop="keywords" content="check_mk,coding,features,infrastructure-management,living,motorycles,nagios,news,powershell,backup,bash,dumps,mysql,perl-zimbra-zmprov-provisioning,script,shell,sql,victoria-lestz-wedding,wedding-of-victoria-lestz-and-jr-morgan," />
+
+        
+
+        
+
+        
+        
+            
+        
+
+        
+        
+            <link rel="stylesheet" href="/css/google-font.css" />
+            <link rel="stylesheet" href="/css/font-awesome.min.css" />
+            <link rel="stylesheet" href="/css/main.css" />
+            <link rel="stylesheet" href="/css/add-on.css" />
+            <link rel="stylesheet" href="/css/monokai-sublime.css">
+        
+
+        
+
+        
+        
+        
+            
+        
+    </head>
+    <body>
+
+        
+        <div id="wrapper">
+
+    
+    
+<header id="header">
+    
+        <h2><a href="/"></i></a></h2>
+    
+
+    <nav class="links">
+        <ul>
+            
+        </ul>
+    </nav>
+    <nav class="main">
+        <ul>
+            
+            <li id="share-nav" class="share-menu" style="display:none;">
+                <a class="fa-share-alt" href="#share-menu">Share</a>
+            </li>
+            
+            <li class="search">
+                <a class="fa-search" href="#search">Search</a>
+                <form id="search" method="get" action="//google.com/search">
+                    <input type="text" name="q" placeholder="Search" />
+                    <input type="hidden" name="q" value="site:http://example.org/">
+                </form>
+            </li>
+            <li class="menu">
+                <a class="fa-bars" href="#menu">Menu</a>
+            </li>
+        </ul>
+    </nav>
+</header>
+
+
+<section id="menu">
+
+    
+        <section>
+            <form class="search" method="get" action="//google.com/search">
+                <input type="text" name="q" placeholder="Search" />
+                <input type="hidden" name="q" value="site:http://example.org/">
+            </form>
+        </section>
+
+    
+        <section>
+            <ul class="links">
+                
+            </ul>
+        </section>
+
+    
+        <section>
+            <ul class="links">
+                <header>
+                    <h3>Recent Posts</h3>
+                </header>
+                
+                    
+                
+
+                
+                    <li>
+                        <a href="http://example.org/features/infrastructure-management/check_mk-envrionmental-monitoring-room-alert-4e/"><p>Check_MK Environmental Monitoring: Room Alert 4E</p></a>
+                    </li>
+                
+                    <li>
+                        <a href="http://example.org/features/coding/making-cisco-identity-firewall-and-ise-play-nice/"><p>Making Cisco Identity Firewall, CDA, and ISE play nice</p></a>
+                    </li>
+                
+                    <li>
+                        <a href="http://example.org/features/coding/powershell-bulk-provision-dhcp-scopes/"><p>Powershell: Bulk provision DHCP Scopes</p></a>
+                    </li>
+                
+                    <li>
+                        <a href="http://example.org/features/coding/check_mk-local-checks-grab-bag/"><p>Check_MK: Local Checks Grab Bag!</p></a>
+                    </li>
+                
+                    <li>
+                        <a href="http://example.org/news/crystal-method-2014-orlando-firestone-live/"><p>EDM Legends: Crystal Method 2014 – Orlando @Firestone Live</p></a>
+                    </li>
+                
+            </ul>
+        </section>
+
+    
+        
+</section>
+
+    <section id="share-menu">
+    <section id="social-share-nav">
+        <ul class="links">
+            <header>
+                <h3>Share this post <i class="fa fa-smile-o"></i></h3>
+            </header>
+            
+
+
+<li><a href="//twitter.com/share?url=http%3a%2f%2fexample.org%2fnews%2fcheck_mk-dfs-backlog-monitoring%2f&text=Check_MK%20DFS%20Backlog%20Monitoring&via=" target="_blank" class="share-btn twitter">
+    <i class="fa fa-twitter"></i>
+    <p>Twitter</p>
+</a></li>
+
+
+<li><a href="//plus.google.com/share?url=http%3a%2f%2fexample.org%2fnews%2fcheck_mk-dfs-backlog-monitoring%2f" target="_blank" class="share-btn google-plus">
+    <i class="fa fa-google-plus"></i>
+    <p>Google+</p>
+</a></li>
+
+
+<li><a href="//www.facebook.com/sharer/sharer.php?u=http%3a%2f%2fexample.org%2fnews%2fcheck_mk-dfs-backlog-monitoring%2f" target="_blank" class="share-btn facebook">
+    <i class="fa fa-facebook"></i>
+    <p>Facebook</p>
+</a></li>
+
+
+<li><a href="//reddit.com/submit?url=http%3a%2f%2fexample.org%2fnews%2fcheck_mk-dfs-backlog-monitoring%2f&title=Check_MK%20DFS%20Backlog%20Monitoring" target="_blank" class="share-btn reddit">
+    <i class="fa fa-reddit-alien"></i>
+    <p>Reddit</p>
+</a></li>
+
+
+<li><a href="//www.linkedin.com/shareArticle?url=http%3a%2f%2fexample.org%2fnews%2fcheck_mk-dfs-backlog-monitoring%2f&title=Check_MK%20DFS%20Backlog%20Monitoring" target="_blank" class="share-btn linkedin">
+    <i class="fa fa-linkedin"></i>
+    <p>LinkedIn</p>
+</a></li>
+
+
+<li><a href="//www.stumbleupon.com/submit?url=http%3a%2f%2fexample.org%2fnews%2fcheck_mk-dfs-backlog-monitoring%2f&title=Check_MK%20DFS%20Backlog%20Monitoring" target="_blank" class="share-btn stumbleupon">
+    <i class="fa fa-stumbleupon"></i>
+    <p>StumbleUpon</p>
+</a></li>
+
+
+<li><a href="mailto:?subject=Check out this post by JR&body=http%3a%2f%2fexample.org%2fnews%2fcheck_mk-dfs-backlog-monitoring%2f" target="_blank" class="share-btn email">
+    <i class="fa fa-envelope"></i>
+    <p>Email</p>
+</a></li>
+
+        </ul>
+    </section>
+</section>
+
+    
+    <div id="main">
+        
+        
+        <article class="post">
+    <header>
+    <div class="title">
+        
+            <h1><a href="http://example.org/news/check_mk-dfs-backlog-monitoring/">Check_MK DFS Backlog Monitoring</a></h1>
+            
+        
+        
+    </div>
+    <div class="meta">
+        
+            
+        
+
+        <time class="published"
+            datetime='2014-02-12'>
+            February 12, 2014</time>
+        <span class="author">JR</span>
+        
+        
+    </div>
+</header>
+
+
+    <section id="social-share">
+        <ul class="icons">
+            
+
+
+<li><a href="//twitter.com/share?url=http%3a%2f%2fexample.org%2fnews%2fcheck_mk-dfs-backlog-monitoring%2f&text=Check_MK%20DFS%20Backlog%20Monitoring&via=" target="_blank" class="share-btn twitter">
+    <i class="fa fa-twitter"></i>
+    <p>Twitter</p>
+</a></li>
+
+
+<li><a href="//plus.google.com/share?url=http%3a%2f%2fexample.org%2fnews%2fcheck_mk-dfs-backlog-monitoring%2f" target="_blank" class="share-btn google-plus">
+    <i class="fa fa-google-plus"></i>
+    <p>Google+</p>
+</a></li>
+
+
+<li><a href="//www.facebook.com/sharer/sharer.php?u=http%3a%2f%2fexample.org%2fnews%2fcheck_mk-dfs-backlog-monitoring%2f" target="_blank" class="share-btn facebook">
+    <i class="fa fa-facebook"></i>
+    <p>Facebook</p>
+</a></li>
+
+
+<li><a href="//reddit.com/submit?url=http%3a%2f%2fexample.org%2fnews%2fcheck_mk-dfs-backlog-monitoring%2f&title=Check_MK%20DFS%20Backlog%20Monitoring" target="_blank" class="share-btn reddit">
+    <i class="fa fa-reddit-alien"></i>
+    <p>Reddit</p>
+</a></li>
+
+
+<li><a href="//www.linkedin.com/shareArticle?url=http%3a%2f%2fexample.org%2fnews%2fcheck_mk-dfs-backlog-monitoring%2f&title=Check_MK%20DFS%20Backlog%20Monitoring" target="_blank" class="share-btn linkedin">
+    <i class="fa fa-linkedin"></i>
+    <p>LinkedIn</p>
+</a></li>
+
+
+<li><a href="//www.stumbleupon.com/submit?url=http%3a%2f%2fexample.org%2fnews%2fcheck_mk-dfs-backlog-monitoring%2f&title=Check_MK%20DFS%20Backlog%20Monitoring" target="_blank" class="share-btn stumbleupon">
+    <i class="fa fa-stumbleupon"></i>
+    <p>StumbleUpon</p>
+</a></li>
+
+
+<li><a href="mailto:?subject=Check out this post by JR&body=http%3a%2f%2fexample.org%2fnews%2fcheck_mk-dfs-backlog-monitoring%2f" target="_blank" class="share-btn email">
+    <i class="fa fa-envelope"></i>
+    <p>Email</p>
+</a></li>
+
+        </ul>
+    </section>
+    
+
+    <div id="content">
+        <figure id="attachment_3968" style="width: 715px" class="wp-caption alignright">[<img class="size-large wp-image-3968 " alt="Screenshot of inventoried replicated folders and their corresponding backlog counts" src="http://liveaverage.com/wp-content/themes/mimbo2.2/images/20131111_CheckMK_DFSRBacklog-1024x195.jpg" width="715" height="136" srcset="http://liveaverage.com/wp-content/themes/mimbo2.2/images/20131111_CheckMK_DFSRBacklog-300x57.jpg 300w, http://liveaverage.com/wp-content/themes/mimbo2.2/images/20131111_CheckMK_DFSRBacklog-1024x195.jpg 1024w, http://liveaverage.com/wp-content/themes/mimbo2.2/images/20131111_CheckMK_DFSRBacklog.jpg 1232w" sizes="(max-width: 715px) 100vw, 715px" />][1]<figcaption class="wp-caption-text">Inventoried replicated folders and their corresponding backlog counts</figcaption></figure> 
+
+<p>Before you even get started, make sure your Powershell execution policy is set to <strong>RemoteSigned </strong>for your standard AND x86 Powershell console; Check_MK will generally execute PS scripts from the x86 console, so it&#8217;s critical to set the policy for both:</p>
+
+<ol>
+<li>Start &gt; Accessories &gt; Windows PowerShell</li>
+<li>Right-click &#8216;Windows PowerShell (x86)&#8217;, select &#8216;Run As Administrator&#8217;</li>
+<li>Execute: <em>Set-Execution Policy RemoteSigned</em></li>
+<li>Repeat the same steps above, but for the standard &#8216;Windows PowerShell&#8217; console.</li>
+</ol>
+
+<p><span style="line-height: 1.6em;">Next you&#8217;ll need to configure the Check_MK_Agent Service along with WMI and Component Services Security settings:</span></p>
+
+<ol>
+<li>Configure the &#8216;Check_MK_Agent&#8217; service to utilize a domain user account (non-administrative). Make certain the &#8216;Log On As&#8217; user is a member of a <strong>security group</strong> configured for WMI/COM access. Restart the service when modifying &#8216;Log On As&#8217; account</li>
+<li><span style="line-height: 1.6em;">Each DFS Replicated folder has two or more Sending or Receiving members. These members can be determined by examining the replication group connections in the DFS management console.</span></li>
+<li><span style="line-height: 1.6em;">Perform the following security/access edits for <em>all</em> DFS Sending/Receiving members of a replication group (it will fail if you don&#8217;t do this for every replication member)</span>
+
+<ol>
+<li><span style="line-height: 1.6em;">Update WMI Security</span>
+
+<ol>
+<li><span style="line-height: 1.6em;">Start &gt; Run &gt; wmimgmt.msc</span></li>
+<li><span style="line-height: 1.6em;">Right-click &#8216;WMI Control&#8217; &gt; Select &#8216;Properties&#8217;</span></li>
+<li><span style="line-height: 1.6em;">Select &#8216;Security&#8217; Tab</span></li>
+<li>Navigate to the proper ROOT\MicrosoftDfs namespace and click the &#8216;Security&#8217; button</li>
+<li>Click &#8216;Adavanced&#8217;, Click &#8216;Add&#8217; and enter the user or security group used for WMI access</li>
+<li>Select the following &#8216;Allow&#8217; permissions:
+
+<ol>
+<li>Execute Method</li>
+<li>Enable Account</li>
+<li>Remote Enable</li>
+<li>Read Security</li>
+</ol></li>
+</ol></li>
+<li>Update Component Services Security
+
+<ol>
+<li>Start &gt; Administrative Tools &gt; Component Services</li>
+<li>From the Console Root, navigate to &#8216;Component Services&#8217; &gt; &#8216;Computers&#8217; &gt; &#8216;My Computer&#8217;</li>
+<li>Right-click &#8216;My Computer&#8217;,  select &#8216;Properties&#8217;</li>
+<li>Select the &#8216;COM Security&#8217; tab.</li>
+<li>For both &#8216;Access Permissions&#8217; and &#8216;Launch and Activation Permissions&#8217;, click &#8216;Edit Limits&#8217; and add the user/group. &#8216;Allow&#8217; all available permissions. Click OK and close all open windows.</li>
+</ol></li>
+</ol></li>
+<li><span style="line-height: 1.6em;">Verify you can successfully poll DFS replication group counts by running a Powershell terminal as the &#8216;Log On As&#8217; account you specified for the check_mk_agent service. Execute the script below. If you&#8217;re receiving backlog counts for each and every RG connection then everything is configured and you&#8217;re ready to copy the PS script to the </span><em style="line-height: 1.6em;">check_mk/local </em><span style="line-height: 1.6em;">directory</span><em style="line-height: 1.6em;">.</em></li>
+<li><span style="line-height: 1.6em;">An additional note: if you have a TON of replication groups (like I do), then I highly suggest downloading the Check_MK agent Innovation release and tweaking the local check timeout &amp; cache settings. This will help, but likely not solve, issues with backlog check timeouts. An alternative is using a scheduled task for backlog counts, output to a status file, and use a simple &#8216;Get-Content&#8217; in PS to output the status file contents when requested by check_mk</span></li>
+</ol>
+
+<p><a title="Gist - check_DFS_Backlog.ps1" href="https://gist.github.com/liveaverage/6324046" target="_blank"><a href="https://gist.github.com/liveaverage/6324046">https://gist.github.com/liveaverage/6324046</a></a></p>
+
+<div class="code-embed-wrapper">
+  <pre class="language-bash code-embed-pre line-numbers" ><code class="language-bash code-embed-code">$computer = [System.Net.Dns]::GetHostName()
+$Computer = [System.Net.Dns]::GetHostName()
+
+# Fix issue with console text wrap:
+$Host.UI.RawUI.BufferSize = New-Object Management.Automation.Host.Size (500, 300)
+
+$OK = 0
+$Warn = 1
+$Crit = 2
+$Unk = 3
+
+#Warning/Critical Backlog [File] Counts:
+$w_count = 350
+$c_count = 700
+
+[string]$RGName = ""
+[string]$RFName = ""
+
+$DebugPreference = "SilentlyContinue"
+$ErrorActionPreference = "SilentlyContinue"
+
+#region DFSQuery
+
+### These thresholds are irrelevant for the local Check_MK thresholds (native to Steve Grinker&#039;s script):
+[int]$WarningThreshold = 50
+[int]$ErrorThreshold = 500
+
+Function PingCheck
+{
+    Param</code></pre>
+  
+  <div class="code-embed-infos">
+    <a href="https://gist.github.com/6324046" title="See check_DFS_backlog.ps1" target="_blank" class="code-embed-name">check_DFS_backlog.ps1</a> <a href="https://gist.githubusercontent.com/liveaverage/6324046/raw/b99f1ee47125a93d431403e1789c7340acfc14c5/check_DFS_backlog.ps1" title="Back to check_DFS_backlog.ps1" class="code-embed-raw" target="_blank">view raw</a>
+  </div>
+</div>
+
+    </div>
+
+    <footer>
+        <ul class="stats">
+    
+        
+
+        
+        
+            <li>
+                
+    </footer>
+</article>
+<ul class="actions pagination">
+    
+        <li><a href="http://example.org/features/infrastructure-management/extending-check_mk-mysql-status-output/"
+                class="button big previous">Extending Check_MK MySQL Status Output</a></li>
+    
+
+    
+        <li><a href="http://example.org/news/one-person-motorcycle-loading/"
+                class="button big next">One-person motorcycle loading</a></li>
+    
+</ul>
+
+
+
+
+    </div>
+    
+<section id="sidebar">
+
+    
+        <section id="intro">
+            
+            
+            
+            <ul class="icons">
+                
+                
+            </ul>
+        </section>
+
+    
+        <section id="recent-posts">
+            <ul class="posts">
+                <header>
+                    <h3>Recent Posts</h3>
+                </header>
+                
+                    
+                
+
+                
+                    
+                
+
+                
+                    <li>
+                        <article>
+                            <header>
+                                <h3><a href="http://example.org/features/infrastructure-management/check_mk-envrionmental-monitoring-room-alert-4e/">Check_MK Environmental Monitoring: Room Alert 4E</a></h3>
+                                
+                                    
+                                
+                                <time class="published" datetime=
+                                    '2014-08-13'>
+                                    August 13, 2014</time>
+                            </header>
+                        </article>
+                    </li>
+                
+                    <li>
+                        <article>
+                            <header>
+                                <h3><a href="http://example.org/features/coding/making-cisco-identity-firewall-and-ise-play-nice/">Making Cisco Identity Firewall, CDA, and ISE play nice</a></h3>
+                                
+                                    
+                                
+                                <time class="published" datetime=
+                                    '2014-08-07'>
+                                    August 7, 2014</time>
+                            </header>
+                        </article>
+                    </li>
+                
+                    <li>
+                        <article>
+                            <header>
+                                <h3><a href="http://example.org/features/coding/powershell-bulk-provision-dhcp-scopes/">Powershell: Bulk provision DHCP Scopes</a></h3>
+                                
+                                    
+                                
+                                <time class="published" datetime=
+                                    '2014-07-30'>
+                                    July 30, 2014</time>
+                            </header>
+                        </article>
+                    </li>
+                
+                    <li>
+                        <article>
+                            <header>
+                                <h3><a href="http://example.org/features/coding/check_mk-local-checks-grab-bag/">Check_MK: Local Checks Grab Bag!</a></h3>
+                                
+                                    
+                                
+                                <time class="published" datetime=
+                                    '2014-07-29'>
+                                    July 29, 2014</time>
+                            </header>
+                        </article>
+                    </li>
+                
+                    <li>
+                        <article>
+                            <header>
+                                <h3><a href="http://example.org/news/crystal-method-2014-orlando-firestone-live/">EDM Legends: Crystal Method 2014 – Orlando @Firestone Live</a></h3>
+                                
+                                    
+                                
+                                <time class="published" datetime=
+                                    '2014-05-05'>
+                                    May 5, 2014</time>
+                            </header>
+                        </article>
+                    </li>
+                
+
+                
+                    <li>
+                        <ul class="actions">
+                            <li><a href=
+                            
+                                "/post/"
+                            
+                            class="button">View more posts</a></li>
+                        </ul>
+                    </li>
+                
+            </ul>
+        </section>
+
+    
+    
+    
+    
+        <section id="categories">
+            <ul class="posts">
+                <header>
+                    <h3><a href="/categories/">Categories</a></h3>
+                </header>
+
+                
+                    
+                
+
+                
+                    <li>
+                        <article>
+                            <header>
+                                <a href="/categories/check_mk/">check_mk</a>
+                                <span style="float:right;">1</span>
+                            </header>
+                        </article>
+                    </li>
+                
+                    <li>
+                        <article>
+                            <header>
+                                <a href="/categories/coding/">coding</a>
+                                <span style="float:right;">12</span>
+                            </header>
+                        </article>
+                    </li>
+                
+                    <li>
+                        <article>
+                            <header>
+                                <a href="/categories/features/">features</a>
+                                <span style="float:right;">1</span>
+                            </header>
+                        </article>
+                    </li>
+                
+                    <li>
+                        <article>
+                            <header>
+                                <a href="/categories/infrastructure-management/">infrastructure-management</a>
+                                <span style="float:right;">12</span>
+                            </header>
+                        </article>
+                    </li>
+                
+                    <li>
+                        <article>
+                            <header>
+                                <a href="/categories/living/">living</a>
+                                <span style="float:right;">4</span>
+                            </header>
+                        </article>
+                    </li>
+                
+                    <li>
+                        <article>
+                            <header>
+                                <a href="/categories/motorycles/">motorycles</a>
+                                <span style="float:right;">1</span>
+                            </header>
+                        </article>
+                    </li>
+                
+                    <li>
+                        <article>
+                            <header>
+                                <a href="/categories/nagios/">nagios</a>
+                                <span style="float:right;">3</span>
+                            </header>
+                        </article>
+                    </li>
+                
+                    <li>
+                        <article>
+                            <header>
+                                <a href="/categories/news/">news</a>
+                                <span style="float:right;">16</span>
+                            </header>
+                        </article>
+                    </li>
+                
+                    <li>
+                        <article>
+                            <header>
+                                <a href="/categories/powershell/">powershell</a>
+                                <span style="float:right;">1</span>
+                            </header>
+                        </article>
+                    </li>
+                
+            </ul>
+        </section>
+    
+
+    
+        
+
+    
+        <section id="footer">
+            <ul class="icons">
+                
+                
+            </ul>
+
+            <p class="copyright">&copy; My New Hugo Site. Design: <a href="http://html5up.net" target="_blank">HTML5 UP</a>. Ported by <a href="//github.com/jpescador" target="_blank">Julio Pescador</a>. Powered by <a href="//gohugo.io" target="_blank">Hugo</a></p>
+        </section>
+
+</section>
+
+            </div>
+        <a id="back-to-top" href="#" class="fa fa-arrow-up fa-border fa-2x"></a>
+        
+
+        
+        
+            
+        
+
+        
+        
+            <script src="/js/jquery.min.js"></script>
+            <script src="/js/skel.min.js"></script>
+            <script src="/js/util.js"></script>
+            <script src="/js/main.js"></script>
+            <script src="/js/backToTop.js"></script>
+            <script src="/js/highlight.pack.js"></script>
+        
+
+        
+
+            
+            <script>hljs.initHighlightingOnLoad();</script>
+            
+    </body>
+</html>
+

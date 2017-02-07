@@ -1,0 +1,723 @@
+<!DOCTYPE HTML>
+
+<html>
+    <head>
+        
+            
+                <title>Lenovo RS110 Review</title>
+            
+        
+
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="generator" content="Hugo 0.18.1" />
+        
+
+
+        
+            <meta name="author" content="JR">
+        
+        
+            
+        
+
+        
+
+  <meta name="twitter:card" content="summary"/>
+
+
+
+<meta name="twitter:title" content="Lenovo RS110 Review"/>
+<meta name="twitter:description" content="I recently had the [unfortunate] opportunity of rolling-out (2) Lenovo RS110 servers targeted for SMBs. We seemed to fit the market for this relatively new Lenovo offering, but the product failed to meet the needs and expectations of my environment. The intention was to launch one of these two units with an Ubuntu/Debian-based Linux distribution to host our Zimbra mail server (currently residing virtual Ubuntu 6.06 LTS machine, with a host OS of Ubuntu 8."/>
+
+
+
+        <meta property="og:title" content="Lenovo RS110 Review" />
+<meta property="og:description" content="I recently had the [unfortunate] opportunity of rolling-out (2) Lenovo RS110 servers targeted for SMBs. We seemed to fit the market for this relatively new Lenovo offering, but the product failed to meet the needs and expectations of my environment. The intention was to launch one of these two units with an Ubuntu/Debian-based Linux distribution to host our Zimbra mail server (currently residing virtual Ubuntu 6.06 LTS machine, with a host OS of Ubuntu 8." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://example.org/news/lenovo-rs110-review/" />
+
+
+<meta property="og:updated_time" content="2009-10-07T15:34:01&#43;00:00"/>
+
+
+
+
+
+
+
+
+
+
+        
+<meta itemprop="name" content="Lenovo RS110 Review">
+<meta itemprop="description" content="I recently had the [unfortunate] opportunity of rolling-out (2) Lenovo RS110 servers targeted for SMBs. We seemed to fit the market for this relatively new Lenovo offering, but the product failed to meet the needs and expectations of my environment. The intention was to launch one of these two units with an Ubuntu/Debian-based Linux distribution to host our Zimbra mail server (currently residing virtual Ubuntu 6.06 LTS machine, with a host OS of Ubuntu 8.">
+
+
+<meta itemprop="dateModified" content="2009-10-07T15:34:01&#43;00:00" />
+<meta itemprop="wordCount" content="626">
+
+
+
+<meta itemprop="keywords" content="check_mk,coding,features,infrastructure-management,living,motorycles,nagios,news,powershell,backup,bash,dumps,mysql,perl-zimbra-zmprov-provisioning,script,shell,sql,victoria-lestz-wedding,wedding-of-victoria-lestz-and-jr-morgan," />
+
+        
+
+        
+
+        
+        
+            
+        
+
+        
+        
+            <link rel="stylesheet" href="/css/google-font.css" />
+            <link rel="stylesheet" href="/css/font-awesome.min.css" />
+            <link rel="stylesheet" href="/css/main.css" />
+            <link rel="stylesheet" href="/css/add-on.css" />
+            <link rel="stylesheet" href="/css/monokai-sublime.css">
+        
+
+        
+
+        
+        
+        
+            
+        
+    </head>
+    <body>
+
+        
+        <div id="wrapper">
+
+    
+    
+<header id="header">
+    
+        <h2><a href="/"></i></a></h2>
+    
+
+    <nav class="links">
+        <ul>
+            
+        </ul>
+    </nav>
+    <nav class="main">
+        <ul>
+            
+            <li id="share-nav" class="share-menu" style="display:none;">
+                <a class="fa-share-alt" href="#share-menu">Share</a>
+            </li>
+            
+            <li class="search">
+                <a class="fa-search" href="#search">Search</a>
+                <form id="search" method="get" action="//google.com/search">
+                    <input type="text" name="q" placeholder="Search" />
+                    <input type="hidden" name="q" value="site:http://example.org/">
+                </form>
+            </li>
+            <li class="menu">
+                <a class="fa-bars" href="#menu">Menu</a>
+            </li>
+        </ul>
+    </nav>
+</header>
+
+
+<section id="menu">
+
+    
+        <section>
+            <form class="search" method="get" action="//google.com/search">
+                <input type="text" name="q" placeholder="Search" />
+                <input type="hidden" name="q" value="site:http://example.org/">
+            </form>
+        </section>
+
+    
+        <section>
+            <ul class="links">
+                
+            </ul>
+        </section>
+
+    
+        <section>
+            <ul class="links">
+                <header>
+                    <h3>Recent Posts</h3>
+                </header>
+                
+                    
+                
+
+                
+                    <li>
+                        <a href="http://example.org/features/infrastructure-management/check_mk-envrionmental-monitoring-room-alert-4e/"><p>Check_MK Environmental Monitoring: Room Alert 4E</p></a>
+                    </li>
+                
+                    <li>
+                        <a href="http://example.org/features/coding/making-cisco-identity-firewall-and-ise-play-nice/"><p>Making Cisco Identity Firewall, CDA, and ISE play nice</p></a>
+                    </li>
+                
+                    <li>
+                        <a href="http://example.org/features/coding/powershell-bulk-provision-dhcp-scopes/"><p>Powershell: Bulk provision DHCP Scopes</p></a>
+                    </li>
+                
+                    <li>
+                        <a href="http://example.org/features/coding/check_mk-local-checks-grab-bag/"><p>Check_MK: Local Checks Grab Bag!</p></a>
+                    </li>
+                
+                    <li>
+                        <a href="http://example.org/news/crystal-method-2014-orlando-firestone-live/"><p>EDM Legends: Crystal Method 2014 – Orlando @Firestone Live</p></a>
+                    </li>
+                
+            </ul>
+        </section>
+
+    
+        
+</section>
+
+    <section id="share-menu">
+    <section id="social-share-nav">
+        <ul class="links">
+            <header>
+                <h3>Share this post <i class="fa fa-smile-o"></i></h3>
+            </header>
+            
+
+
+<li><a href="//twitter.com/share?url=http%3a%2f%2fexample.org%2fnews%2flenovo-rs110-review%2f&text=Lenovo%20RS110%20Review&via=" target="_blank" class="share-btn twitter">
+    <i class="fa fa-twitter"></i>
+    <p>Twitter</p>
+</a></li>
+
+
+<li><a href="//plus.google.com/share?url=http%3a%2f%2fexample.org%2fnews%2flenovo-rs110-review%2f" target="_blank" class="share-btn google-plus">
+    <i class="fa fa-google-plus"></i>
+    <p>Google+</p>
+</a></li>
+
+
+<li><a href="//www.facebook.com/sharer/sharer.php?u=http%3a%2f%2fexample.org%2fnews%2flenovo-rs110-review%2f" target="_blank" class="share-btn facebook">
+    <i class="fa fa-facebook"></i>
+    <p>Facebook</p>
+</a></li>
+
+
+<li><a href="//reddit.com/submit?url=http%3a%2f%2fexample.org%2fnews%2flenovo-rs110-review%2f&title=Lenovo%20RS110%20Review" target="_blank" class="share-btn reddit">
+    <i class="fa fa-reddit-alien"></i>
+    <p>Reddit</p>
+</a></li>
+
+
+<li><a href="//www.linkedin.com/shareArticle?url=http%3a%2f%2fexample.org%2fnews%2flenovo-rs110-review%2f&title=Lenovo%20RS110%20Review" target="_blank" class="share-btn linkedin">
+    <i class="fa fa-linkedin"></i>
+    <p>LinkedIn</p>
+</a></li>
+
+
+<li><a href="//www.stumbleupon.com/submit?url=http%3a%2f%2fexample.org%2fnews%2flenovo-rs110-review%2f&title=Lenovo%20RS110%20Review" target="_blank" class="share-btn stumbleupon">
+    <i class="fa fa-stumbleupon"></i>
+    <p>StumbleUpon</p>
+</a></li>
+
+
+<li><a href="mailto:?subject=Check out this post by JR&body=http%3a%2f%2fexample.org%2fnews%2flenovo-rs110-review%2f" target="_blank" class="share-btn email">
+    <i class="fa fa-envelope"></i>
+    <p>Email</p>
+</a></li>
+
+        </ul>
+    </section>
+</section>
+
+    
+    <div id="main">
+        
+        
+        <article class="post">
+    <header>
+    <div class="title">
+        
+            <h1><a href="http://example.org/news/lenovo-rs110-review/">Lenovo RS110 Review</a></h1>
+            
+        
+        
+    </div>
+    <div class="meta">
+        
+            
+        
+
+        <time class="published"
+            datetime='2009-10-07'>
+            October 7, 2009</time>
+        <span class="author">JR</span>
+        
+        
+    </div>
+</header>
+
+
+    <section id="social-share">
+        <ul class="icons">
+            
+
+
+<li><a href="//twitter.com/share?url=http%3a%2f%2fexample.org%2fnews%2flenovo-rs110-review%2f&text=Lenovo%20RS110%20Review&via=" target="_blank" class="share-btn twitter">
+    <i class="fa fa-twitter"></i>
+    <p>Twitter</p>
+</a></li>
+
+
+<li><a href="//plus.google.com/share?url=http%3a%2f%2fexample.org%2fnews%2flenovo-rs110-review%2f" target="_blank" class="share-btn google-plus">
+    <i class="fa fa-google-plus"></i>
+    <p>Google+</p>
+</a></li>
+
+
+<li><a href="//www.facebook.com/sharer/sharer.php?u=http%3a%2f%2fexample.org%2fnews%2flenovo-rs110-review%2f" target="_blank" class="share-btn facebook">
+    <i class="fa fa-facebook"></i>
+    <p>Facebook</p>
+</a></li>
+
+
+<li><a href="//reddit.com/submit?url=http%3a%2f%2fexample.org%2fnews%2flenovo-rs110-review%2f&title=Lenovo%20RS110%20Review" target="_blank" class="share-btn reddit">
+    <i class="fa fa-reddit-alien"></i>
+    <p>Reddit</p>
+</a></li>
+
+
+<li><a href="//www.linkedin.com/shareArticle?url=http%3a%2f%2fexample.org%2fnews%2flenovo-rs110-review%2f&title=Lenovo%20RS110%20Review" target="_blank" class="share-btn linkedin">
+    <i class="fa fa-linkedin"></i>
+    <p>LinkedIn</p>
+</a></li>
+
+
+<li><a href="//www.stumbleupon.com/submit?url=http%3a%2f%2fexample.org%2fnews%2flenovo-rs110-review%2f&title=Lenovo%20RS110%20Review" target="_blank" class="share-btn stumbleupon">
+    <i class="fa fa-stumbleupon"></i>
+    <p>StumbleUpon</p>
+</a></li>
+
+
+<li><a href="mailto:?subject=Check out this post by JR&body=http%3a%2f%2fexample.org%2fnews%2flenovo-rs110-review%2f" target="_blank" class="share-btn email">
+    <i class="fa fa-envelope"></i>
+    <p>Email</p>
+</a></li>
+
+        </ul>
+    </section>
+    
+
+    <div id="content">
+        <p><img class="size-medium wp-image-260     alignleft" style="margin: 15px;" title="Lenovo RS110 Server" src="http://liveaverage.com/wp-content/themes/mimbo2.2/images/74840064-300x300-0-0_lenovors110xeonqcx33604gbsas331.jpg" alt="Lenovo RS110 Server for SMBs" width="210" height="210" srcset="http://liveaverage.com/wp-content/themes/mimbo2.2/images/74840064-300x300-0-0_lenovors110xeonqcx33604gbsas331-150x150.jpg 150w, http://liveaverage.com/wp-content/themes/mimbo2.2/images/74840064-300x300-0-0_lenovors110xeonqcx33604gbsas331.jpg 300w" sizes="(max-width: 210px) 100vw, 210px" /></p>
+
+<p>I recently had the [unfortunate] opportunity of rolling-out (2) Lenovo RS110 servers targeted for SMBs. We seemed to fit the market for this relatively new Lenovo offering, but the product failed to meet the needs and expectations of my environment. The intention was to launch one of these two units with an Ubuntu/Debian-based Linux distribution to host our Zimbra mail server (currently residing virtual Ubuntu 6.06 LTS machine, with a host OS of Ubuntu 8.04 LTS 64-bit). Here&#8217;s some brief hardware highlights:</p>
+
+<div class="bulletListWrapper">
+  <ul id="PO_ctl02_blmObjText__bulletList" class="bulletList">
+    <li>
+      Intel® Xeon® Dual Core Processor E3110
+    </li>
+    <li>
+      3.00Ghz
+    </li>
+    <li>
+      6MB cache
+    </li>
+    <li>
+      2GB (we upgraded to 4Gb of PC26400 RAM)
+    </li>
+    <li>
+      Rack(2&#215;2) &#8212; Rails and mounting hardware included
+    </li>
+    <li>
+      LSISAS1064e Raid Controller (0,1,10) &#8212; Hardware RAID, NOT fakeRAID
+    </li>
+    <li>
+      16x Max DVD-ROM
+    </li>
+    <li>
+      Dual Gigabit Ethernet, +1 Ethernet Management Port
+    </li>
+    <li>
+      no preload for OS
+    </li>
+  </ul>
+</div>
+
+<div class="bulletListWrapper">
+  Yes, it looks pretty decent for a $800-$900 price-tag. But note some caveats: to obtain hard-disk carriers for this RS110, you <em>have</em> purchase Lenovo hard-disks. You cannot purchase the carriers independent of a hard-disk. You can, however, make your own brackets or use hard-disk brackets from another manufacture that fit in the hot-swap bay(s). This was unknown to me before my purchase. Had I know this, I would have kept looking at other options. Another snag: the hardware RAID controller is/was only [fully] supported by one of the four different Linux distributions I attempted to install. The comprehensive list of attempted distro installs:
+</div>
+
+<div class="bulletListWrapper">
+  <strong><br /> </strong>
+</div>
+
+<table style="height: 129px;" border="0" cellspacing="0" cellpadding="5" width="319">
+  <tr>
+    <td>
+      <strong>Debian Server 5.03 Lenny</strong>
+    </td>
+    
+    <td>
+      <strong>[Joy]</strong>
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      <strong>Ubuntu Server 6.06.1 LTS</strong>
+    </td>
+    
+    <td>
+      <strong>[No go]</strong>
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      <strong>Ubuntu Server 6.06.2 LTS</strong>
+    </td>
+    
+    <td>
+      <strong>[No go]</strong>
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      <strong>Ubuntu Server 8.04 LTS</strong>
+    </td>
+    
+    <td>
+      <strong>[No go]</strong>
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      <strong>Ubuntu Server 9.04</strong>
+    </td>
+    
+    <td>
+      <strong>[No go]</strong>
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      <strong>Red Hat Fedora 11</strong>
+    </td>
+    
+    <td>
+      <strong>[No go]</strong>
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      <strong>CentOS Server 5.3</strong>
+    </td>
+    
+    <td>
+      <strong>[No go]</strong>
+    </td>
+  </tr>
+</table>
+
+<p>I won&#8217;t lie &#8212; I did complete successful installs on Ubuntu 8.04 and Ubuntu 9.04; however, when attempting to copy large files to a Samba share (or via SCP, didn&#8217;t matter what protocol), the RS110 would crash&#8230; hard&#8230; with perpetual disk i/o errors until a hard reset was completed. Debian 5.03 was the only distribution that installed successfully <em>and</em> operated normally under a commonplace workload. Unfortunately, Zimbra offers no support for Debian 5.03 at this time. The RS110 claims support for Red Hat Enterprise Linux and Suse, but I&#8217;m not in the mood to start mixing too many Linux distros in my environment (I&#8217;m already running Debian, Ubuntu, and flavors of OpenBSD), nor do I feel up for paying a yearly RHEL subscription/support fee. So, I executed my last option for utilizing an RS110 as my physical mail server: throw in a supported RAID card. I installed a 3Ware (AMCC) 9650SE-2LP card in the available PCI-E riser-card slot. Note that the hot-swap back-plane does NOT use generic SATA/SAS data or power connections, which means I had use a molex to SATA Y-connector for power and two separate, standard SATA data cables. This meant the back-plane was not being used at all&#8230;</p>
+
+<p>Apparently this &#8220;configuration,&#8221; is what Lenovo Support staff called an &#8220;unsupported,&#8221; hardware configuration. A generic PCI-E RAID controller in a PCI-E slot on the RS110 is unsupported. The 3Ware RAID bios never did post, regardless of several Lenovo BIOS setting changes and physically removing the LSI card from the RS110. Following this last bit of frustration, I contacted the vendor I purchased from and indicated my dissatisfaction with the Lenovo RS110. I&#8217;ve decided to keep one as a Windows 2003 R2 VMWare host, but I&#8217;ve already packaged the other 110 for return.</p>
+
+<p><strong>Bottom-line:</strong> If you&#8217;re running a low-load Windows 2003 server, this product <em>might</em> be ideal for your environment. If you intend to run anything else on the hardware, <em>stay away</em>. Support was unclear about the &#8220;unsupported,&#8221; configuration, so I wouldn&#8217;t plan on even using the one available PCI-E slot. The forced purchase of Lenovo hard-disks versus just the disk carriers feels like extortion&#8230;</p>
+
+    </div>
+
+    <footer>
+        <ul class="stats">
+    
+        
+
+        
+        
+            <li>
+                
+    </footer>
+</article>
+<ul class="actions pagination">
+    
+        <li><a href="http://example.org/features/coding/add-submitted-tickets-listing-page-for-joomla-rstickets/"
+                class="button big previous">Add ‘Submitted Tickets’ Listing Page for Joomla! RSTickets</a></li>
+    
+
+    
+        <li><a href="http://example.org/news/accessing-vmare-disks-without-vmware-server-or-workstation/"
+                class="button big next">Accessing VMare Disks — without VMware Server or Workstation</a></li>
+    
+</ul>
+
+
+
+
+    </div>
+    
+<section id="sidebar">
+
+    
+        <section id="intro">
+            
+            
+            
+            <ul class="icons">
+                
+                
+            </ul>
+        </section>
+
+    
+        <section id="recent-posts">
+            <ul class="posts">
+                <header>
+                    <h3>Recent Posts</h3>
+                </header>
+                
+                    
+                
+
+                
+                    
+                
+
+                
+                    <li>
+                        <article>
+                            <header>
+                                <h3><a href="http://example.org/features/infrastructure-management/check_mk-envrionmental-monitoring-room-alert-4e/">Check_MK Environmental Monitoring: Room Alert 4E</a></h3>
+                                
+                                    
+                                
+                                <time class="published" datetime=
+                                    '2014-08-13'>
+                                    August 13, 2014</time>
+                            </header>
+                        </article>
+                    </li>
+                
+                    <li>
+                        <article>
+                            <header>
+                                <h3><a href="http://example.org/features/coding/making-cisco-identity-firewall-and-ise-play-nice/">Making Cisco Identity Firewall, CDA, and ISE play nice</a></h3>
+                                
+                                    
+                                
+                                <time class="published" datetime=
+                                    '2014-08-07'>
+                                    August 7, 2014</time>
+                            </header>
+                        </article>
+                    </li>
+                
+                    <li>
+                        <article>
+                            <header>
+                                <h3><a href="http://example.org/features/coding/powershell-bulk-provision-dhcp-scopes/">Powershell: Bulk provision DHCP Scopes</a></h3>
+                                
+                                    
+                                
+                                <time class="published" datetime=
+                                    '2014-07-30'>
+                                    July 30, 2014</time>
+                            </header>
+                        </article>
+                    </li>
+                
+                    <li>
+                        <article>
+                            <header>
+                                <h3><a href="http://example.org/features/coding/check_mk-local-checks-grab-bag/">Check_MK: Local Checks Grab Bag!</a></h3>
+                                
+                                    
+                                
+                                <time class="published" datetime=
+                                    '2014-07-29'>
+                                    July 29, 2014</time>
+                            </header>
+                        </article>
+                    </li>
+                
+                    <li>
+                        <article>
+                            <header>
+                                <h3><a href="http://example.org/news/crystal-method-2014-orlando-firestone-live/">EDM Legends: Crystal Method 2014 – Orlando @Firestone Live</a></h3>
+                                
+                                    
+                                
+                                <time class="published" datetime=
+                                    '2014-05-05'>
+                                    May 5, 2014</time>
+                            </header>
+                        </article>
+                    </li>
+                
+
+                
+                    <li>
+                        <ul class="actions">
+                            <li><a href=
+                            
+                                "/post/"
+                            
+                            class="button">View more posts</a></li>
+                        </ul>
+                    </li>
+                
+            </ul>
+        </section>
+
+    
+    
+    
+    
+        <section id="categories">
+            <ul class="posts">
+                <header>
+                    <h3><a href="/categories/">Categories</a></h3>
+                </header>
+
+                
+                    
+                
+
+                
+                    <li>
+                        <article>
+                            <header>
+                                <a href="/categories/check_mk/">check_mk</a>
+                                <span style="float:right;">1</span>
+                            </header>
+                        </article>
+                    </li>
+                
+                    <li>
+                        <article>
+                            <header>
+                                <a href="/categories/coding/">coding</a>
+                                <span style="float:right;">12</span>
+                            </header>
+                        </article>
+                    </li>
+                
+                    <li>
+                        <article>
+                            <header>
+                                <a href="/categories/features/">features</a>
+                                <span style="float:right;">1</span>
+                            </header>
+                        </article>
+                    </li>
+                
+                    <li>
+                        <article>
+                            <header>
+                                <a href="/categories/infrastructure-management/">infrastructure-management</a>
+                                <span style="float:right;">12</span>
+                            </header>
+                        </article>
+                    </li>
+                
+                    <li>
+                        <article>
+                            <header>
+                                <a href="/categories/living/">living</a>
+                                <span style="float:right;">4</span>
+                            </header>
+                        </article>
+                    </li>
+                
+                    <li>
+                        <article>
+                            <header>
+                                <a href="/categories/motorycles/">motorycles</a>
+                                <span style="float:right;">1</span>
+                            </header>
+                        </article>
+                    </li>
+                
+                    <li>
+                        <article>
+                            <header>
+                                <a href="/categories/nagios/">nagios</a>
+                                <span style="float:right;">3</span>
+                            </header>
+                        </article>
+                    </li>
+                
+                    <li>
+                        <article>
+                            <header>
+                                <a href="/categories/news/">news</a>
+                                <span style="float:right;">16</span>
+                            </header>
+                        </article>
+                    </li>
+                
+                    <li>
+                        <article>
+                            <header>
+                                <a href="/categories/powershell/">powershell</a>
+                                <span style="float:right;">1</span>
+                            </header>
+                        </article>
+                    </li>
+                
+            </ul>
+        </section>
+    
+
+    
+        
+
+    
+        <section id="footer">
+            <ul class="icons">
+                
+                
+            </ul>
+
+            <p class="copyright">&copy; My New Hugo Site. Design: <a href="http://html5up.net" target="_blank">HTML5 UP</a>. Ported by <a href="//github.com/jpescador" target="_blank">Julio Pescador</a>. Powered by <a href="//gohugo.io" target="_blank">Hugo</a></p>
+        </section>
+
+</section>
+
+            </div>
+        <a id="back-to-top" href="#" class="fa fa-arrow-up fa-border fa-2x"></a>
+        
+
+        
+        
+            
+        
+
+        
+        
+            <script src="/js/jquery.min.js"></script>
+            <script src="/js/skel.min.js"></script>
+            <script src="/js/util.js"></script>
+            <script src="/js/main.js"></script>
+            <script src="/js/backToTop.js"></script>
+            <script src="/js/highlight.pack.js"></script>
+        
+
+        
+
+            
+            <script>hljs.initHighlightingOnLoad();</script>
+            
+    </body>
+</html>
+

@@ -1,0 +1,1003 @@
+<!DOCTYPE HTML>
+
+<html>
+    <head>
+        
+            
+                <title>Powershell Script: Sync DHCP Reservations (Windows Server 2008)</title>
+            
+        
+
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="generator" content="Hugo 0.18.1" />
+        
+
+
+        
+            <meta name="author" content="JR">
+        
+        
+            
+        
+
+        
+
+  <meta name="twitter:card" content="summary"/>
+
+
+
+<meta name="twitter:title" content="Powershell Script: Sync DHCP Reservations (Windows Server 2008)"/>
+<meta name="twitter:description" content="If you have redundant Windows 2008 DHCP servers (likely with split-scope configurations), you&#8217;re familiar with the problem of keeping reservations between the servers synchronized. I figured I&#8217;d post a script I created to sync reservations between servers. Synchronization can be 1-to-1 or 1-to-many, depending on your redundant DHCP server configuration. This script can sync with ALL authorized DHCP servers in a domain if needed. Make sure to read the included Powershell help information."/>
+
+
+
+        <meta property="og:title" content="Powershell Script: Sync DHCP Reservations (Windows Server 2008)" />
+<meta property="og:description" content="If you have redundant Windows 2008 DHCP servers (likely with split-scope configurations), you&#8217;re familiar with the problem of keeping reservations between the servers synchronized. I figured I&#8217;d post a script I created to sync reservations between servers. Synchronization can be 1-to-1 or 1-to-many, depending on your redundant DHCP server configuration. This script can sync with ALL authorized DHCP servers in a domain if needed. Make sure to read the included Powershell help information." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://example.org/features/coding/powershell-script-sync-dhcp-reservations-windows-server-2008/" />
+
+
+<meta property="og:updated_time" content="2012-11-14T14:11:56&#43;00:00"/>
+
+
+
+
+
+
+
+
+
+
+        
+<meta itemprop="name" content="Powershell Script: Sync DHCP Reservations (Windows Server 2008)">
+<meta itemprop="description" content="If you have redundant Windows 2008 DHCP servers (likely with split-scope configurations), you&#8217;re familiar with the problem of keeping reservations between the servers synchronized. I figured I&#8217;d post a script I created to sync reservations between servers. Synchronization can be 1-to-1 or 1-to-many, depending on your redundant DHCP server configuration. This script can sync with ALL authorized DHCP servers in a domain if needed. Make sure to read the included Powershell help information.">
+
+
+<meta itemprop="dateModified" content="2012-11-14T14:11:56&#43;00:00" />
+<meta itemprop="wordCount" content="1660">
+
+
+
+<meta itemprop="keywords" content="check_mk,coding,features,infrastructure-management,living,motorycles,nagios,news,powershell,backup,bash,dumps,mysql,perl-zimbra-zmprov-provisioning,script,shell,sql,victoria-lestz-wedding,wedding-of-victoria-lestz-and-jr-morgan," />
+
+        
+
+        
+
+        
+        
+            
+        
+
+        
+        
+            <link rel="stylesheet" href="/css/google-font.css" />
+            <link rel="stylesheet" href="/css/font-awesome.min.css" />
+            <link rel="stylesheet" href="/css/main.css" />
+            <link rel="stylesheet" href="/css/add-on.css" />
+            <link rel="stylesheet" href="/css/monokai-sublime.css">
+        
+
+        
+
+        
+        
+        
+            
+        
+    </head>
+    <body>
+
+        
+        <div id="wrapper">
+
+    
+    
+<header id="header">
+    
+        <h2><a href="/"></i></a></h2>
+    
+
+    <nav class="links">
+        <ul>
+            
+        </ul>
+    </nav>
+    <nav class="main">
+        <ul>
+            
+            <li id="share-nav" class="share-menu" style="display:none;">
+                <a class="fa-share-alt" href="#share-menu">Share</a>
+            </li>
+            
+            <li class="search">
+                <a class="fa-search" href="#search">Search</a>
+                <form id="search" method="get" action="//google.com/search">
+                    <input type="text" name="q" placeholder="Search" />
+                    <input type="hidden" name="q" value="site:http://example.org/">
+                </form>
+            </li>
+            <li class="menu">
+                <a class="fa-bars" href="#menu">Menu</a>
+            </li>
+        </ul>
+    </nav>
+</header>
+
+
+<section id="menu">
+
+    
+        <section>
+            <form class="search" method="get" action="//google.com/search">
+                <input type="text" name="q" placeholder="Search" />
+                <input type="hidden" name="q" value="site:http://example.org/">
+            </form>
+        </section>
+
+    
+        <section>
+            <ul class="links">
+                
+            </ul>
+        </section>
+
+    
+        <section>
+            <ul class="links">
+                <header>
+                    <h3>Recent Posts</h3>
+                </header>
+                
+                    
+                
+
+                
+                    <li>
+                        <a href="http://example.org/features/infrastructure-management/check_mk-envrionmental-monitoring-room-alert-4e/"><p>Check_MK Environmental Monitoring: Room Alert 4E</p></a>
+                    </li>
+                
+                    <li>
+                        <a href="http://example.org/features/coding/making-cisco-identity-firewall-and-ise-play-nice/"><p>Making Cisco Identity Firewall, CDA, and ISE play nice</p></a>
+                    </li>
+                
+                    <li>
+                        <a href="http://example.org/features/coding/powershell-bulk-provision-dhcp-scopes/"><p>Powershell: Bulk provision DHCP Scopes</p></a>
+                    </li>
+                
+                    <li>
+                        <a href="http://example.org/features/coding/check_mk-local-checks-grab-bag/"><p>Check_MK: Local Checks Grab Bag!</p></a>
+                    </li>
+                
+                    <li>
+                        <a href="http://example.org/news/crystal-method-2014-orlando-firestone-live/"><p>EDM Legends: Crystal Method 2014 – Orlando @Firestone Live</p></a>
+                    </li>
+                
+            </ul>
+        </section>
+
+    
+        
+</section>
+
+    <section id="share-menu">
+    <section id="social-share-nav">
+        <ul class="links">
+            <header>
+                <h3>Share this post <i class="fa fa-smile-o"></i></h3>
+            </header>
+            
+
+
+<li><a href="//twitter.com/share?url=http%3a%2f%2fexample.org%2ffeatures%2fcoding%2fpowershell-script-sync-dhcp-reservations-windows-server-2008%2f&text=Powershell%20Script%3a%20Sync%20DHCP%20Reservations%20%28Windows%20Server%202008%29&via=" target="_blank" class="share-btn twitter">
+    <i class="fa fa-twitter"></i>
+    <p>Twitter</p>
+</a></li>
+
+
+<li><a href="//plus.google.com/share?url=http%3a%2f%2fexample.org%2ffeatures%2fcoding%2fpowershell-script-sync-dhcp-reservations-windows-server-2008%2f" target="_blank" class="share-btn google-plus">
+    <i class="fa fa-google-plus"></i>
+    <p>Google+</p>
+</a></li>
+
+
+<li><a href="//www.facebook.com/sharer/sharer.php?u=http%3a%2f%2fexample.org%2ffeatures%2fcoding%2fpowershell-script-sync-dhcp-reservations-windows-server-2008%2f" target="_blank" class="share-btn facebook">
+    <i class="fa fa-facebook"></i>
+    <p>Facebook</p>
+</a></li>
+
+
+<li><a href="//reddit.com/submit?url=http%3a%2f%2fexample.org%2ffeatures%2fcoding%2fpowershell-script-sync-dhcp-reservations-windows-server-2008%2f&title=Powershell%20Script%3a%20Sync%20DHCP%20Reservations%20%28Windows%20Server%202008%29" target="_blank" class="share-btn reddit">
+    <i class="fa fa-reddit-alien"></i>
+    <p>Reddit</p>
+</a></li>
+
+
+<li><a href="//www.linkedin.com/shareArticle?url=http%3a%2f%2fexample.org%2ffeatures%2fcoding%2fpowershell-script-sync-dhcp-reservations-windows-server-2008%2f&title=Powershell%20Script%3a%20Sync%20DHCP%20Reservations%20%28Windows%20Server%202008%29" target="_blank" class="share-btn linkedin">
+    <i class="fa fa-linkedin"></i>
+    <p>LinkedIn</p>
+</a></li>
+
+
+<li><a href="//www.stumbleupon.com/submit?url=http%3a%2f%2fexample.org%2ffeatures%2fcoding%2fpowershell-script-sync-dhcp-reservations-windows-server-2008%2f&title=Powershell%20Script%3a%20Sync%20DHCP%20Reservations%20%28Windows%20Server%202008%29" target="_blank" class="share-btn stumbleupon">
+    <i class="fa fa-stumbleupon"></i>
+    <p>StumbleUpon</p>
+</a></li>
+
+
+<li><a href="mailto:?subject=Check out this post by JR&body=http%3a%2f%2fexample.org%2ffeatures%2fcoding%2fpowershell-script-sync-dhcp-reservations-windows-server-2008%2f" target="_blank" class="share-btn email">
+    <i class="fa fa-envelope"></i>
+    <p>Email</p>
+</a></li>
+
+        </ul>
+    </section>
+</section>
+
+    
+    <div id="main">
+        
+        
+        <article class="post">
+    <header>
+    <div class="title">
+        
+            <h1><a href="http://example.org/features/coding/powershell-script-sync-dhcp-reservations-windows-server-2008/">Powershell Script: Sync DHCP Reservations (Windows Server 2008)</a></h1>
+            
+        
+        
+    </div>
+    <div class="meta">
+        
+            
+        
+
+        <time class="published"
+            datetime='2012-11-14'>
+            November 14, 2012</time>
+        <span class="author">JR</span>
+        
+        
+    </div>
+</header>
+
+
+    <section id="social-share">
+        <ul class="icons">
+            
+
+
+<li><a href="//twitter.com/share?url=http%3a%2f%2fexample.org%2ffeatures%2fcoding%2fpowershell-script-sync-dhcp-reservations-windows-server-2008%2f&text=Powershell%20Script%3a%20Sync%20DHCP%20Reservations%20%28Windows%20Server%202008%29&via=" target="_blank" class="share-btn twitter">
+    <i class="fa fa-twitter"></i>
+    <p>Twitter</p>
+</a></li>
+
+
+<li><a href="//plus.google.com/share?url=http%3a%2f%2fexample.org%2ffeatures%2fcoding%2fpowershell-script-sync-dhcp-reservations-windows-server-2008%2f" target="_blank" class="share-btn google-plus">
+    <i class="fa fa-google-plus"></i>
+    <p>Google+</p>
+</a></li>
+
+
+<li><a href="//www.facebook.com/sharer/sharer.php?u=http%3a%2f%2fexample.org%2ffeatures%2fcoding%2fpowershell-script-sync-dhcp-reservations-windows-server-2008%2f" target="_blank" class="share-btn facebook">
+    <i class="fa fa-facebook"></i>
+    <p>Facebook</p>
+</a></li>
+
+
+<li><a href="//reddit.com/submit?url=http%3a%2f%2fexample.org%2ffeatures%2fcoding%2fpowershell-script-sync-dhcp-reservations-windows-server-2008%2f&title=Powershell%20Script%3a%20Sync%20DHCP%20Reservations%20%28Windows%20Server%202008%29" target="_blank" class="share-btn reddit">
+    <i class="fa fa-reddit-alien"></i>
+    <p>Reddit</p>
+</a></li>
+
+
+<li><a href="//www.linkedin.com/shareArticle?url=http%3a%2f%2fexample.org%2ffeatures%2fcoding%2fpowershell-script-sync-dhcp-reservations-windows-server-2008%2f&title=Powershell%20Script%3a%20Sync%20DHCP%20Reservations%20%28Windows%20Server%202008%29" target="_blank" class="share-btn linkedin">
+    <i class="fa fa-linkedin"></i>
+    <p>LinkedIn</p>
+</a></li>
+
+
+<li><a href="//www.stumbleupon.com/submit?url=http%3a%2f%2fexample.org%2ffeatures%2fcoding%2fpowershell-script-sync-dhcp-reservations-windows-server-2008%2f&title=Powershell%20Script%3a%20Sync%20DHCP%20Reservations%20%28Windows%20Server%202008%29" target="_blank" class="share-btn stumbleupon">
+    <i class="fa fa-stumbleupon"></i>
+    <p>StumbleUpon</p>
+</a></li>
+
+
+<li><a href="mailto:?subject=Check out this post by JR&body=http%3a%2f%2fexample.org%2ffeatures%2fcoding%2fpowershell-script-sync-dhcp-reservations-windows-server-2008%2f" target="_blank" class="share-btn email">
+    <i class="fa fa-envelope"></i>
+    <p>Email</p>
+</a></li>
+
+        </ul>
+    </section>
+    
+
+    <div id="content">
+        <p>If you have redundant Windows 2008 DHCP servers (likely with split-scope configurations), you&#8217;re familiar with the problem of keeping reservations between the servers synchronized. I figured I&#8217;d post a script I created to sync reservations between servers. Synchronization can be 1-to-1 or 1-to-many, depending on your redundant DHCP server configuration. This script can sync with ALL authorized DHCP servers in a domain if needed. Make sure to read the included Powershell help information. This doesn&#8217;t come with any warranty, but I&#8217;d be glad to answer any questions or consider suggestions for improvement. In my environment, this simply runs as a scheduled task on the secondary DHCP server.</p>
+
+<p>Something to note: although it *should* work synchronizing to/from Windows Server 2003 servers, I had issues with remote netsh execution (noted in the  script comments below) from W7/2008 systems. I&#8217;ve commented out the offending section that handled 2003 DHCP servers since everyone should, realistically, be running a newer server OS. If there&#8217;s a major need to have 2003 DHCP reservation synchronization, ask and I might be able to spend some more time on the problem. I&#8217;ve since migrated from 2003 to 2008, so there wasn&#8217;t a need to handle these situations.</p>
+
+<p><a title="Sync-Dhcp-Reservations.ps1" href="https://gist.github.com/liveaverage/522aabcb2593854b70fd" target="_blank"><a href="https://gist.github.com/liveaverage/522aabcb2593854b70fd">https://gist.github.com/liveaverage/522aabcb2593854b70fd</a></a></p>
+
+<div class="code-embed-wrapper">
+  <pre class="language-bash code-embed-pre line-numbers" ><code class="language-bash code-embed-code">&lt;#
+.Synopsis
+Synchronizes DHCP reservations to all or select authorized DHCP servers in a given domain.
+
+.Description
+This script utilizes a user-specified source (master) DHCP server and synchronizes
+all or some scope reservations between other, authorized DHCP servers for a given domain.
+Netsh commands can be generated for manual execution or executed automatically.
+
+.Parameter Source
+The source, authorized DHCP server providing the most current scope reservations.
+
+.Parameter SyncAll
+Perform synchronization with all authorized domain DHCP servers
+
+.Parameter SyncSelect
+Perform synchronization with user-specified authorized domain DHCP servers. Requires destinations.
+
+.Parameter Destination
+The destination, authorized DHCP servers where source reservations will configured.
+Use &#039;All&#039; switch to synchronize to all authorized DHCP servers in a given domain.
+
+.Parameter Scoperanges
+A comma separated list of scoperanges to include in synchronization. Used with -scope switch.
+.Parameter Domain
+The fully-qualified domain name for the domain hosting destination
+DHCP servers (authorized).
+
+.Parameter Domain
+Specifies the domain; useful for multi-domain forests. Uses -match (regex)
+
+.Parameter Purge
+Purge reservations on all/destination DHCP servers that were removed from the source.
+
+.Parameter Invoke
+Invoke the netsh commands directly from this script. By default, this script will only
+generate the required netsh commadns.
+
+.Notes
+Created by JR Morgan, 20120409
+
+.Example
+-------------------------- EXAMPLE 1 --------------------------
+
+Sync-Dhcp-Reservations -Source WinSource.DhcpServername.ms.com -SyncAll -Domain ms.com -Invoke N
+
+Description
+-----------
+This command generates commands (no invocation) to synchronize reservations between WinSource and WinDest DHCP servers.
+
+-------------------------- EXAMPLE 2 --------------------------
+
+Sync-Dhcp-Reservations -Source WinSource.DhcpServername.ms.com -Destination Server1,Server2,Server3 -Domain ms.com -Invoke N
+
+Description
+-----------
+This command generates commands (no invocation) to synchronize reservations between WinSource and an array of destination
+DHCP servers. There&#039;s no limit to destination servers. This is useful if you do not want to synchronize a source to ALL
+authorized DHCP servers for a given domain.
+
+-------------------------- EXAMPLE 3 --------------------------
+
+Sync-Dhcp-Reservations -Source WinSource.DhcpServername.ms.com -SyncAll -Domain ms.com -Scope-Invoke Y
+
+#&gt;
+
+Param
+(
+[Parameter(
+ValueFromPipeline = $True,
+ValueFromPipelineByPropertyName = $True,
+Mandatory = $True,
+HelpMessage="Specify a source DHCP to query for reservations")]
+[Alias("s")]
+[String]
+$Source
+,
+[Parameter(
+ParameterSetName = "DhcpAll",
+ValueFromPipeline = $True,
+ValueFromPipelineByPropertyName = $True,
+HelpMessage="Syncs with all authorized DHCP servers.")]
+[switch]
+$SyncAll
+,
+[Parameter(
+ParameterSetName = "DhcpDest",
+ValueFromPipeline = $True,
+ValueFromPipelineByPropertyName = $True,
+Mandatory = $True,
+HelpMessage="Specify one or more destination DHCP server(s)")]
+[Alias("d")]
+[String[]]
+$SyncSelect
+,
+[Parameter(
+#ParameterSetName = "ScopeIncludes",
+ValueFromPipeline = $True,
+ValueFromPipelineByPropertyName = $True,
+Mandatory = $False,
+HelpMessage="Enter one or more scopes to be syncronized from source to destination server(s).")]
+[ValidatePattern(&#039;^(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$&#039;)]
+[Alias("c")]
+[String[]]
+$Scoperanges
+,
+[Parameter(
+#ParameterSetName = "ScopeExcludes",
+ValueFromPipeline = $True,
+ValueFromPipelineByPropertyName = $True,
+Mandatory = $False,
+HelpMessage="Enter one or more scopes to be excluded from synchronization.")]
+#[ValidatePattern(&#039;^(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$&#039;)]
+[Alias("x")]
+[String[]]
+$ExcludedScopes
+,
+[Parameter(
+ValueFromPipeline = $True,
+ValueFromPipelineByPropertyName = $True,
+Mandatory = $True,
+HelpMessage="Specify the domain hosting authorized DHCP servers you&#039;d like sync")]
+[Alias("m")]
+[String]
+$Domain
+,
+[Parameter(
+ValueFromPipeline = $True,
+ValueFromPipelineByPropertyName = $True,
+HelpMessage="Specify whether reservations deleted on the source should be removed from destination server(s).")]
+[Alias("p")]
+[Switch]
+$Purge
+,
+[Parameter(
+ValueFromPipeline = $True,
+ValueFromPipelineByPropertyName = $True,
+HelpMessage="Specify whether the netsh commands should be invoked or only displayed")]
+[Alias("i")]
+[Switch]
+$Invoke
+,
+[Parameter(
+ValueFromPipelineByPropertyName = $True,
+HelpMessage="Specify log file path (optional)")]
+[Alias("l")]
+[string]
+$LogPath="$env:temp\Sync-Dhcp-Reservations-Log.txt"
+)
+
+function Get-Dhcp-Servers()
+{
+
+$dhcps = netsh dhcp show server
+$dhcps = $dhcps | ?{ $_ -match $Domain} | %{ $a = $_.Split(" "); $b = $a[1].replace("[",""); $b = $b.replace("]",""); $b}
+
+return $dhcps
+}
+
+function Get-Dump ($server)
+{
+
+$header= @("proto","server","sip","scope","scoperange","action","opt","ip","mac","name","description","opt2")
+$dhcpConfigs = @()
+
+#Backup each server config before proceeding:
+#Invoke-Expression "netsh dhcp server \\$server dump &gt; $server-$(Get-Date -uformat "%d").dhcp"
+
+#$dump = "$server-$(Get-Date -uformat "%d").dhcp"
+
+#   $v = Get-WmiObject -ComputerName $server -Authentication PacketPrivacy -Impersonation Impersonate Win32_OperatingSystem
+
+#There&#039;s a problem with remote netsh execution from W7/2008/newer to 2003/XP DHCP.
+#Solved with a call to PsExec, but this condition is tested, then the presence of PsExec
+#is tested.
+
+$dump = Invoke-Expression "netsh dhcp server \\$server dump"
+
+#    if ($v.version -gt 6)
+#    {
+#        $dump = Invoke-Expression "netsh dhcp server \\$server dump"
+#    }
+#    elseif (($v.version -lt 6) -and (Test-Path "PsExec.exe"))
+#    {
+#
+#        $dump = Invoke-Expression "./PsExec.exe \\$server netsh dhcp server \\$server dump"
+#        Start-Sleep -Seconds 20
+#    }
+#    else
+#    {
+#        throw "Problem determining destination DHCP server version for netsh command execution.`r`nYou may be missing PsExec.exe from the script directory."
+#    }
+
+$raw = $dump | Where {($_ -notmatch "#") -and ($_ -match "reservedip")} |
+ForEach-Object { $_ }
+
+if ($raw -ne $null)
+{
+#Import the content into a CSV array object:
+$csvdump = $raw | ConvertFrom-Csv -Header $header -delimiter " "
+}
+else
+{
+throw "Problem retrieving configuration from $server.`r`nYou may not have appropriate permissions or you may be querying an older server version."
+}
+
+return $csvdump
+
+}
+
+function Compare-Dump ($sourcedump, $destdump)
+{
+
+Compare-Object -ReferenceObject $sourcedump -DifferenceObject $destdump -Property scoperange,action,opt,ip,mac -PassThru |
+#?{ ($_.name -notmatch "unused")} |
+Select -Property sip,name,scoperange,action,opt,ip,mac,@{Name="Configured on";Expression={if ($_.SideIndicator -eq "=&gt;"){ "Destination" } elseif ($_.SideIndicator -eq "&lt;="){ $source }}},description
+
+}
+
+function Set-ClearVars()
+{
+Remove-Variable [a..z]* -Scope Global
+Remove-Variable [1..9]* -Scope Global
+}
+
+function Get-Destination-Sys()
+{
+
+$d = Get-Dhcp-Servers | ?{ ($_ -notmatch $source) -and ($_ -notmatch "gruprintpr01")}
+
+if ($SyncAll)
+{
+return $d
+}
+elseif (($SyncSelect).count -ge 1)
+{
+foreach ($sys in $SyncSelect)
+{
+$dr += $d | ?{ $_ -match $sys }
+}
+
+return $dr
+}
+}
+
+############## Main Block #####################
+
+#Get source reservation config; this will be used frequently:
+$sd = Get-Dump $source
+$log = $null
+$sourceIp = (Test-Connection -Count 1 $source).IPV4Address.IPAddressToString
+
+#Debug:
+
+$start = $(Get-Date -uformat "%Y%m%d%H%M%S")
+
+$log += "(DEBUG) $start`r`n"
+$log += "(DEBUG) User-provided source DHCP server:`t`t`t$source`r`n"
+$log += "(DEBUG) User-provided domain name for DHCP sync:`t`t$Domain`r`n"
+$log += "(DEBUG) User-provided SyncSelect server count:`t`t`t$(($SyncSelect).count)`r`n"
+$log += "(DEBUG) User-provided SyncSelect server(s):`t`t`t$SyncSelect`r`n"
+$log += "(DEBUG) Listing of all Dhcp-Servers detected for:`t`t$(Get-Dhcp-Servers)`r`n"
+$log += "(DEBUG) Listing of desination server:`t`t`t`t$(Get-Destination-Sys)`r`n"
+
+foreach ($s in Get-Destination-Sys)
+{
+Set-ClearVars
+$nsh_dis = @()
+$nsh_add = @()
+$c = $null
+$cr = $null
+$xs = $null
+
+#Get destination server IP (for comparisons):
+$destIp = (Test-Connection -Count 1 $s).IPV4Address.IPAddressToString
+
+$log += "`r`n`r`n(DEBUG) ######## Syncing $s ######################################`r`n`r`n"
+
+#Output for this should be null or empty if dhcp is synchronized:
+
+$c = Compare-Dump $sd (Get-Dump $s)
+
+#$log += "(DEBUG) Initial dump comparision for $source and $($s):`r`n"
+$c | ft -auto
+
+#Parse the dump info to include only relevant scopes:
+
+if (($Scoperanges).count -ge 1)
+{
+$log += "(DEBUG) User-provided Scoperange count:`t`t`t`t$($Scoperanges.count)"
+$log += "(DEBUG) User-provided Scopes to be synchronized:`t`t$Scoperanges"
+
+foreach ($sc in $Scoperanges)
+{
+#Remove discrepancies for unspecified scoperanges (on source and dest servers):
+$log += "(DEBUG) Filtering diff set by user-provided scope $sc"
+$cr += $c | ?{$_.scoperange -eq $sc}
+}
+
+$log += "(DEBUG) Revised Scoperange-specific diffs:`r`n"
+$cr | ft -auto
+$c = $cr
+
+$log += "(DEBUG) Diffs after reassignment to initial dump comp array:`r`n"
+$c | ft -auto
+$log += "(DEBUG) Count of diffs after scoperange specifics:`t`t`t$($c.count)`r`n"
+}
+
+if (($ExcludedScopes).count -ge 1)
+{
+foreach ($xs in $ExcludedScopes)
+{
+#Remove discrepancies for excluded scoperanges (on source and dest servers):
+$log += "(DEBUG) Filtering diff set by user-provided excluded scope $xs"
+"Removing $($c | ?{$_.scoperange -notmatch $xs})"
+$c = $c | ?{$_.scoperange -notmatch $xs}
+}
+
+#$log += "(DEBUG) Revised Scoperange-exclusion diffs:`r`n"
+#$cr | ft -auto
+#$c = $cr
+
+$log += "(DEBUG) Diffs after reassignment to initial dump comp array:`r`n"
+$c | ft -auto
+$log += "(DEBUG) Count of diffs after scoperange specifics:`t`t`t$($c.count)`r`n"
+}
+
+#Handle discrepancies for reservations that require removal/addition from destination servers:
+
+foreach ($r in $c)
+{
+#If the serverIP/name matches the destination server, that means the records no longer exists or has changed on the
+#source server; removed these reservations since we&#039;re syncing from a SINGLE master DHCP sys:
+if (($r.sip -match $s) -or ($r.sip -eq $destIp))
+{
+$nsh_dis += "netsh dhcp server \\$s scope $($r.scoperange) delete reservedip $($r.ip) $($r.mac)`r`n"
+}
+
+#If the serverIP/name matches the source server (master), that means it&#039;s missing on the destination server;
+#add these reservations since we&#039;re syncing to destination servers FROM the master.
+if (($r.sip -match $source) -or ($r.sip -eq $sourceIP))
+{
+#$desc = ($r.mac + " " + (Convert-DNStoCN $Name))
+$nsh_add += "netsh dhcp server \\$s scope $($r.scoperange) add reservedip $($r.ip) $($r.mac) `"$($r.name)`" `"$($r.description)`" BOTH`r`n"
+}
+}
+$log += "`r`n(DEBUG) Reservations being removed from destination $s :`r`n"
+$log += $nsh_dis
+$nsh_dis | Out-File "netsh_cmd_dis_res.txt"
+$log += "`r`n(DEBUG) Reservations being added to destination $s :`r`n"
+$log += $nsh_add
+$nsh_add | Out-File "netsh_cmd_add_res.txt"
+
+if ($Invoke)
+{
+$log += "`r`n(DEBUG) Received Invoke Switch; Executing reservation operations on $s :`r`n"
+foreach ($cm in $nsh_dis)
+{
+Invoke-Expression $cm -ErrorVariable err
+}
+foreach ($ca in $nsh_add)
+{
+Invoke-Expression $ca -ErrorVariable err
+}
+
+if ($err.count -ge 1)
+{
+$log += "Errors: `r`n$err `r`n"
+}
+else
+{
+$log += "No errors encountered; moving on`r`n"
+}
+$log += "`r`n(DEBUG) Finished invoking/syncing reservations to $s :`r`n"
+}
+
+#Set-ClearVars
+#$nsh_add = $null
+#$nsh_dis = $null
+
+#Remove-Variable $nsh_add
+#Remove-Variable $nsh_dis
+$end = $(Get-Date -uformat "%Y%m%d%H%M%S")
+
+$log += "`r`n`r`n(DEBUG) ######## $end - End of sync for $s ######################################`r`n`r`n"
+}
+
+Out-File -Encoding ASCII -InputObject $log -FilePath "dhcpSync.log" -Append
+$log</code></pre>
+  
+  <div class="code-embed-infos">
+    <a href="https://gist.github.com/522aabcb2593854b70fd" title="See Sync-Dhcp-Reservations.ps1" target="_blank" class="code-embed-name">Sync-Dhcp-Reservations.ps1</a> <a href="https://gist.githubusercontent.com/liveaverage/522aabcb2593854b70fd/raw/1db0569e101ae3d6e8dc30205649073cbdf0d88e/Sync-Dhcp-Reservations.ps1" title="Back to Sync-Dhcp-Reservations.ps1" class="code-embed-raw" target="_blank">view raw</a>
+  </div>
+</div>
+
+    </div>
+
+    <footer>
+        <ul class="stats">
+    
+        
+
+        
+        
+            <li>
+                
+    </footer>
+</article>
+<ul class="actions pagination">
+    
+        <li><a href="http://example.org/news/nagios-check_http-problems-with-microsoft-system-center-2012-endpoint-protection/"
+                class="button big previous">Nagios check_http problems with Microsoft System Center 2012 Endpoint Protection</a></li>
+    
+
+    
+        <li><a href="http://example.org/features/infrastructure-management/extending-check_mk-mysql-status-output/"
+                class="button big next">Extending Check_MK MySQL Status Output</a></li>
+    
+</ul>
+
+
+
+
+    </div>
+    
+<section id="sidebar">
+
+    
+        <section id="intro">
+            
+            
+            
+            <ul class="icons">
+                
+                
+            </ul>
+        </section>
+
+    
+        <section id="recent-posts">
+            <ul class="posts">
+                <header>
+                    <h3>Recent Posts</h3>
+                </header>
+                
+                    
+                
+
+                
+                    
+                
+
+                
+                    <li>
+                        <article>
+                            <header>
+                                <h3><a href="http://example.org/features/infrastructure-management/check_mk-envrionmental-monitoring-room-alert-4e/">Check_MK Environmental Monitoring: Room Alert 4E</a></h3>
+                                
+                                    
+                                
+                                <time class="published" datetime=
+                                    '2014-08-13'>
+                                    August 13, 2014</time>
+                            </header>
+                        </article>
+                    </li>
+                
+                    <li>
+                        <article>
+                            <header>
+                                <h3><a href="http://example.org/features/coding/making-cisco-identity-firewall-and-ise-play-nice/">Making Cisco Identity Firewall, CDA, and ISE play nice</a></h3>
+                                
+                                    
+                                
+                                <time class="published" datetime=
+                                    '2014-08-07'>
+                                    August 7, 2014</time>
+                            </header>
+                        </article>
+                    </li>
+                
+                    <li>
+                        <article>
+                            <header>
+                                <h3><a href="http://example.org/features/coding/powershell-bulk-provision-dhcp-scopes/">Powershell: Bulk provision DHCP Scopes</a></h3>
+                                
+                                    
+                                
+                                <time class="published" datetime=
+                                    '2014-07-30'>
+                                    July 30, 2014</time>
+                            </header>
+                        </article>
+                    </li>
+                
+                    <li>
+                        <article>
+                            <header>
+                                <h3><a href="http://example.org/features/coding/check_mk-local-checks-grab-bag/">Check_MK: Local Checks Grab Bag!</a></h3>
+                                
+                                    
+                                
+                                <time class="published" datetime=
+                                    '2014-07-29'>
+                                    July 29, 2014</time>
+                            </header>
+                        </article>
+                    </li>
+                
+                    <li>
+                        <article>
+                            <header>
+                                <h3><a href="http://example.org/news/crystal-method-2014-orlando-firestone-live/">EDM Legends: Crystal Method 2014 – Orlando @Firestone Live</a></h3>
+                                
+                                    
+                                
+                                <time class="published" datetime=
+                                    '2014-05-05'>
+                                    May 5, 2014</time>
+                            </header>
+                        </article>
+                    </li>
+                
+
+                
+                    <li>
+                        <ul class="actions">
+                            <li><a href=
+                            
+                                "/post/"
+                            
+                            class="button">View more posts</a></li>
+                        </ul>
+                    </li>
+                
+            </ul>
+        </section>
+
+    
+    
+    
+    
+        <section id="categories">
+            <ul class="posts">
+                <header>
+                    <h3><a href="/categories/">Categories</a></h3>
+                </header>
+
+                
+                    
+                
+
+                
+                    <li>
+                        <article>
+                            <header>
+                                <a href="/categories/check_mk/">check_mk</a>
+                                <span style="float:right;">1</span>
+                            </header>
+                        </article>
+                    </li>
+                
+                    <li>
+                        <article>
+                            <header>
+                                <a href="/categories/coding/">coding</a>
+                                <span style="float:right;">12</span>
+                            </header>
+                        </article>
+                    </li>
+                
+                    <li>
+                        <article>
+                            <header>
+                                <a href="/categories/features/">features</a>
+                                <span style="float:right;">1</span>
+                            </header>
+                        </article>
+                    </li>
+                
+                    <li>
+                        <article>
+                            <header>
+                                <a href="/categories/infrastructure-management/">infrastructure-management</a>
+                                <span style="float:right;">12</span>
+                            </header>
+                        </article>
+                    </li>
+                
+                    <li>
+                        <article>
+                            <header>
+                                <a href="/categories/living/">living</a>
+                                <span style="float:right;">4</span>
+                            </header>
+                        </article>
+                    </li>
+                
+                    <li>
+                        <article>
+                            <header>
+                                <a href="/categories/motorycles/">motorycles</a>
+                                <span style="float:right;">1</span>
+                            </header>
+                        </article>
+                    </li>
+                
+                    <li>
+                        <article>
+                            <header>
+                                <a href="/categories/nagios/">nagios</a>
+                                <span style="float:right;">3</span>
+                            </header>
+                        </article>
+                    </li>
+                
+                    <li>
+                        <article>
+                            <header>
+                                <a href="/categories/news/">news</a>
+                                <span style="float:right;">16</span>
+                            </header>
+                        </article>
+                    </li>
+                
+                    <li>
+                        <article>
+                            <header>
+                                <a href="/categories/powershell/">powershell</a>
+                                <span style="float:right;">1</span>
+                            </header>
+                        </article>
+                    </li>
+                
+            </ul>
+        </section>
+    
+
+    
+        
+
+    
+        <section id="footer">
+            <ul class="icons">
+                
+                
+            </ul>
+
+            <p class="copyright">&copy; My New Hugo Site. Design: <a href="http://html5up.net" target="_blank">HTML5 UP</a>. Ported by <a href="//github.com/jpescador" target="_blank">Julio Pescador</a>. Powered by <a href="//gohugo.io" target="_blank">Hugo</a></p>
+        </section>
+
+</section>
+
+            </div>
+        <a id="back-to-top" href="#" class="fa fa-arrow-up fa-border fa-2x"></a>
+        
+
+        
+        
+            
+        
+
+        
+        
+            <script src="/js/jquery.min.js"></script>
+            <script src="/js/skel.min.js"></script>
+            <script src="/js/util.js"></script>
+            <script src="/js/main.js"></script>
+            <script src="/js/backToTop.js"></script>
+            <script src="/js/highlight.pack.js"></script>
+        
+
+        
+
+            
+            <script>hljs.initHighlightingOnLoad();</script>
+            
+    </body>
+</html>
+

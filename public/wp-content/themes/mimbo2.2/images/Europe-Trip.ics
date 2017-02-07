@@ -1,0 +1,395 @@
+BEGIN:VCALENDAR
+PRODID:-//Google Inc//Google Calendar 70.9054//EN
+VERSION:2.0
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:Europe Trip
+X-WR-TIMEZONE:America/New_York
+X-WR-CALDESC:Trip Details between 05/29/2013 and 06/15/2013.
+BEGIN:VEVENT
+DTSTART:20130607T203400Z
+DTEND:20130607T224600Z
+DTSTAMP:20130324T222634Z
+UID:p1krjpgp28p9t94hltdj8ltu9g@google.com
+CREATED:20130129T194852Z
+DESCRIPTION:Your payment by VISA was successful.\nA confirmation of your bo
+ oking is sent to you by e-mail.\n\nBooking code:FHCPMUI\nPayment Date:24 Ma
+ rch 2013\nDelivery method:Homeprint\nControleer kort voor vertrek ook de bi
+ nnenlandse reisplanner of teletekst. Eventuele werkzaamheden waren mogelijk
+  nog niet bekend tijdens het maken van uw boeking. \n\n\n\nYou have booked 
+ a ticket via Emmerich(Gr). It is not possible to choose a different route w
+ ith this ticket. \n\nPassengers\n\nA Jeffrey Morgan Adults A Victoria Morga
+ n Adults\nOutward\n\nAmsterdam Centraal - Düsseldorf Hbf\nDeparture:Friday 
+ 07 June at 16:34\nArrival:Friday 07 June at 18:46\nTravel time:02:12\nTrans
+ fers:0\nComfort class:2nd class\nConditions:To change or cancel not possibl
+ e\nRoute details\n\nDisplay\nPrice List\n\nTotal price€40.50
+LAST-MODIFIED:20130324T205045Z
+LOCATION:Amsterdam Centraal
+SEQUENCE:2
+STATUS:CONFIRMED
+SUMMARY:Traintravel - Amsterdam > Dusseldorf 
+TRANSP:TRANSPARENT
+ATTACH:https%3A%2F%2Fdocs.google.com%2Ffile%2Fd%2F0B8KlK4Fd9RLAQWQwLTVZai04
+ cTQ%2Fedit
+ATTACH:https%3A%2F%2Fdocs.google.com%2Ffile%2Fd%2F0B8KlK4Fd9RLAUktFMWRBY0la
+ RzA%2Fedit
+END:VEVENT
+BEGIN:VEVENT
+DTSTART:20130604T033000Z
+DTEND:20130604T110000Z
+DTSTAMP:20130324T222634Z
+UID:u7q538g938fm8frjvi0um4ifo8@google.com
+CREATED:20130129T194517Z
+DESCRIPTION:PAPER Tickets for train travel were mailed to us (RECEIVED)\n\n
+ \nYour E-ticket: Booking Reference:\n22605544\n\nBooking confirmed for Jeff
+ rey Morgan \n\nPlease find below your reservation details:\n\n \n \nItinera
+ ry\n \nHarwich - Hook of Holland\n  Departing: Arriving: Ship\n  Mon 03/06/
+ 2013 23:15 Tue 04/06/2013 07:45Stena Hollandica\n \n2 Adults\n \n1 2-berth 
+ inside cabin\n \n \n \n \nTransfer\n \nLondon (Liverpool Street) - Harwich 
+ International\, Rail\n  Departing:\n  Mon 03/06/2013\n \n2 Adults\, Standar
+ d Class\n \nHoek van Holland - Any Dutch Station\, Rail\n  Departing:\n  Tu
+ e 04/06/2013\n \n2 Adults\, Standard Class\n \n \n \n \n \nCheck-in Times\n
+  \nHarwich - Hook of Holland\nTravelling Harwich - Hook of Holland\, CHECK-
+ IN WILL CLOSE 45 minutes before departure.\n \n \n \n \nRoad travel informa
+ tion\n\nFor the latest traffic news and road travel information click here\
+ n\n\nGetting to the port\n\nFor a downloadable pdf showing the port map cli
+ ck here\n\n\n24hr sailing updates\n\nFor up to date sailing information ple
+ ase call \n08705 755 755 or \nclick here\n\n\n \nFare Breakdown and Payment
+ s\n \nLondon Liverpool Street - Any Dutch Station Single 90.00 GBP\n2-berth
+  inside cabin 43.00 GBP\nTOTAL PRICE 133.00 GBP\nAmount paid 133.00 GBP\nOu
+ tstanding balance 0.00 GBP\n \n \n \nCustomer Details\nCustomer Name:\nMr J
+ effrey Morgan\n \nAddress\n7212 NW 200th Terrace \nAlachua \n32615 \nUnited
+  States of America\nContact Us\n \nAddress \n \nStena Line Limited \nStena 
+ House \nStation Approach \nHolyhead \nAnglesey LL65 1DQ \nUnited Kingdom  \
+ nPhone No  \n08447 707070  \nE-mail  \ninfo.uk@stenaline.com\n \n \n \n \n 
+ \nCredit/Debit Card Payment\n \nPayment date: 26/02/2013 00:46 Amount: 133.
+ 00 GBP\nCard no: **** **** **** 0053 Card type: Visa Debit\nMerchant no: 62
+ 40311 Expiry date: 1310\nProvider transaction ID: 1519323566 Transaction ty
+ pe: PURCHASE\n \n \n\nAA European Cover\n\n\nStena Line customers can save 
+ upto 30% on AA European breakdown cover.\n\n\nBook Your Hotel\n\n\nBook you
+ r hotel in Holland or Germany with the online booking system powered by boo
+ king.com.\n\n\nDownload our App\n\n\nDownload our free Smartphone App or lo
+ g onto our mobile site and book your ferry trip on the go.\n\n \n \n \nProd
+ uct information\nLondon Liverpool Street - Any Dutch Station Single \n\n \n
+  \n \nRoute information\nHarwich - Hook of Holland\nPort address\; Parkesto
+ n\, Harwich\, Essex\, CO12 4SR \n\nBoarding times\nDay sailings: first boar
+ ding is approximately 1 hour before departure Monday – Friday and approxima
+ tely 1.30 hours at weekends. \nNight sailings: first boarding is approximat
+ ely 2 hours before departure Monday – Sunday 
+LAST-MODIFIED:20130324T185729Z
+LOCATION:Harwich\, UK
+SEQUENCE:1
+STATUS:CONFIRMED
+SUMMARY:Ferry - Harwich > Rotterdam
+TRANSP:TRANSPARENT
+ATTACH:https%3A%2F%2Fdocs.google.com%2Ffile%2Fd%2F0B8KlK4Fd9RLAcTNRTk84NU9l
+ SDQ%2Fedit
+ATTACH:https%3A%2F%2Fdocs.google.com%2Ffile%2Fd%2F0B8KlK4Fd9RLAU2RmRDI3bFJi
+ YU0%2Fedit
+END:VEVENT
+BEGIN:VEVENT
+DTSTART:20130606T190000Z
+DTEND:20130607T160000Z
+DTSTAMP:20130324T222634Z
+UID:mi0a1iu7khqto6ntv261gbpnrg@google.com
+CREATED:20130129T194811Z
+DESCRIPTION:
+LAST-MODIFIED:20130324T184517Z
+LOCATION:
+SEQUENCE:1
+STATUS:CONFIRMED
+SUMMARY:Hotel - Amsterdam
+TRANSP:OPAQUE
+ATTACH:https%3A%2F%2Fdocs.google.com%2Ffile%2Fd%2F0B8KlK4Fd9RLAeDRiM3F0RVJM
+ WUk%2Fedit
+END:VEVENT
+BEGIN:VEVENT
+DTSTART:20130604T190000Z
+DTEND:20130606T160000Z
+DTSTAMP:20130324T222634Z
+UID:e286o8q1luaedqi1pir4oe6eqo@google.com
+CREATED:20130129T194747Z
+DESCRIPTION:\nHampshire Hotel - Savoy Rotterdam\, Rotterdam\nTue Jun/4/2013
+  - Thu Jun/6/2013   |   Itinerary # 1541-7984-4996\n \nHampshire Hotel - Sa
+ voy Rotterdam\nTue Jun/4/2013 - Thu Jun/6/2013 \, 1 room | 2 nights\nBOOKED
+ \nYour reservation is booked. No need to call us to reconfirm this reservat
+ ion.\n \nHoogstraat 81\, Rotterdam\, \, 3011 PJ Netherlands\nTel: 31 (10) 4
+ 139280\, Fax: 31 (10) 4045712\n\nChecking in\n\nCheck-in time starts at 3 P
+ M\nSpecial cancellation policies or charges may apply for group reservation
+ s (more than 8 rooms for the same hotel/stay dates).\nYour room will be gua
+ ranteed for late arrival\nImportant Hotel Information\n\nThis reservation i
+ s non-refundable and cannot be cancelled.\nView your online itinerary for a
+ dditional rules and restrictions.\nAward points and airline mileage may not
+  be awarded when booking an Expedia Special Rate hotel.\nRoom Eden Hot Deal
+  - Classic Room\nReserved for\n\n Jeffrey Morgan\n2 adults\nRequests \nOne 
+ Double Bed\, non-smoking room "Room facing AWAY from the street if possible
+ \, please -- OR Higher Level floor (we don't mind stairs). Anything quiet :
+ ) Thank you!"\n \nPrice Summary\nTotal $154.66\nCollected by Expedia\nRoom 
+ Price\n \n$154.66\n2 nights  $72.95 /night\nTaxes & Fees $8.76\nAll prices 
+ quoted in USD.\nAdditional Hotel Services\nUnless otherwise indicated\, the
+  charges below are not included in the overall room price. If not included 
+ in the overall room price\, they will be charged by the property at check-i
+ n or check-out. Charges can vary\, for example\, based on length of stay or
+  the room you book. This property told us they will charge you for the foll
+ owing:\n\nA 4.5 percent city/local tax will be charged\n \nWe have included
+  all charges provided to us by the property. However\, charges can vary\, f
+ or example\, based on length of stay or the room you book.\n\nThe following
+  fees and deposits are charged by the property at time of service\, check-i
+ n\, or check-out.\n\nBuffet breakfast fee: EUR 17 per person (approximately
+ )\nFee for in-room high-speed Internet (wired): EUR 15 per 24-hour period (
+ rates may vary)\nDeposit: EUR 50 per stay\nRollaway bed fee: EUR 35 per nig
+ ht\nThe above list may not be comprehensive. Fees and deposits may not incl
+ ude tax and are subject to change.\nNeed help with your reservation?\nCall 
+ us at 1-800-EXPEDIA (1-800-397-3342) or 1-404-728-8787\nFor faster service\
+ , mention itinerary # 1541-7984-4996
+LAST-MODIFIED:20130324T184433Z
+LOCATION:Rotterdam\, NL
+SEQUENCE:1
+STATUS:CONFIRMED
+SUMMARY:Hotel - Rotterdam
+TRANSP:OPAQUE
+ATTACH:https%3A%2F%2Fdocs.google.com%2Ffile%2Fd%2F0B8KlK4Fd9RLAZE9KQ0tvSFhR
+ NTA%2Fedit
+END:VEVENT
+BEGIN:VEVENT
+DTSTART:20130530T002700Z
+DTEND:20130530T014000Z
+DTSTAMP:20130324T222634Z
+UID:3dgrt1dordt4s5f38ada8sgje0@google.com
+CREATED:20130324T175625Z
+DESCRIPTION:(Event end time is local UK time)\n\nFlight change for your 5/2
+ 9/2013 trip.\n\nWe have learned that the airline has changed the flight sch
+ edule for your trip on May 29\, 2013 to London. \n\nYour updated flight iti
+ nerary is provided below for your review. There is no need for you to call 
+ Travelocity at this time. \n\nYou can also review your itinerary on your Tr
+ ip Details page\, which is available online by logging on to Travelocity. I
+ t includes the most current flight itinerary and all accommodation informat
+ ion. \n\nWe strongly recommend that you review your Trip Details 24 hours p
+ rior to departure in the U.S. and Canada and 48 hours prior to departure fo
+ r international flights for any last-minute changes. \n\nYour Trip ID is: 2
+ 229 6140 1592 \n\nUpdated Flight Itinerary\nAll flight times are local to e
+ ach city.\nFor your boarding pass\, use reference code EVD3DB for online or
+  airport check-in.\nWed\, May 29\, 2013 Jacksonville International Airport\
+ , (JAX) to London Heathrow Airport\, (LHR)\nDepart: 05:57 PM Jacksonville\,
+  FL (JAX) United\nArrive: 08:27 PM Newark\, NJ (EWR) Flight 4377 operated b
+ y\nEXPRESSJET AIRLINES DBA UNITED EXPRESS\n(on Embraer RJ135/145)\nRequeste
+ d Seats: 11C\, 11B\n1 Stop - change planes Newark\, NJ (EWR) \nConnection T
+ ime: 1 hr 13 mins \nDepart: 09:40 PM Newark\, NJ (EWR) United\nArrive: 10:1
+ 0 AM London\, Great Britain (LHR) Flight 114\nNext day\n(on Boeing 757-200)
+ \nTotal Travel Time: 11 hrs 13 mins\n\nSat\, Jun 15\, 2013 Munich Internati
+ onal Airport\, (MUC) to Jacksonville International Airport\, (JAX)\nDepart:
+  11:25 AM Munich\, Germany (MUC) Lufthansa\nArrive: 03:15 PM Charlotte\, NC
+  (CLT) Flight 428\n(on Airbus A340-600)\nRequested Seats: 30A\, 30C\n1 Stop
+  - change planes Charlotte\, NC (CLT) \nConnection Time: 2 hrs 44 mins \nDe
+ part: 05:59 PM Charlotte\, NC (CLT) Lufthansa\nArrive: 07:13 PM Jacksonvill
+ e\, FL (JAX) Flight 5178 operated by\nUS AIRWAYS EXPRESS-MESA AIRLINES FOR 
+ US AIRWAYS\n(on Canadair Regional Jet 900)\nTotal Travel Time: 13 hrs 48 mi
+ ns\n\nPassenger NameFrequent Flyer Information\nJEFFREY RICHARD JR MORGAN Y
+ ou can add your frequent flyer number at the airport.\nVICTORIA LESTZ MORGA
+ N You can add your frequent flyer number at the airport.\nCustomer Support\
+ nIn the US1.888.756.274524 hours a day/7 days a week\nOutside the US1.210.5
+ 21.587124 hours a day/7 days a week\nEn Español1.866.828.39337am - 10pm CST
+ \nTDD/Hearing Impaired1.800.555.75857am - 11pm CST\nPlease refer to Trip ID
+  2229 6140 1592 when calling Travelocity's Customer Support Center.\nNote: 
+ If you choose to change this flight itinerary\, there may be a penalty and/
+ or charges.\nOnline Support\nThe airline changed my schedule. What are my o
+ ptions?\nDo I need a new ticket?\nWhy did my flight schedule change?\nThe T
+ ravelocity Guarantee\nWe look out for you all trip long\, even before you g
+ o.\nLearn more
+LAST-MODIFIED:20130324T175645Z
+LOCATION:EWR
+SEQUENCE:0
+STATUS:CONFIRMED
+SUMMARY:Airtravel - Layover
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+DTSTART:20130530T014000Z
+DTEND:20130530T141000Z
+DTSTAMP:20130324T222634Z
+UID:1peunffituo9c245h0udpr58b0@google.com
+CREATED:20130324T175547Z
+DESCRIPTION:(Event end time is local UK time)\n\nFlight change for your 5/2
+ 9/2013 trip.\n\nWe have learned that the airline has changed the flight sch
+ edule for your trip on May 29\, 2013 to London. \n\nYour updated flight iti
+ nerary is provided below for your review. There is no need for you to call 
+ Travelocity at this time. \n\nYou can also review your itinerary on your Tr
+ ip Details page\, which is available online by logging on to Travelocity. I
+ t includes the most current flight itinerary and all accommodation informat
+ ion. \n\nWe strongly recommend that you review your Trip Details 24 hours p
+ rior to departure in the U.S. and Canada and 48 hours prior to departure fo
+ r international flights for any last-minute changes. \n\nYour Trip ID is: 2
+ 229 6140 1592 \n\nUpdated Flight Itinerary\nAll flight times are local to e
+ ach city.\nFor your boarding pass\, use reference code EVD3DB for online or
+  airport check-in.\nWed\, May 29\, 2013 Jacksonville International Airport\
+ , (JAX) to London Heathrow Airport\, (LHR)\nDepart: 05:57 PM Jacksonville\,
+  FL (JAX) United\nArrive: 08:27 PM Newark\, NJ (EWR) Flight 4377 operated b
+ y\nEXPRESSJET AIRLINES DBA UNITED EXPRESS\n(on Embraer RJ135/145)\nRequeste
+ d Seats: 11C\, 11B\n1 Stop - change planes Newark\, NJ (EWR) \nConnection T
+ ime: 1 hr 13 mins \nDepart: 09:40 PM Newark\, NJ (EWR) United\nArrive: 10:1
+ 0 AM London\, Great Britain (LHR) Flight 114\nNext day\n(on Boeing 757-200)
+ \nTotal Travel Time: 11 hrs 13 mins\n\nSat\, Jun 15\, 2013 Munich Internati
+ onal Airport\, (MUC) to Jacksonville International Airport\, (JAX)\nDepart:
+  11:25 AM Munich\, Germany (MUC) Lufthansa\nArrive: 03:15 PM Charlotte\, NC
+  (CLT) Flight 428\n(on Airbus A340-600)\nRequested Seats: 30A\, 30C\n1 Stop
+  - change planes Charlotte\, NC (CLT) \nConnection Time: 2 hrs 44 mins \nDe
+ part: 05:59 PM Charlotte\, NC (CLT) Lufthansa\nArrive: 07:13 PM Jacksonvill
+ e\, FL (JAX) Flight 5178 operated by\nUS AIRWAYS EXPRESS-MESA AIRLINES FOR 
+ US AIRWAYS\n(on Canadair Regional Jet 900)\nTotal Travel Time: 13 hrs 48 mi
+ ns\n\nPassenger NameFrequent Flyer Information\nJEFFREY RICHARD JR MORGAN Y
+ ou can add your frequent flyer number at the airport.\nVICTORIA LESTZ MORGA
+ N You can add your frequent flyer number at the airport.\nCustomer Support\
+ nIn the US1.888.756.274524 hours a day/7 days a week\nOutside the US1.210.5
+ 21.587124 hours a day/7 days a week\nEn Español1.866.828.39337am - 10pm CST
+ \nTDD/Hearing Impaired1.800.555.75857am - 11pm CST\nPlease refer to Trip ID
+  2229 6140 1592 when calling Travelocity's Customer Support Center.\nNote: 
+ If you choose to change this flight itinerary\, there may be a penalty and/
+ or charges.\nOnline Support\nThe airline changed my schedule. What are my o
+ ptions?\nDo I need a new ticket?\nWhy did my flight schedule change?\nThe T
+ ravelocity Guarantee\nWe look out for you all trip long\, even before you g
+ o.\nLearn more
+LAST-MODIFIED:20130324T175547Z
+LOCATION:EWR
+SEQUENCE:0
+STATUS:CONFIRMED
+SUMMARY:Airtravel - EWR > LHR
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+DTSTART:20130529T215700Z
+DTEND:20130530T002700Z
+DTSTAMP:20130324T222634Z
+UID:ok42agjd8igtf5vg8nr7qk0q7g@google.com
+CREATED:20130129T194335Z
+DESCRIPTION:(Event end time is local UK time)\n\nFlight change for your 5/2
+ 9/2013 trip.\n\nWe have learned that the airline has changed the flight sch
+ edule for your trip on May 29\, 2013 to London. \n\nYour updated flight iti
+ nerary is provided below for your review. There is no need for you to call 
+ Travelocity at this time. \n\nYou can also review your itinerary on your Tr
+ ip Details page\, which is available online by logging on to Travelocity. I
+ t includes the most current flight itinerary and all accommodation informat
+ ion. \n\nWe strongly recommend that you review your Trip Details 24 hours p
+ rior to departure in the U.S. and Canada and 48 hours prior to departure fo
+ r international flights for any last-minute changes. \n\nYour Trip ID is: 2
+ 229 6140 1592 \n\nUpdated Flight Itinerary\nAll flight times are local to e
+ ach city.\nFor your boarding pass\, use reference code EVD3DB for online or
+  airport check-in.\nWed\, May 29\, 2013 Jacksonville International Airport\
+ , (JAX) to London Heathrow Airport\, (LHR)\nDepart: 05:57 PM Jacksonville\,
+  FL (JAX) United\nArrive: 08:27 PM Newark\, NJ (EWR) Flight 4377 operated b
+ y\nEXPRESSJET AIRLINES DBA UNITED EXPRESS\n(on Embraer RJ135/145)\nRequeste
+ d Seats: 11C\, 11B\n1 Stop - change planes Newark\, NJ (EWR) \nConnection T
+ ime: 1 hr 13 mins \nDepart: 09:40 PM Newark\, NJ (EWR) United\nArrive: 10:1
+ 0 AM London\, Great Britain (LHR) Flight 114\nNext day\n(on Boeing 757-200)
+ \nTotal Travel Time: 11 hrs 13 mins\n\nSat\, Jun 15\, 2013 Munich Internati
+ onal Airport\, (MUC) to Jacksonville International Airport\, (JAX)\nDepart:
+  11:25 AM Munich\, Germany (MUC) Lufthansa\nArrive: 03:15 PM Charlotte\, NC
+  (CLT) Flight 428\n(on Airbus A340-600)\nRequested Seats: 30A\, 30C\n1 Stop
+  - change planes Charlotte\, NC (CLT) \nConnection Time: 2 hrs 44 mins \nDe
+ part: 05:59 PM Charlotte\, NC (CLT) Lufthansa\nArrive: 07:13 PM Jacksonvill
+ e\, FL (JAX) Flight 5178 operated by\nUS AIRWAYS EXPRESS-MESA AIRLINES FOR 
+ US AIRWAYS\n(on Canadair Regional Jet 900)\nTotal Travel Time: 13 hrs 48 mi
+ ns\n\nPassenger NameFrequent Flyer Information\nJEFFREY RICHARD JR MORGAN Y
+ ou can add your frequent flyer number at the airport.\nVICTORIA LESTZ MORGA
+ N You can add your frequent flyer number at the airport.\nCustomer Support\
+ nIn the US1.888.756.274524 hours a day/7 days a week\nOutside the US1.210.5
+ 21.587124 hours a day/7 days a week\nEn Español1.866.828.39337am - 10pm CST
+ \nTDD/Hearing Impaired1.800.555.75857am - 11pm CST\nPlease refer to Trip ID
+  2229 6140 1592 when calling Travelocity's Customer Support Center.\nNote: 
+ If you choose to change this flight itinerary\, there may be a penalty and/
+ or charges.\nOnline Support\nThe airline changed my schedule. What are my o
+ ptions?\nDo I need a new ticket?\nWhy did my flight schedule change?\nThe T
+ ravelocity Guarantee\nWe look out for you all trip long\, even before you g
+ o.\nLearn more
+LAST-MODIFIED:20130324T175401Z
+LOCATION:JAX
+SEQUENCE:2
+STATUS:CONFIRMED
+SUMMARY:Airtravel - JAX > EWR
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+DTSTART:20130612T020000Z
+DTEND:20130612T030000Z
+DTSTAMP:20130324T222634Z
+UID:5rvlu55v7pbbjksoo8t1h3471k@google.com
+CREATED:20130226T005331Z
+DESCRIPTION:
+LAST-MODIFIED:20130226T005331Z
+LOCATION:
+SEQUENCE:0
+STATUS:CONFIRMED
+SUMMARY:Traintravel - Dusseldorf > Munich (CNL ~7hrs)
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;VALUE=DATE:20130612
+DTEND;VALUE=DATE:20130615
+DTSTAMP:20130324T222634Z
+UID:o3hog5fel34b0i30jpqbcvu5d4@google.com
+CREATED:20130129T195129Z
+DESCRIPTION:
+LAST-MODIFIED:20130129T195129Z
+LOCATION:
+SEQUENCE:0
+STATUS:CONFIRMED
+SUMMARY:Hotel - Munich
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;VALUE=DATE:20130615
+DTEND;VALUE=DATE:20130616
+DTSTAMP:20130324T222634Z
+UID:q4ovesojildq95tn8hmt528v94@google.com
+CREATED:20130129T195116Z
+DESCRIPTION:
+LAST-MODIFIED:20130129T195116Z
+LOCATION:
+SEQUENCE:0
+STATUS:CONFIRMED
+SUMMARY:Airtravel - Munich > JAX
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+DTSTART:20130607T233000Z
+DTEND:20130611T230000Z
+DTSTAMP:20130324T222634Z
+UID:nhnk94n8d3ottnu8fsuki4l60s@google.com
+CREATED:20130129T195052Z
+DESCRIPTION:Need to fix arrival time in Dusseldorf\nNeed to fix departure t
+ ime on overnight City Night Line to Munich
+LAST-MODIFIED:20130129T195052Z
+LOCATION:Dusseldorf/Koln
+SEQUENCE:0
+STATUS:CONFIRMED
+SUMMARY:Hotel/Bianca - Dusseldorf FIXME
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+DTSTART:20130530T173000Z
+DTEND:20130603T150000Z
+DTSTAMP:20130324T222634Z
+UID:vsg99un8ugn0h7hnen1567ddq4@google.com
+CREATED:20130129T194416Z
+DESCRIPTION:Traveler details\n\n\nMain contact: Jeffrey Morgan\n\n\nEmail a
+ ddress:liveaverage@gmail.com\nTelephone:3525054825\n\n\nIs your information
+  correct? Update contact information\n\n\nMake sure your cell phone is avai
+ lable so we can reach you for important news or updates.\n\n\n\n\n\nHotel\n
+ \n\n\nStudios 2 Let Serviced Apartments\nAdd a car to your booking\nChange/
+  Cancel\n\n\n\nCheck-in\nThu\, May 30\, 2013\nCheck-out\nMon\, June 03\, 20
+ 13\n\n\n\nConfirmation Code: EXP-328776431\nThe room is guaranteed until mi
+ dnight local time\n\n\n\nRoom type:\nStandard room\nAddress: 36-37 Cartwrig
+ ht Gardens\, London\, England WC1H 9EH\nTelephone: 44 (20) 73808450\nRoom(s
+ ) Booked: 1\n\n \nSpecial Request: We would like to be near David Niblett w
+ ho is also reserving a room here. Also we would prefer a top floor if possi
+ ble.Thanks!\nIf you have made a special request\, please contact the hotel 
+ directly to confirm.\n Hotel rules and regulations\nYour hotel booking is p
+ repaid and was charged at the time of booking. Any additional charges incur
+ red during your stay will be charged directly by the hotel on check out.
+LAST-MODIFIED:20130129T194629Z
+LOCATION:36-37 Cartwright Gardens\, London\, England WC1H 9EH
+SEQUENCE:1
+STATUS:CONFIRMED
+SUMMARY:Hotel - Studio2Let
+TRANSP:TRANSPARENT
+END:VEVENT
+END:VCALENDAR
